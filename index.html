@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Italiana&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -100,8 +100,8 @@
       .top-announcement {
         background: linear-gradient(90deg, #160809 0%, #1c1409 50%, #0d1a10 100%);
         border-bottom: 1px solid rgba(230, 185, 93, 0.2);
-        padding: 8px 0;
-        font-size: 13px;
+        padding: 7px 0;
+        font-size: 12px;
         color: var(--text-muted);
         position: relative;
         z-index: 1002;
@@ -121,13 +121,13 @@
         gap: 8px;
         color: var(--gold-light);
         font-weight: 600;
-        font-size: 12px;
+        font-size: 11.5px;
         letter-spacing: 0.5px;
       }
 
       .pulse-dot {
-        width: 8px;
-        height: 8px;
+        width: 7px;
+        height: 7px;
         background-color: var(--green-accent);
         border-radius: 50%;
         box-shadow: 0 0 10px var(--green-accent);
@@ -139,37 +139,169 @@
         50% { opacity: 0.4; transform: scale(0.8); }
       }
 
-      .top-quick-contacts {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        font-weight: 500;
-      }
-
-      .top-quick-contacts a {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--text-main);
-      }
-
-      .top-quick-contacts a:hover {
-        color: var(--gold-primary);
-      }
-
-      .top-quick-contacts i {
-        color: var(--gold-primary);
-        font-size: 13px;
+      .top-quick-msg {
+        color: var(--text-dim);
+        font-size: 11.5px;
       }
 
       /* -------------------------------------------
-         HEADER & NAVIGATION SYSTEM
+         TOP BRAND HEADER (LOGO ON TOP)
+      -------------------------------------------- */
+      .top-brand-bar {
+        background: #08080c;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 16px 0;
+        position: relative;
+        z-index: 1001;
+      }
+
+      .top-brand-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand-logo-main {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+      }
+
+      .brand-logo-img {
+        height: 58px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.85));
+        transition: transform 0.3s ease;
+      }
+
+      .brand-logo-main:hover .brand-logo-img {
+        transform: scale(1.03);
+      }
+
+      .brand-tagline-text {
+        border-left: 1px solid var(--border-gold);
+        padding-left: 16px;
+        display: none;
+      }
+
+      @media (min-width: 960px) {
+        .brand-tagline-text {
+          display: block;
+        }
+      }
+
+      .brand-tagline-text .brand-title-lead {
+        font-family: "Playfair Display", serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--gold-light);
+        text-transform: uppercase;
+      }
+
+      .brand-tagline-text .brand-subtitle-lead {
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .top-brand-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .top-contact-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(230, 185, 93, 0.1);
+        border: 1px solid var(--border-gold);
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: var(--gold-light);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        transition: var(--transition);
+      }
+
+      .top-contact-pill:hover {
+        background: var(--gold-primary);
+        color: #070709;
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-2px);
+      }
+
+      .top-contact-pill i {
+        color: var(--gold-primary);
+        font-size: 14px;
+      }
+
+      .top-contact-pill:hover i {
+        color: #070709;
+      }
+
+      .top-email-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #ddd;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 10px 16px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-subtle);
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .top-email-pill:hover {
+        color: var(--gold-light);
+        border-color: var(--border-gold);
+      }
+
+      .top-email-pill i {
+        color: var(--gold-primary);
+      }
+
+      .btn-quote-header {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #e6b95d 0%, #b88a2e 100%);
+        color: #09090b;
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 10px 22px;
+        border-radius: 30px;
+        box-shadow: 0 4px 18px rgba(230, 185, 93, 0.35);
+        white-space: nowrap;
+      }
+
+      .btn-quote-header:hover {
+        background: linear-gradient(135deg, #fae19c 0%, #d4a03b 100%);
+        transform: translateY(-2px);
+      }
+
+      /* -------------------------------------------
+         STICKY NAVIGATION BAR
       -------------------------------------------- */
       header {
         position: sticky;
         top: 0;
         z-index: 1000;
-        background: rgba(7, 7, 9, 0.94);
+        background: rgba(10, 10, 15, 0.96);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border-subtle);
@@ -177,43 +309,25 @@
       }
 
       header.scrolled {
-        background: rgba(7, 7, 9, 0.98);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        background: rgba(7, 7, 10, 0.98);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
       }
 
       nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 86px;
-      }
-
-      .brand-logo-wrap {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-        flex-shrink: 0;
-      }
-
-      .brand-logo-img {
-        height: 48px;
-        width: auto;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
-        transition: transform 0.3s ease;
-      }
-
-      .brand-logo-wrap:hover .brand-logo-img {
-        transform: scale(1.03);
+        min-height: 56px;
       }
 
       /* Main Nav Menu */
       .nav-menu {
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
         list-style: none;
+        width: 100%;
+        flex-wrap: wrap;
       }
 
       .nav-item {
@@ -226,10 +340,10 @@
         color: #d1d1db;
         letter-spacing: 0.4px;
         text-transform: uppercase;
-        padding: 12px 10px;
+        padding: 12px 12px;
         display: inline-flex;
         align-items: center;
-        gap: 5px;
+        gap: 6px;
         border-radius: 6px;
         transition: var(--transition);
         white-space: nowrap;
@@ -238,7 +352,7 @@
       .nav-link:hover,
       .nav-item:hover > .nav-link {
         color: var(--gold-light);
-        background: rgba(230, 185, 93, 0.08);
+        background: rgba(230, 185, 93, 0.1);
       }
 
       .nav-link i.fa-chevron-down {
@@ -251,6 +365,17 @@
         transform: rotate(180deg);
         opacity: 1;
         color: var(--gold-primary);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        background: #14141d;
+        border: 1px solid var(--border-gold);
+        color: var(--gold-light);
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
       }
 
       /* -------------------------------------------
@@ -433,65 +558,6 @@
         background: rgba(230, 185, 93, 0.15);
         color: var(--gold-light);
         padding-left: 14px;
-      }
-
-      /* Nav Right CTA */
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-shrink: 0;
-      }
-
-      .btn-phone-call {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(230, 185, 93, 0.1);
-        border: 1px solid var(--border-gold);
-        padding: 9px 16px;
-        border-radius: 30px;
-        color: var(--gold-light);
-        font-size: 12.5px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-      }
-
-      .btn-phone-call:hover {
-        background: var(--gold-primary);
-        color: #070709;
-        box-shadow: var(--shadow-glow);
-      }
-
-      .btn-book-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #e6b95d 0%, #b88a2e 100%);
-        color: #09090b;
-        font-size: 12.5px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 10px 20px;
-        border-radius: 30px;
-        box-shadow: 0 4px 18px rgba(230, 185, 93, 0.3);
-      }
-
-      .btn-book-cta:hover {
-        background: linear-gradient(135deg, #fae19c 0%, #d4a03b 100%);
-        transform: translateY(-2px);
-      }
-
-      .mobile-menu-toggle {
-        display: none;
-        background: #14141d;
-        border: 1px solid var(--border-subtle);
-        color: var(--gold-light);
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 18px;
-        cursor: pointer;
       }
 
       /* -------------------------------------------
@@ -700,15 +766,18 @@
       }
 
       .hero-title {
-        font-family: "Cinzel", serif;
-        font-size: clamp(40px, 5.5vw, 68px);
-        font-weight: 800;
-        line-height: 1.08;
-        letter-spacing: -1px;
+        font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(44px, 6.2vw, 78px);
+        font-weight: 700;
+        line-height: 1.06;
+        letter-spacing: -0.5px;
         margin-bottom: 24px;
       }
 
       .hero-title .highlight {
+        font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+        font-style: italic;
+        font-weight: 700;
         background: linear-gradient(135deg, #fae19c 0%, #e6b95d 50%, #d4952b 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -882,8 +951,8 @@
       }
 
       .stat-num {
-        font-family: "Cinzel", serif;
-        font-size: 26px;
+        font-family: "Playfair Display", "Cormorant Garamond", serif;
+        font-size: 28px;
         font-weight: 700;
         color: var(--gold-light);
         line-height: 1.1;
@@ -926,10 +995,11 @@
       }
 
       .section-title {
-        font-family: "Cinzel", serif;
-        font-size: clamp(30px, 4vw, 48px);
+        font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(32px, 4.4vw, 54px);
         font-weight: 700;
-        line-height: 1.15;
+        line-height: 1.12;
+        letter-spacing: -0.5px;
         margin-bottom: 18px;
       }
 
@@ -988,9 +1058,9 @@
       }
 
       .pillar-number {
-        font-family: "Cinzel", serif;
-        font-size: 14px;
-        font-weight: 800;
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: 700;
         color: var(--gold-primary);
         letter-spacing: 2px;
         margin-bottom: 24px;
@@ -1011,8 +1081,8 @@
       }
 
       .pillar-title {
-        font-family: "Cinzel", serif;
-        font-size: 22px;
+        font-family: "Playfair Display", "Cormorant Garamond", serif;
+        font-size: 24px;
         font-weight: 700;
         color: #fff;
         margin-bottom: 14px;
@@ -1160,8 +1230,8 @@
       }
 
       .roster-title {
-        font-family: "Cinzel", serif;
-        font-size: 22px;
+        font-family: "Playfair Display", "Cormorant Garamond", serif;
+        font-size: 23px;
         font-weight: 700;
         color: #fff;
         margin-bottom: 8px;
@@ -1283,8 +1353,8 @@
       }
 
       .specialty-name {
-        font-family: "Cinzel", serif;
-        font-size: 24px;
+        font-family: "Playfair Display", "Cormorant Garamond", serif;
+        font-size: 25px;
         font-weight: 700;
         color: #fff;
         margin-bottom: 8px;
@@ -1341,7 +1411,7 @@
       }
 
       .occasion-title {
-        font-family: "Cinzel", serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 15px;
         font-weight: 700;
         color: var(--text-main);
@@ -1387,8 +1457,8 @@
       }
 
       .why-floating-badge .number {
-        font-family: "Cinzel", serif;
-        font-size: 36px;
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
         font-weight: 800;
         color: var(--gold-light);
         line-height: 1;
@@ -1558,12 +1628,12 @@
       }
 
       .footer-heading {
-        font-family: "Cinzel", serif;
-        font-size: 16px;
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
         font-weight: 700;
         color: var(--gold-light);
         margin-bottom: 22px;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
       }
 
       .footer-links {
@@ -1685,9 +1755,30 @@
         }
       }
 
-      @media (max-width: 820px) {
+      @media (max-width: 900px) {
+        .top-brand-inner {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 16px;
+        }
+        .top-brand-actions {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 680px) {
         .top-announcement {
           display: none;
+        }
+        .top-brand-actions {
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+        }
+        .top-contact-pill, .top-email-pill, .btn-quote-header {
+          width: 100%;
+          justify-content: center;
         }
         .hero-grid {
           grid-template-columns: 1fr;
@@ -1748,29 +1839,44 @@
           <span class="pulse-dot"></span>
           <span>EST. 1991 • OVER 30 YEARS OF AWARD-WINNING EVENT PRODUCTION</span>
         </div>
-        <div class="top-quick-contacts">
-          <a href="tel:9544847884">
-            <i class="fa-solid fa-phone"></i>
-            <span>(954) 484-7884</span>
-          </a>
-          <a href="mailto:party@besserentertainment.com">
-            <i class="fa-solid fa-envelope"></i>
-            <span>party@besserentertainment.com</span>
-          </a>
+        <div class="top-quick-msg">
+          <span>Local, National & Worldwide Event Booking</span>
         </div>
       </div>
     </div>
 
-    <!-- MAIN HEADER WITH COLLAPSIBLE / DROPDOWN NAV -->
+    <!-- TOP BRAND & CONTACT HEADER BAR (LOGO ON TOP) -->
+    <div class="top-brand-bar">
+      <div class="container top-brand-inner">
+        <!-- Prominent Brand Logo -->
+        <a href="#" class="brand-logo-main" title="Besser Entertainment">
+          <img src="assets/besser-mobile-logo.png" alt="Besser Entertainment Logo" class="brand-logo-img" />
+          <div class="brand-tagline-text">
+            <div class="brand-title-lead">Besser Means Better</div>
+            <div class="brand-subtitle-lead">Full-Service Special Events Production</div>
+          </div>
+        </a>
+
+        <!-- Top Right Contact Actions (No Clipping) -->
+        <div class="top-brand-actions">
+          <a href="tel:9544847884" class="top-contact-pill" title="Call Besser Entertainment Directly">
+            <i class="fa-solid fa-phone-volume"></i>
+            <span>(954) 484-7884</span>
+          </a>
+          <a href="mailto:party@besserentertainment.com" class="top-email-pill" title="Email Inquiries">
+            <i class="fa-regular fa-envelope"></i>
+            <span>party@besserentertainment.com</span>
+          </a>
+          <a href="#quote" class="btn-quote-header">Get A Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN STICKY NAVIGATION BAR -->
     <header id="mainHeader">
       <div class="container">
         <nav>
-          <!-- UPDATED BRAND LOGO -->
-          <a href="#" class="brand-logo-wrap" title="Besser Entertainment">
-            <img src="assets/besser-mobile-logo.png" alt="Besser Entertainment Logo" class="brand-logo-img" />
-          </a>
-
-          <!-- DESKTOP NAVIGATION -->
+          <!-- DESKTOP NAVIGATION MENU -->
           <ul class="nav-menu">
             <!-- 1. HOME -->
             <li class="nav-item">
@@ -1916,7 +2022,7 @@
                       <li><a href="https://web.archive.org/web/20260610062723/https://www.besserentertainment.com/celebrity-big-heads/" class="dropdown-item-link">Celebrity Big Heads</a></li>
                       <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="dropdown-item-link">Circus Acts & Contortionist</a></li>
                       <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-statues/" class="dropdown-item-link">Living Statues</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/juggler/" class="dropdown-item-link">Juggler & Rola Bola</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/juggler/" class="dropdown-item-link">Juggler & Rola Bola</a></li>
                       <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hoop-balance/" class="dropdown-item-link">Hoop Balance</a></li>
                     </ul>
                   </div>
@@ -1978,17 +2084,10 @@
             </li>
           </ul>
 
-          <!-- HEADER ACTIONS -->
-          <div class="nav-actions">
-            <a href="tel:9544847884" class="btn-phone-call">
-              <i class="fa-solid fa-phone"></i>
-              <span>(954) 484-7884</span>
-            </a>
-            <a href="#quote" class="btn-book-cta">Get A Quote</a>
-            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-          </div>
+          <!-- MOBILE MENU BUTTON (SHOWN ON MOBILE) -->
+          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </nav>
       </div>
     </header>
