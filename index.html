@@ -1951,6 +1951,149 @@
       }
 
       /* -------------------------------------------
+         NEWSLETTER / VIP INSIDER SECTION
+      -------------------------------------------- */
+      .newsletter-section {
+        background: radial-gradient(circle at center, #1b1710 0%, #0c0c12 70%, #060608 100%);
+        border-top: 1px solid var(--border-gold);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 85px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .newsletter-card {
+        background: linear-gradient(135deg, rgba(26, 26, 36, 0.9) 0%, rgba(13, 13, 18, 0.95) 100%);
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-lg);
+        padding: 50px 40px;
+        max-width: 920px;
+        margin: 0 auto;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--shadow-glow);
+        position: relative;
+        z-index: 2;
+      }
+
+      .newsletter-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gold-primary);
+        font-size: 11.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+        background: rgba(230, 185, 93, 0.1);
+        border: 1px solid var(--border-gold);
+        padding: 4px 18px;
+        border-radius: 30px;
+      }
+
+      .newsletter-title {
+        font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(30px, 4.5vw, 48px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.5px;
+        color: #fff;
+        margin-bottom: 14px;
+      }
+
+      .newsletter-desc {
+        font-size: 16px;
+        color: var(--text-muted);
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 1.65;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 12px;
+        max-width: 580px;
+        margin: 0 auto 20px;
+        position: relative;
+      }
+
+      .newsletter-input-wrap {
+        position: relative;
+        flex-grow: 1;
+      }
+
+      .newsletter-input-wrap i {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold-primary);
+        font-size: 15px;
+      }
+
+      .newsletter-input {
+        width: 100%;
+        background: #09090d;
+        border: 1px solid var(--border-subtle);
+        border-radius: 50px;
+        padding: 16px 20px 16px 46px;
+        color: #fff;
+        font-size: 14px;
+        transition: var(--transition);
+      }
+
+      .newsletter-input:focus {
+        outline: none;
+        border-color: var(--gold-primary);
+        box-shadow: 0 0 20px rgba(230, 185, 93, 0.3);
+      }
+
+      .btn-newsletter {
+        background: linear-gradient(135deg, #e6b95d 0%, #b88a2e 100%);
+        color: #070709;
+        font-weight: 800;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        padding: 16px 30px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        box-shadow: 0 6px 20px rgba(230, 185, 93, 0.35);
+        transition: var(--transition);
+      }
+
+      .btn-newsletter:hover {
+        background: linear-gradient(135deg, #fae19c 0%, #d4a03b 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(230, 185, 93, 0.5);
+      }
+
+      .newsletter-perks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 12.5px;
+        color: var(--text-dim);
+        margin-top: 14px;
+      }
+
+      .newsletter-perks span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .newsletter-perks i {
+        color: var(--gold-primary);
+      }
+
+      /* -------------------------------------------
          FOOTER
       -------------------------------------------- */
       footer {
@@ -3512,6 +3655,55 @@
       </div>
     </section>
 
+    <!-- ========================================================
+         SUBSCRIBE TO NEWSLETTER / VIP ENTERTAINMENT INSIDER
+    ======================================================== -->
+    <section class="newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-eyebrow">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <span>VIP Entertainment Insider</span>
+          </div>
+          <h2 class="newsletter-title">
+            Join The <span style="background: linear-gradient(135deg, #fae19c 0%, #e6b95d 50%, #d4952b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-style: italic;">Besser VIP Guestlist</span>
+          </h2>
+          <p class="newsletter-desc">
+            Subscribe for exclusive first-look access to newly added celebrity lookalikes, tribute tour schedules, party planning guides, and special promotional rates for your upcoming events.
+          </p>
+
+          <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+            <div class="newsletter-form">
+              <div class="newsletter-input-wrap">
+                <i class="fa-regular fa-envelope"></i>
+                <input
+                  type="email"
+                  id="newsletterEmail"
+                  class="newsletter-input"
+                  placeholder="Enter your email (e.g. planner@company.com)"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn-newsletter">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Subscribe Now</span>
+              </button>
+            </div>
+          </form>
+
+          <div id="newsletterSuccess" style="display: none; padding: 14px 20px; background: rgba(45, 211, 111, 0.15); border: 1px solid var(--green-accent); border-radius: 30px; color: #fff; font-size: 14px; font-weight: 600; max-width: 500px; margin: 10px auto 0;">
+            <i class="fa-solid fa-circle-check" style="color: var(--green-accent); margin-right: 6px;"></i> Welcome to the VIP List! Check your inbox soon for exclusive act previews.
+          </div>
+
+          <div class="newsletter-perks">
+            <span><i class="fa-solid fa-lock"></i> No Spam Guarantee</span>
+            <span><i class="fa-solid fa-bolt"></i> Instant Booking Perks</span>
+            <span><i class="fa-solid fa-gift"></i> VIP Rates & Novelty Specials</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
       <div class="container">
@@ -3703,6 +3895,17 @@
         const success = document.getElementById('formSuccessMessage');
         form.style.display = 'none';
         success.style.display = 'block';
+      }
+
+      // Newsletter submission handler
+      function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const form = document.getElementById('newsletterForm');
+        const success = document.getElementById('newsletterSuccess');
+        if (form && success) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }
       }
     </script>
   </body>
