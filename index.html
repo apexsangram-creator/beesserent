@@ -3,27 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Besser Entertainment | Award-Winning Tribute Bands, Celebrity Lookalikes & Specialty Acts</title>
+    <meta
+      name="description"
+      content="Full-service Special Events Party Production Company. Celebrity lookalikes, tribute bands, cover bands, DJs, musicians, magicians, hypnotists, dancers, living tables, and living red carpets."
+    />
 
-    <title>Besser Entertainment — Unforgettable Entertainment</title>
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
       rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6.5.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
 
     <style>
       :root {
-        --bg: #090909;
-        --bg-soft: #111111;
-        --card: #151515;
-        --gold: #d9b56d;
-        --gold-light: #f0d79d;
-        --white: #ffffff;
-        --muted: #a4a4a4;
-        --border: rgba(255, 255, 255, 0.1);
+        --bg-dark: #070709;
+        --bg-card: #121217;
+        --bg-card-hover: #181822;
+        --bg-elevated: #1e1e28;
+        --gold-primary: #e6b95d;
+        --gold-light: #fae19c;
+        --gold-dark: #b88a2e;
+        --red-marquee: #ff2d3b;
+        --green-accent: #2dd36f;
+        --text-main: #f5f5f7;
+        --text-muted: #a3a3b3;
+        --text-dim: #717182;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --border-gold: rgba(230, 185, 93, 0.35);
+        --shadow-glow: 0 0 35px rgba(230, 185, 93, 0.15);
+        --shadow-red: 0 0 25px rgba(255, 45, 59, 0.2);
+        --radius-sm: 8px;
+        --radius-md: 14px;
+        --radius-lg: 20px;
+        --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       * {
@@ -37,970 +61,2852 @@
       }
 
       body {
-        font-family: "DM Sans", sans-serif;
-        background: var(--bg);
-        color: var(--white);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
         line-height: 1.6;
+        overflow-x: hidden;
       }
 
-      img {
-        width: 100%;
-        display: block;
+      ::selection {
+        background: var(--gold-primary);
+        color: #090909;
       }
 
       a {
         color: inherit;
         text-decoration: none;
+        transition: var(--transition);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      button, input, select, textarea {
+        font-family: inherit;
       }
 
       .container {
-        width: min(1180px, calc(100% - 48px));
-        margin: auto;
+        width: min(1360px, calc(100% - 36px));
+        margin: 0 auto;
       }
 
-      /* =========================
-           NAVIGATION
-        ========================== */
-
-      header {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        z-index: 10;
-      }
-
-      nav {
-        height: 92px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .logo {
-        font-size: 25px;
-        font-weight: 700;
-        letter-spacing: 2px;
-      }
-
-      .logo span {
-        color: var(--gold);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 34px;
-        align-items: center;
-        list-style: none;
-      }
-
-      .nav-links a {
-        font-size: 14px;
-        color: #ddd;
-        transition: 0.3s;
-      }
-
-      .nav-links a:hover {
-        color: var(--gold);
-      }
-
-      .nav-btn {
-        border: 1px solid var(--gold);
-        padding: 11px 20px;
-        color: var(--gold) !important;
-      }
-
-      /* =========================
-           HERO
-        ========================== */
-
-      .hero {
-        min-height: 850px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-
-        background:
-          linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.96) 0%,
-            rgba(0, 0, 0, 0.8) 43%,
-            rgba(0, 0, 0, 0.25) 100%
-          ),
-          url("https://static.wixstatic.com/media/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg/v1/fill/w_1600,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg");
-
-        background-size: cover;
-        background-position: center;
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto 0 0 0;
-        height: 180px;
-        background: linear-gradient(transparent, var(--bg));
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 700px;
-        padding-top: 90px;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--gold);
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 3px;
-        margin-bottom: 22px;
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 38px;
-        height: 1px;
-        background: var(--gold);
-      }
-
-      h1 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(55px, 7vw, 92px);
-        line-height: 0.98;
-        font-weight: 600;
-        letter-spacing: -3px;
-        margin-bottom: 28px;
-      }
-
-      h1 span {
-        color: var(--gold-light);
-      }
-
-      .hero-text {
-        max-width: 600px;
-        color: #c8c8c8;
-        font-size: 18px;
-        line-height: 1.8;
-        margin-bottom: 38px;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 15px 26px;
-        font-size: 14px;
-        font-weight: 700;
-        transition: 0.3s;
-      }
-
-      .btn-gold {
-        background: var(--gold);
-        color: #090909;
-      }
-
-      .btn-gold:hover {
-        background: var(--gold-light);
-        transform: translateY(-2px);
-      }
-
-      .btn-outline {
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        color: white;
-      }
-
-      .btn-outline:hover {
-        border-color: var(--gold);
-        color: var(--gold);
-      }
-
-      /* =========================
-           STATS
-        ========================== */
-
-      .stats {
-        position: relative;
-        z-index: 5;
-        margin-top: -70px;
-      }
-
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        background: rgba(20, 20, 20, 0.95);
-        border: 1px solid var(--border);
-      }
-
-      .stat {
-        padding: 30px;
-        text-align: center;
-        border-right: 1px solid var(--border);
-      }
-
-      .stat:last-child {
-        border-right: 0;
-      }
-
-      .stat strong {
-        display: block;
-        font-family: "Playfair Display", serif;
-        font-size: 34px;
-        color: var(--gold);
-      }
-
-      .stat span {
-        color: #aaa;
+      /* -------------------------------------------
+         TOP ANNOUNCEMENT BAR
+      -------------------------------------------- */
+      .top-announcement {
+        background: linear-gradient(90deg, #160809 0%, #1c1409 50%, #0d1a10 100%);
+        border-bottom: 1px solid rgba(230, 185, 93, 0.2);
+        padding: 8px 0;
         font-size: 13px;
+        color: var(--text-muted);
+        position: relative;
+        z-index: 1002;
       }
 
-      /* =========================
-           SECTION
-        ========================== */
-
-      section {
-        padding: 120px 0;
+      .top-announcement-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
-      .section-heading {
-        max-width: 700px;
-        margin-bottom: 55px;
-      }
-
-      .section-label {
-        color: var(--gold);
+      .badge-glow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gold-light);
+        font-weight: 600;
         font-size: 12px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 15px;
+        letter-spacing: 0.5px;
       }
 
-      h2 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(40px, 5vw, 64px);
-        line-height: 1.05;
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--green-accent);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--green-accent);
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.8); }
+      }
+
+      .top-quick-contacts {
+        display: flex;
+        align-items: center;
+        gap: 20px;
         font-weight: 500;
       }
 
-      .section-heading p {
-        color: var(--muted);
-        margin-top: 20px;
-        max-width: 620px;
+      .top-quick-contacts a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-main);
       }
 
-      /* =========================
-           SERVICES
-        ========================== */
-
-      .services {
-        background: var(--bg-soft);
+      .top-quick-contacts a:hover {
+        color: var(--gold-primary);
       }
 
-      .service-grid {
+      .top-quick-contacts i {
+        color: var(--gold-primary);
+        font-size: 13px;
+      }
+
+      /* -------------------------------------------
+         HEADER & NAVIGATION SYSTEM
+      -------------------------------------------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(7, 7, 9, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: var(--transition);
+      }
+
+      header.scrolled {
+        background: rgba(7, 7, 9, 0.98);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 86px;
+      }
+
+      .brand-logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+
+      .brand-logo-img {
+        height: 48px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+        transition: transform 0.3s ease;
+      }
+
+      .brand-logo-wrap:hover .brand-logo-img {
+        transform: scale(1.03);
+      }
+
+      /* Main Nav Menu */
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        list-style: none;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-link {
+        font-size: 13px;
+        font-weight: 700;
+        color: #d1d1db;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        padding: 12px 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border-radius: 6px;
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .nav-link:hover,
+      .nav-item:hover > .nav-link {
+        color: var(--gold-light);
+        background: rgba(230, 185, 93, 0.08);
+      }
+
+      .nav-link i.fa-chevron-down {
+        font-size: 10px;
+        transition: transform 0.25s ease;
+        opacity: 0.7;
+      }
+
+      .nav-item:hover > .nav-link i.fa-chevron-down {
+        transform: rotate(180deg);
+        opacity: 1;
+        color: var(--gold-primary);
+      }
+
+      /* -------------------------------------------
+         DROPDOWN / COLLAPSIBLE MENUS (DESKTOP)
+      -------------------------------------------- */
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #0d0d14;
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-md);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), var(--shadow-glow);
+        padding: 16px;
+        min-width: 260px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1100;
+        pointer-events: none;
+      }
+
+      .nav-item:hover > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .dropdown-menu-title {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--gold-primary);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 6px 12px 10px;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* A-Z Lookalikes Alphabet Grid Dropdown */
+      .dropdown-az {
+        width: 480px;
+      }
+
+      .az-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        padding: 4px;
+      }
+
+      .az-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #15151f;
+        border: 1px solid var(--border-subtle);
+        border-radius: 6px;
+        padding: 8px 4px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 13px;
+        transition: var(--transition);
+      }
+
+      .az-link span.letter {
+        font-size: 15px;
+        color: var(--gold-light);
+      }
+
+      .az-link:hover {
+        background: var(--gold-primary);
+        color: #070709;
+        border-color: var(--gold-primary);
+        transform: translateY(-2px);
+      }
+
+      .az-link:hover span.letter {
+        color: #070709;
+      }
+
+      .dropdown-extra-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 12px;
+        padding: 10px 14px;
+        background: rgba(230, 185, 93, 0.1);
+        border: 1px solid var(--border-gold);
+        border-radius: 6px;
+        color: var(--gold-light);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .dropdown-extra-link:hover {
+        background: var(--gold-primary);
+        color: #070709;
+      }
+
+      /* Mega Dropdown for Tribute Bands & Other Services */
+      .dropdown-mega-bands {
+        width: 780px;
+        left: -100px;
+        max-height: 520px;
+        overflow-y: auto;
+      }
+
+      .dropdown-mega-services {
+        width: 620px;
+        left: -150px;
+        max-height: 480px;
+        overflow-y: auto;
+      }
+
+      .dropdown-mega-comedy {
+        width: 580px;
+        left: -200px;
+        max-height: 480px;
+        overflow-y: auto;
+      }
+
+      /* Custom scrollbar for dropdowns */
+      .dropdown-menu::-webkit-scrollbar {
+        width: 6px;
+      }
+      .dropdown-menu::-webkit-scrollbar-track {
+        background: #09090d;
+      }
+      .dropdown-menu::-webkit-scrollbar-thumb {
+        background: var(--gold-dark);
+        border-radius: 4px;
+      }
+
+      .mega-columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 16px;
       }
 
-      .service {
-        min-height: 300px;
-        padding: 30px;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--card);
-        transition: 0.35s;
-      }
-
-      .service:hover {
-        transform: translateY(-7px);
-        border-color: rgba(217, 181, 109, 0.5);
-      }
-
-      .service-number {
-        color: var(--gold);
-        font-size: 13px;
-        margin-bottom: 70px;
-      }
-
-      .service h3 {
-        font-family: "Playfair Display", serif;
-        font-size: 29px;
-        margin-bottom: 12px;
-      }
-
-      .service p {
-        color: #999;
-        font-size: 14px;
-      }
-
-      /* =========================
-           FEATURED TALENT
-        ========================== */
-
-      .talent-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-
-      .talent {
-        background: var(--card);
-        overflow: hidden;
-        border: 1px solid var(--border);
-      }
-
-      .talent-image {
-        height: 380px;
-        overflow: hidden;
-      }
-
-      .talent-image img {
-        height: 100%;
-        object-fit: cover;
-        transition: 0.5s;
-      }
-
-      .talent:hover img {
-        transform: scale(1.05);
-      }
-
-      .talent-info {
-        padding: 23px;
-      }
-
-      .talent-category {
-        color: var(--gold);
+      .mega-col-title {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--gold-primary);
         text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 10px;
-        font-weight: 700;
-      }
-
-      .talent h3 {
-        font-family: "Playfair Display", serif;
-        font-size: 27px;
-        margin: 8px 0;
-      }
-
-      .talent-info p {
-        color: #999;
-        font-size: 14px;
-      }
-
-      /* =========================
-           EXPERIENCE
-        ========================== */
-
-      .experience {
-        background: #0e0e0e;
-      }
-
-      .experience-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: center;
-      }
-
-      .experience-image {
-        height: 650px;
-        overflow: hidden;
-      }
-
-      .experience-image img {
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .experience-copy h2 {
-        margin-bottom: 25px;
-      }
-
-      .experience-copy > p {
-        color: #999;
-        margin-bottom: 35px;
-      }
-
-      .check-list {
-        display: grid;
-        gap: 17px;
-      }
-
-      .check {
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--border-subtle);
         display: flex;
-        gap: 14px;
-        align-items: flex-start;
+        align-items: center;
+        gap: 6px;
       }
 
-      .check-icon {
-        color: var(--gold);
-        font-size: 18px;
-      }
-
-      .check span {
-        color: #ccc;
-        font-size: 15px;
-      }
-
-      /* =========================
-           EVENT TYPES
-        ========================== */
-
-      .event-grid {
+      .dropdown-list {
+        list-style: none;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
+        gap: 2px;
       }
 
-      .event {
-        min-height: 150px;
-        border: 1px solid var(--border);
+      .dropdown-item-link {
+        display: block;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12.5px;
+        color: #d1d1db;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .dropdown-item-link:hover {
+        background: rgba(230, 185, 93, 0.15);
+        color: var(--gold-light);
+        padding-left: 14px;
+      }
+
+      /* Nav Right CTA */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .btn-phone-call {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(230, 185, 93, 0.1);
+        border: 1px solid var(--border-gold);
+        padding: 9px 16px;
+        border-radius: 30px;
+        color: var(--gold-light);
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-phone-call:hover {
+        background: var(--gold-primary);
+        color: #070709;
+        box-shadow: var(--shadow-glow);
+      }
+
+      .btn-book-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #e6b95d 0%, #b88a2e 100%);
+        color: #09090b;
+        font-size: 12.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 18px rgba(230, 185, 93, 0.3);
+      }
+
+      .btn-book-cta:hover {
+        background: linear-gradient(135deg, #fae19c 0%, #d4a03b 100%);
+        transform: translateY(-2px);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        background: #14141d;
+        border: 1px solid var(--border-subtle);
+        color: var(--gold-light);
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      /* -------------------------------------------
+         MOBILE DRAWER & COLLAPSIBLE ACCORDION
+      -------------------------------------------- */
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(380px, 85vw);
+        height: 100vh;
+        background: #09090f;
+        border-left: 1px solid var(--border-gold);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+        z-index: 2000;
+        overflow-y: auto;
+        padding: 24px;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .mobile-drawer.open {
+        right: 0;
+      }
+
+      .drawer-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 1999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .drawer-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: 20px;
+      }
+
+      .drawer-close-btn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 6px;
+      }
+
+      .mobile-nav-list {
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .mobile-nav-item {
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 8px;
+      }
+
+      .mobile-nav-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .mobile-nav-link {
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 8px 0;
+        display: block;
+        flex-grow: 1;
+      }
+
+      .mobile-collapse-btn {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border-subtle);
+        color: var(--gold-light);
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 12px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .mobile-collapse-btn.expanded {
+        transform: rotate(180deg);
+        background: var(--gold-primary);
+        color: #070709;
+      }
+
+      .mobile-sub-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        padding-left: 10px;
+        margin-top: 4px;
+      }
+
+      .mobile-sub-menu.open {
+        max-height: 1200px;
+      }
+
+      .mobile-sub-link {
+        display: block;
+        padding: 6px 8px;
+        font-size: 13px;
+        color: var(--text-muted);
+        border-radius: 4px;
+      }
+
+      .mobile-sub-link:hover {
+        color: var(--gold-primary);
+        background: rgba(230, 185, 93, 0.1);
+      }
+
+      .mobile-az-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        margin: 10px 0;
+      }
+
+      .mobile-az-grid a {
+        background: #14141d;
         text-align: center;
-        padding: 20px;
-        transition: 0.3s;
+        padding: 8px 4px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--gold-light);
+        border: 1px solid var(--border-subtle);
       }
 
-      .event:hover {
-        background: var(--gold);
-        color: #111;
+      /* -------------------------------------------
+         HERO SECTION
+      -------------------------------------------- */
+      .hero {
+        position: relative;
+        min-height: 88vh;
+        display: flex;
+        align-items: center;
+        background: radial-gradient(circle at 75% 30%, rgba(230, 185, 93, 0.08) 0%, transparent 60%),
+                    radial-gradient(circle at 10% 80%, rgba(255, 45, 59, 0.06) 0%, transparent 50%),
+                    #070709;
+        overflow: hidden;
+        padding: 80px 0 100px;
       }
 
-      .event strong {
-        font-family: "Playfair Display", serif;
-        font-size: 20px;
-      }
-
-      /* =========================
-           CTA
-        ========================== */
-
-      .cta {
-        padding: 120px 0;
-        background:
-          linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.65)),
-          url("https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg");
-
+      .hero-bg-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #070709 0%, rgba(7,7,9,0.92) 48%, rgba(7,7,9,0.4) 100%),
+                    url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1600&auto=format&fit=crop');
         background-size: cover;
-        background-position: center;
+        background-position: center right;
+        opacity: 0.55;
+        z-index: 1;
       }
 
-      .cta-inner {
-        max-width: 800px;
+      .hero-grid {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 60px;
+        align-items: center;
       }
 
-      .cta h2 {
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(230, 185, 93, 0.12);
+        border: 1px solid var(--border-gold);
+        padding: 6px 16px;
+        border-radius: 50px;
+        color: var(--gold-light);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+
+      .hero-eyebrow i {
+        color: var(--gold-primary);
+        font-size: 11px;
+      }
+
+      .hero-title {
+        font-family: "Cinzel", serif;
+        font-size: clamp(40px, 5.5vw, 68px);
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+      }
+
+      .hero-title .highlight {
+        background: linear-gradient(135deg, #fae19c 0%, #e6b95d 50%, #d4952b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-description {
+        font-size: 18px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 36px;
+        max-width: 580px;
+      }
+
+      .hero-cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #e6b95d 0%, #b88a2e 100%);
+        color: #070709;
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        padding: 16px 34px;
+        border-radius: 50px;
+        box-shadow: 0 10px 25px rgba(230, 185, 93, 0.35);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #fae19c 0%, #d4a03b 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 14px 30px rgba(230, 185, 93, 0.5);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 15px;
+        padding: 16px 30px;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--gold-primary);
+        color: var(--gold-light);
+        transform: translateY(-2px);
+      }
+
+      /* Hero Visual Showcase Cards */
+      .hero-showcase-mosaic {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .mosaic-card {
+        position: relative;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        height: 220px;
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        transition: var(--transition);
+      }
+
+      .mosaic-card:nth-child(2) {
+        transform: translateY(24px);
+      }
+
+      .mosaic-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        border-color: var(--border-gold);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .mosaic-card:nth-child(2):hover {
+        transform: translateY(20px) scale(1.02);
+      }
+
+      .mosaic-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .mosaic-card:hover img {
+        transform: scale(1.08);
+      }
+
+      .mosaic-card-content {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 30%, rgba(7, 7, 9, 0.95) 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 16px;
+      }
+
+      .mosaic-pill {
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--gold-primary);
+        letter-spacing: 1.5px;
+      }
+
+      .mosaic-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        margin-top: 2px;
+      }
+
+      /* -------------------------------------------
+         TRUST & STATS BANNER
+      -------------------------------------------- */
+      .trust-strip {
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 30px 0;
+        position: relative;
+        z-index: 10;
+      }
+
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 10px 18px;
+        border-right: 1px solid var(--border-subtle);
+      }
+
+      .stat-item:last-child {
+        border-right: none;
+      }
+
+      .stat-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(230, 185, 93, 0.1);
+        border: 1px solid var(--border-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-light);
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .stat-num {
+        font-family: "Cinzel", serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--gold-light);
+        line-height: 1.1;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        font-weight: 600;
+      }
+
+      /* -------------------------------------------
+         SECTION GENERAL STYLES
+      -------------------------------------------- */
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 780px;
+        margin: 0 auto 60px;
+      }
+
+      .section-subtitle {
+        display: inline-block;
+        color: var(--gold-primary);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+        background: rgba(230, 185, 93, 0.08);
+        border: 1px solid var(--border-gold);
+        padding: 4px 14px;
+        border-radius: 20px;
+      }
+
+      .section-title {
+        font-family: "Cinzel", serif;
+        font-size: clamp(30px, 4vw, 48px);
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 18px;
+      }
+
+      .section-desc {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* -------------------------------------------
+         SERVICES FOUR PILLARS
+      -------------------------------------------- */
+      .services-section {
+        background: linear-gradient(180deg, var(--bg-dark) 0%, #0c0c11 100%);
+      }
+
+      .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+
+      .pillar-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 32px 24px;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pillar-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .pillar-card:hover {
+        background: var(--bg-card-hover);
+        transform: translateY(-8px);
+        border-color: var(--border-gold);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      .pillar-card:hover::before {
+        opacity: 1;
+      }
+
+      .pillar-number {
+        font-family: "Cinzel", serif;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--gold-primary);
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+
+      .pillar-icon-box {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+        background: rgba(230, 185, 93, 0.1);
+        border: 1px solid var(--border-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--gold-light);
         margin-bottom: 22px;
       }
 
-      .cta p {
-        color: #ccc;
-        margin-bottom: 30px;
-        max-width: 620px;
-      }
-
-      /* =========================
-           FOOTER
-        ========================== */
-
-      footer {
-        background: #050505;
-        padding: 55px 0 30px;
-        border-top: 1px solid var(--border);
-      }
-
-      .footer-top {
-        display: flex;
-        justify-content: space-between;
-        gap: 40px;
-        padding-bottom: 45px;
-      }
-
-      .footer-brand {
-        max-width: 400px;
-      }
-
-      .footer-brand p {
-        color: #777;
-        margin-top: 15px;
-      }
-
-      .footer-contact {
-        text-align: right;
-      }
-
-      .footer-contact strong {
-        display: block;
-        color: var(--gold);
+      .pillar-title {
+        font-family: "Cinzel", serif;
         font-size: 22px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 14px;
+        line-height: 1.25;
+      }
+
+      .pillar-text {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .pillar-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+
+      .pillar-tag {
+        font-size: 11px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #bbb;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+
+      .pillar-link {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gold-light);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .pillar-link:hover {
+        color: #fff;
+        transform: translateX(4px);
+      }
+
+      /* -------------------------------------------
+         FEATURED ROSTER / FILTERABLE TALENT GALLERY
+      -------------------------------------------- */
+      .roster-section {
+        background: #09090e;
+      }
+
+      .roster-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 45px;
+      }
+
+      .filter-btn {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 13px;
+        padding: 10px 22px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--gold-primary);
+        color: #070709;
+        border-color: var(--gold-primary);
+        box-shadow: 0 4px 15px rgba(230, 185, 93, 0.3);
+      }
+
+      .roster-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .roster-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .roster-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--border-gold);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      }
+
+      .roster-thumb {
+        height: 320px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .roster-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .roster-card:hover .roster-thumb img {
+        transform: scale(1.07);
+      }
+
+      .roster-badge {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: rgba(7, 7, 9, 0.85);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--border-gold);
+        color: var(--gold-light);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .roster-details {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .roster-title {
+        font-family: "Cinzel", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #fff;
         margin-bottom: 8px;
       }
 
-      .footer-contact span {
-        color: #999;
+      .roster-subtitle {
+        font-size: 13px;
+        color: var(--gold-primary);
+        font-weight: 600;
+        margin-bottom: 12px;
       }
 
-      .copyright {
-        padding-top: 25px;
-        border-top: 1px solid var(--border);
-        color: #666;
+      .roster-desc {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .roster-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .roster-tags-inline {
         font-size: 12px;
+        color: var(--text-dim);
       }
 
-      /* =========================
-           RESPONSIVE
-        ========================== */
+      .btn-inquire-card {
+        background: transparent;
+        border: 1px solid var(--border-gold);
+        color: var(--gold-light);
+        padding: 7px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
 
-      @media (max-width: 900px) {
-        .nav-links {
+      .btn-inquire-card:hover {
+        background: var(--gold-primary);
+        color: #070709;
+      }
+
+      /* -------------------------------------------
+         SPECIALTY & UNIQUE ACTS SPOTLIGHT
+      -------------------------------------------- */
+      .specialty-spotlight {
+        background: radial-gradient(circle at 20% 50%, rgba(230, 185, 93, 0.06) 0%, transparent 60%),
+                    radial-gradient(circle at 80% 50%, rgba(255, 45, 59, 0.05) 0%, transparent 60%),
+                    #0b0b10;
+        border-top: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .specialty-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .specialty-item {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        height: 380px;
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transition: var(--transition);
+      }
+
+      .specialty-item:hover {
+        border-color: var(--border-gold);
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .specialty-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .specialty-item:hover img {
+        transform: scale(1.08);
+      }
+
+      .specialty-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(7, 7, 9, 0.1) 0%, rgba(7, 7, 9, 0.85) 60%, rgba(7, 7, 9, 0.98) 100%);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .specialty-tag {
+        color: var(--gold-light);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .specialty-name {
+        font-family: "Cinzel", serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+
+      .specialty-summary {
+        font-size: 13.5px;
+        color: #ccc;
+        line-height: 1.5;
+      }
+
+      /* -------------------------------------------
+         EVENT TYPES GRID
+      -------------------------------------------- */
+      .occasions-section {
+        background: var(--bg-dark);
+      }
+
+      .occasions-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+      }
+
+      .occasion-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 26px 16px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .occasion-box:hover {
+        background: linear-gradient(135deg, rgba(230, 185, 93, 0.15) 0%, rgba(230, 185, 93, 0.05) 100%);
+        border-color: var(--gold-primary);
+        transform: translateY(-4px);
+      }
+
+      .occasion-icon {
+        font-size: 24px;
+        color: var(--gold-primary);
+        transition: transform 0.3s ease;
+      }
+
+      .occasion-box:hover .occasion-icon {
+        transform: scale(1.15);
+      }
+
+      .occasion-title {
+        font-family: "Cinzel", serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      /* -------------------------------------------
+         WHY BESSER / PRODUCTION ADVANTAGE
+      -------------------------------------------- */
+      .why-besser {
+        background: #0d0d12;
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .why-image-stack {
+        position: relative;
+      }
+
+      .why-main-img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-gold);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      }
+
+      .why-floating-badge {
+        position: absolute;
+        bottom: -24px;
+        right: -20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-gold);
+        padding: 22px 28px;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-glow);
+        text-align: center;
+      }
+
+      .why-floating-badge .number {
+        font-family: "Cinzel", serif;
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--gold-light);
+        line-height: 1;
+      }
+
+      .why-floating-badge .label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      .feature-points {
+        display: grid;
+        gap: 20px;
+        margin: 32px 0;
+      }
+
+      .feature-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .feature-check {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(230, 185, 93, 0.15);
+        border: 1px solid var(--gold-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-light);
+        font-size: 12px;
+        font-weight: 800;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .feature-point-title {
+        font-weight: 700;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 3px;
+      }
+
+      .feature-point-desc {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      /* -------------------------------------------
+         INTERACTIVE INSTANT QUOTE / BOOKING FORM
+      -------------------------------------------- */
+      .booking-section {
+        background: radial-gradient(circle at center, #171722 0%, #08080c 100%);
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .booking-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--shadow-glow);
+        padding: 48px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .form-group-full {
+        grid-column: span 2;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gold-light);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .form-control {
+        width: 100%;
+        background: #09090d;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 14px 18px;
+        color: #fff;
+        font-size: 14px;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--gold-primary);
+        box-shadow: 0 0 15px rgba(230, 185, 93, 0.25);
+      }
+
+      select.form-control {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23e6b95d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+        padding-right: 44px;
+      }
+
+      .form-submit-row {
+        grid-column: span 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 10px;
+      }
+
+      .form-guarantee {
+        font-size: 13px;
+        color: var(--text-dim);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .form-guarantee i {
+        color: var(--gold-primary);
+      }
+
+      /* -------------------------------------------
+         FOOTER
+      -------------------------------------------- */
+      footer {
+        background: #050508;
+        border-top: 1px solid var(--border-subtle);
+        padding: 80px 0 30px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-logo-img {
+        height: 60px;
+        width: auto;
+        margin-bottom: 20px;
+      }
+
+      .footer-tagline {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+
+      .footer-heading {
+        font-family: "Cinzel", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--gold-light);
+        margin-bottom: 22px;
+        letter-spacing: 1px;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .footer-links a {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .footer-links a:hover {
+        color: var(--gold-primary);
+        padding-left: 4px;
+      }
+
+      .footer-contact-box {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 24px;
+      }
+
+      .contact-item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .contact-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .contact-icon {
+        color: var(--gold-primary);
+        font-size: 16px;
+        width: 24px;
+        text-align: center;
+      }
+
+      .contact-text-label {
+        font-size: 11px;
+        color: var(--text-dim);
+        text-transform: uppercase;
+      }
+
+      .contact-text-val {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+
+      /* -------------------------------------------
+         FLOATING ACTION BUTTON
+      -------------------------------------------- */
+      .floating-call {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 999;
+        background: linear-gradient(135deg, #e6b95d 0%, #b88a2e 100%);
+        color: #070709;
+        padding: 14px 24px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+        border: 1px solid var(--gold-light);
+        transition: var(--transition);
+      }
+
+      .floating-call:hover {
+        transform: scale(1.05) translateY(-3px);
+        background: linear-gradient(135deg, #fae19c 0%, #d4a03b 100%);
+      }
+
+      /* -------------------------------------------
+         RESPONSIVE BREAKPOINTS
+      -------------------------------------------- */
+      @media (max-width: 1200px) {
+        .nav-menu {
           display: none;
         }
-
-        .service-grid {
+        .mobile-menu-toggle {
+          display: block;
+        }
+        .pillars-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-
-        .talent-grid {
-          grid-template-columns: 1fr 1fr;
+        .roster-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
-
-        .experience-grid {
-          grid-template-columns: 1fr;
+        .stats-container {
+          grid-template-columns: repeat(2, 1fr);
         }
-
-        .experience-image {
-          height: 500px;
-        }
-
-        .event-grid {
+        .occasions-grid {
           grid-template-columns: repeat(3, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
         }
       }
 
-      @media (max-width: 600px) {
-        .container {
-          width: min(100% - 30px, 1180px);
+      @media (max-width: 820px) {
+        .top-announcement {
+          display: none;
         }
-
-        .hero {
-          min-height: 760px;
-        }
-
-        h1 {
-          font-size: 53px;
-        }
-
-        .stats-grid {
+        .hero-grid {
           grid-template-columns: 1fr;
         }
-
-        .stat {
-          border-right: 0;
-          border-bottom: 1px solid var(--border);
+        .hero-showcase-mosaic {
+          margin-top: 30px;
         }
-
-        .service-grid,
-        .talent-grid {
+        .why-grid {
           grid-template-columns: 1fr;
         }
-
-        .event-grid {
+        .specialty-grid {
+          grid-template-columns: 1fr;
+        }
+        .occasions-grid {
           grid-template-columns: repeat(2, 1fr);
         }
-
-        .footer-top {
-          flex-direction: column;
+        .form-grid {
+          grid-template-columns: 1fr;
         }
+        .form-group-full, .form-submit-row {
+          grid-column: span 1;
+        }
+        .booking-card {
+          padding: 28px 20px;
+        }
+      }
 
-        .footer-contact {
-          text-align: left;
+      @media (max-width: 580px) {
+        .pillars-grid, .roster-grid, .stats-container, .occasions-grid, .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat-item {
+          border-right: none;
+          border-bottom: 1px solid var(--border-subtle);
+          padding-bottom: 16px;
+        }
+        .hero {
+          padding: 40px 0 60px;
+        }
+        .hero-title {
+          font-size: 34px;
+        }
+        .floating-call {
+          bottom: 16px;
+          right: 16px;
+          padding: 12px 18px;
+          font-size: 12px;
         }
       }
     </style>
   </head>
 
   <body>
-    <header>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-announcement">
+      <div class="container top-announcement-inner">
+        <div class="badge-glow">
+          <span class="pulse-dot"></span>
+          <span>EST. 1991 • OVER 30 YEARS OF AWARD-WINNING EVENT PRODUCTION</span>
+        </div>
+        <div class="top-quick-contacts">
+          <a href="tel:9544847884">
+            <i class="fa-solid fa-phone"></i>
+            <span>(954) 484-7884</span>
+          </a>
+          <a href="mailto:party@besserentertainment.com">
+            <i class="fa-solid fa-envelope"></i>
+            <span>party@besserentertainment.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER WITH COLLAPSIBLE / DROPDOWN NAV -->
+    <header id="mainHeader">
       <div class="container">
         <nav>
-          <a href="#" class="logo"> BESSER<span>.</span> </a>
+          <!-- UPDATED BRAND LOGO -->
+          <a href="#" class="brand-logo-wrap" title="Besser Entertainment">
+            <img src="assets/besser-mobile-logo.png" alt="Besser Entertainment Logo" class="brand-logo-img" />
+          </a>
 
-          <ul class="nav-links">
-            <li><a href="#services">Entertainment</a></li>
-            <li><a href="#talent">Featured Talent</a></li>
-            <li><a href="#experience">Why Besser</a></li>
-            <li><a href="#events">Events</a></li>
-            <li>
-              <a href="#contact" class="nav-btn">Book Talent</a>
+          <!-- DESKTOP NAVIGATION -->
+          <ul class="nav-menu">
+            <!-- 1. HOME -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">HOME</a>
+            </li>
+
+            <!-- 2. ABOUT -->
+            <li class="nav-item">
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/aboutus-best-lookalike-impersonator-best-tribute-band/" class="nav-link">ABOUT</a>
+            </li>
+
+            <!-- 3. LOOK ALIKES IMPERSONATORS (A-Z Dropdown) -->
+            <li class="nav-item">
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="nav-link">
+                LOOK ALIKES IMPERSONATORS <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu dropdown-az">
+                <div class="dropdown-menu-title">
+                  <i class="fa-solid fa-users"></i> A-Z Celebrity Directory
+                </div>
+                <div class="az-grid">
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="az-link"><span class="letter">A</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/b/" class="az-link"><span class="letter">B</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/c/" class="az-link"><span class="letter">C</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/d/" class="az-link"><span class="letter">D</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/e/" class="az-link"><span class="letter">E</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/f/" class="az-link"><span class="letter">F</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/g/" class="az-link"><span class="letter">G</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/h/" class="az-link"><span class="letter">H</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/i/" class="az-link"><span class="letter">I</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/j/" class="az-link"><span class="letter">J</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/k/" class="az-link"><span class="letter">K</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/l/" class="az-link"><span class="letter">L</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/m/" class="az-link"><span class="letter">M</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/n/" class="az-link"><span class="letter">N</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/o/" class="az-link"><span class="letter">O</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/p/" class="az-link"><span class="letter">P</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/q/" class="az-link"><span class="letter">Q</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/r/" class="az-link"><span class="letter">R</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/s/" class="az-link"><span class="letter">S</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/t/" class="az-link"><span class="letter">T</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/u/" class="az-link"><span class="letter">U</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/v/" class="az-link"><span class="letter">V</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/w/" class="az-link"><span class="letter">W</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/x/" class="az-link"><span class="letter">X</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/y/" class="az-link"><span class="letter">Y</span></a>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/z/" class="az-link"><span class="letter">Z</span></a>
+                </div>
+                <a href="#roster" class="dropdown-extra-link">
+                  <span><i class="fa-solid fa-map-location-dot"></i> Search Lookalikes By State</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </li>
+
+            <!-- 4. TRIBUTE BANDS | TRIBUTE SHOWS (Mega Dropdown) -->
+            <li class="nav-item">
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/" class="nav-link">
+                TRIBUTE BANDS <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu dropdown-mega-bands">
+                <div class="mega-columns">
+                  <!-- Col 1: Regional & Decades -->
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-map-pin"></i> By Region</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-florida-tribute-bands/" class="dropdown-item-link">Florida Tribute Bands</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-new-york-tribute-bands-2-2/" class="dropdown-item-link">New York Tribute Bands</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/california-tribute-bands/" class="dropdown-item-link">California Tribute Bands</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-nevada-tribute-bands-nevada-cover-bands/" class="dropdown-item-link">Nevada Tribute Bands</a></li>
+                    </ul>
+                    <div class="mega-col-title" style="margin-top: 14px;"><i class="fa-solid fa-clock-rotate-left"></i> Decades & Genres</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-60-tribute-band-woodstock/" class="dropdown-item-link">60's Tribute Band</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-70s-tribute-band/" class="dropdown-item-link">70's Tribute Band</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-80s-tribute-band/" class="dropdown-item-link">80's Tribute Band</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-country-tribute-shows/" class="dropdown-item-link">Country Tribute Shows</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/the-best-motown-shows/" class="dropdown-item-link">Motown Shows</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Col 2: Artists A - J -->
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-guitar"></i> Featured Acts (A - J)</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-abba-tribute-band/" class="dropdown-item-link">ABBA</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-ac-dc-tribute-band/" class="dropdown-item-link">AC/DC</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/allman-brothers-tribute-band/" class="dropdown-item-link">Allman Brothers</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-barry-manilow-tribute/" class="dropdown-item-link">Barry Manilow</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-beach-boys-tribute-bands/" class="dropdown-item-link">Beach Boys</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-beatles-tribute-band-2/" class="dropdown-item-link">Beatles</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-bee-gees-tribute/" class="dropdown-item-link">Bee Gees</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/the-blues-brothers-tribute-band/" class="dropdown-item-link">Blues Brothers</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celine-dion-tribute-show/" class="dropdown-item-link">Celine Dion</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-cher-tribute-show/" class="dropdown-item-link">Cher</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-chicago-tribute-band/" class="dropdown-item-link">Chicago</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-coldplay-tribute-band/" class="dropdown-item-link">Coldplay</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-eagles-tribute-band-2/" class="dropdown-item-link">Eagles</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-fleetwood-mac-tribute-band/" class="dropdown-item-link">Fleetwood Mac</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/jimmy-buffett-tribute-band/" class="dropdown-item-link">Jimmy Buffett</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-journey-tribute-band-west/" class="dropdown-item-link">Journey</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Col 3: Artists L - Z -->
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-music"></i> Featured Acts (L - Z)</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-jersey-boys-tribute-2/" class="dropdown-item-link">Jersey Boys</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/led-zeppelin-tribute-band-show/" class="dropdown-item-link">Led Zeppelin</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-motley-crew-tribute-band/" class="dropdown-item-link">Motley Crue</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-neil-diamond-tribute-show/" class="dropdown-item-link">Neil Diamond</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-phil-collins-tribute-band/" class="dropdown-item-link">Phil Collins</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-rolling-stones-tribute-band-2/" class="dropdown-item-link">Rolling Stones</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/sam-cooke-tribute-by-his-daughter/" class="dropdown-item-link">Sam Cooke (by Daughter)</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-santana-tribute-band-3/" class="dropdown-item-link">Santana</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-stevie-wonder-tribute-show/" class="dropdown-item-link">Stevie Wonder</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/taylor-swift-tribute-show/" class="dropdown-item-link">Taylor Swift</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-tim-mcgraw-tribute-show/" class="dropdown-item-link">Tim McGraw & Faith Hill</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-u2-tribute-band-2/" class="dropdown-item-link">U2</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-van-halen-tribute-band/" class="dropdown-item-link">Van Halen</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-van-morrison-tribute-band/" class="dropdown-item-link">Van Morrison</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-whitney-houston-tribute-show/" class="dropdown-item-link">Whitney Houston Tribute</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 5. OTHER SERVICES -->
+            <li class="nav-item">
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/other-services/" class="nav-link">
+                OTHER SERVICES <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu dropdown-mega-services">
+                <div class="mega-columns" style="grid-template-columns: repeat(2, 1fr);">
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Specialty Acts</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-red-carpet/" class="dropdown-item-link">Living Red Carpet</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/" class="dropdown-item-link">Living-Strolling Tables</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/" class="dropdown-item-link">Magicians / Hypnotists</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/https://www.besserentertainment.com/celebrity-big-heads/" class="dropdown-item-link">Celebrity Big Heads</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="dropdown-item-link">Circus Acts & Contortionist</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-statues/" class="dropdown-item-link">Living Statues</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/juggler/" class="dropdown-item-link">Juggler & Rola Bola</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hoop-balance/" class="dropdown-item-link">Hoop Balance</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-champagne-glasses"></i> Event Enhancements</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="dropdown-item-link">DJ and Lighting</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/photo-booth/" class="dropdown-item-link">Photo Booth</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/caricature-artist/" class="dropdown-item-link">Caricature Artist</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/face-painting/" class="dropdown-item-link">Face Painting</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/exotic-animals-petting-zoo/" class="dropdown-item-link">Exotic Animal Petting Zoo</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/florida-tarot-card-reader-2/" class="dropdown-item-link">Tarot Card Reader</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/custom-video-2/" class="dropdown-item-link">Custom Video & Zoom Show</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/VOICE-OVER/" class="dropdown-item-link">Voice Over Services</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 6. COMEDY HEADLINERS -->
+            <li class="nav-item">
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="nav-link">
+                COMEDY HEADLINERS <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu dropdown-mega-comedy">
+                <div class="dropdown-menu-title"><i class="fa-solid fa-masks-theater"></i> Celebrity Stand-Up & Comedians</div>
+                <div class="mega-columns" style="grid-template-columns: repeat(2, 1fr);">
+                  <ul class="dropdown-list">
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Kevin Farley (Chris Farley's Brother)</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Steve Hytner (Kenny Bania - Seinfeld)</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Steven Michael (Breaking Bad)</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Michael Winslow (Police Academy)</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Pauly Shore</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Jimmy JJ Walker</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Flavor Flav</a></li>
+                  </ul>
+                  <ul class="dropdown-list">
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Lynne Koplitz</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Julian McCullough</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Thea Vidal</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Tom Cotter</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Bobby Collins</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Tammy Pescatelli</a></li>
+                    <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="dropdown-item-link">Gabe Kaplan</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <!-- 7. TALENT REGISTRATION -->
+            <li class="nav-item">
+              <a href="#quote" class="nav-link">TALENT REGISTRATION</a>
+            </li>
+
+            <!-- 8. CONTACT US -->
+            <li class="nav-item">
+              <a href="#quote" class="nav-link">CONTACT US</a>
             </li>
           </ul>
+
+          <!-- HEADER ACTIONS -->
+          <div class="nav-actions">
+            <a href="tel:9544847884" class="btn-phone-call">
+              <i class="fa-solid fa-phone"></i>
+              <span>(954) 484-7884</span>
+            </a>
+            <a href="#quote" class="btn-book-cta">Get A Quote</a>
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- MOBILE DRAWER & ACCORDIONS -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <img src="assets/besser-mobile-logo.png" alt="Besser Entertainment" style="height: 38px; width: auto;" />
+        <button class="drawer-close-btn" id="drawerCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
 
+      <ul class="mobile-nav-list">
+        <!-- Home -->
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link" onclick="closeDrawer()">HOME</a>
+        </li>
+
+        <!-- About -->
+        <li class="mobile-nav-item">
+          <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/aboutus-best-lookalike-impersonator-best-tribute-band/" class="mobile-nav-link" onclick="closeDrawer()">ABOUT</a>
+        </li>
+
+        <!-- Look Alikes Accordion -->
+        <li class="mobile-nav-item">
+          <div class="mobile-nav-header-row">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="mobile-nav-link">LOOK ALIKES IMPERSONATORS</a>
+            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-lookalikes', this)"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="mobile-sub-menu" id="mob-lookalikes">
+            <div style="font-size: 11px; color: var(--gold-light); font-weight: 700; margin: 6px 0;">A-Z DIRECTORY:</div>
+            <div class="mobile-az-grid">
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/">A</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/b/">B</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/c/">C</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/d/">D</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/e/">E</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/f/">F</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/g/">G</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/h/">H</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/i/">I</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/j/">J</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/k/">K</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/l/">L</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/m/">M</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/n/">N</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/o/">O</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/p/">P</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/q/">Q</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/r/">R</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/s/">S</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/t/">T</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/u/">U</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/v/">V</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/w/">W</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/x/">X</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/y/">Y</a>
+              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/z/">Z</a>
+            </div>
+            <a href="#roster" class="mobile-sub-link" style="color: var(--gold-light); font-weight: 700;" onclick="closeDrawer()">→ Search Lookalikes By State</a>
+          </div>
+        </li>
+
+        <!-- Tribute Bands Accordion -->
+        <li class="mobile-nav-item">
+          <div class="mobile-nav-header-row">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/" class="mobile-nav-link">TRIBUTE BANDS</a>
+            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-tribute', this)"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="mobile-sub-menu" id="mob-tribute">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-florida-tribute-bands/" class="mobile-sub-link">Florida Tribute Bands</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-new-york-tribute-bands-2-2/" class="mobile-sub-link">New York Tribute Bands</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/california-tribute-bands/" class="mobile-sub-link">California Tribute Bands</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-nevada-tribute-bands-nevada-cover-bands/" class="mobile-sub-link">Nevada Tribute Bands</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-beatles-tribute-band-2/" class="mobile-sub-link">Beatles Tribute</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-eagles-tribute-band-2/" class="mobile-sub-link">Eagles Tribute</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-journey-tribute-band-west/" class="mobile-sub-link">Journey Tribute</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-fleetwood-mac-tribute-band/" class="mobile-sub-link">Fleetwood Mac</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/led-zeppelin-tribute-band-show/" class="mobile-sub-link">Led Zeppelin</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/best-80s-tribute-band/" class="mobile-sub-link">80's Tribute Band</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/the-best-motown-shows/" class="mobile-sub-link">Motown Shows</a>
+          </div>
+        </li>
+
+        <!-- Other Services Accordion -->
+        <li class="mobile-nav-item">
+          <div class="mobile-nav-header-row">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/other-services/" class="mobile-nav-link">OTHER SERVICES</a>
+            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-services', this)"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="mobile-sub-menu" id="mob-services">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-red-carpet/" class="mobile-sub-link">Living Red Carpet</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/" class="mobile-sub-link">Living-Strolling Tables</a>
+            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/" class="mobile-sub-link">Magicians / Hypnotists</a>
+            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="mobile-sub-link">DJ and Lighting</a>
+            <a href="https://web.archive.org/web/20260610062723/https://www.besserentertainment.com/celebrity-big-heads/" class="mobile-sub-link">Celebrity Big Heads</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/photo-booth/" class="mobile-sub-link">Photo Booth</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="mobile-sub-link">Circus Acts & Contortionist</a>
+          </div>
+        </li>
+
+        <!-- Comedy Headliners Accordion -->
+        <li class="mobile-nav-item">
+          <div class="mobile-nav-header-row">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-nav-link">COMEDY HEADLINERS</a>
+            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-comedy', this)"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="mobile-sub-menu" id="mob-comedy">
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-sub-link">Kevin Farley (Chris Farley's Brother)</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-sub-link">Steve Hytner (Kenny Bania - Seinfeld)</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-sub-link">Michael Winslow (Police Academy)</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-sub-link">Pauly Shore</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-sub-link">Jimmy JJ Walker</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="mobile-sub-link">Flavor Flav</a>
+          </div>
+        </li>
+
+        <!-- Talent Registration -->
+        <li class="mobile-nav-item">
+          <a href="#quote" class="mobile-nav-link" onclick="closeDrawer()">TALENT REGISTRATION</a>
+        </li>
+
+        <!-- Contact Us -->
+        <li class="mobile-nav-item">
+          <a href="#quote" class="mobile-nav-link" onclick="closeDrawer()">CONTACT US</a>
+        </li>
+      </ul>
+
+      <div style="margin-top: 30px;">
+        <a href="tel:9544847884" class="btn-primary" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-phone"></i>
+          <span>(954) 484-7884</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
     <section class="hero">
+      <div class="hero-bg-overlay"></div>
       <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow">Special Events • Entertainment • Production</div>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-eyebrow">
+              <i class="fa-solid fa-star"></i>
+              <span>Full-Service Special Events Production</span>
+            </div>
+            <h1 class="hero-title">
+              The Stars Come Alive at <br />
+              <span class="highlight">Your Next Event</span>
+            </h1>
+            <p class="hero-description">
+              Elevate your celebration with world-class <strong>Celebrity Lookalikes & Tribute Artists</strong>, high-energy <strong>Tribute & Cover Bands</strong>, premier <strong>DJs & Musicians</strong>, and breathtaking <strong>Specialty Acts</strong> like Living Tables, Living Red Carpets, Magicians & Stage Shows.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#roster" class="btn-primary">
+                <span>Explore Talent Roster</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#quote" class="btn-secondary">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Instant Event Quote</span>
+              </a>
+            </div>
+          </div>
 
-          <h1>
-            Make Your Event<br />
-            <span>Unforgettable.</span>
-          </h1>
-
-          <p class="hero-text">
-            From celebrity lookalikes and tribute artists to world-class tribute
-            bands, DJs and specialty acts — we bring the entertainment that
-            makes people talk.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-gold">
-              FIND YOUR ENTERTAINMENT
-            </a>
-
-            <a href="#services" class="btn btn-outline"> EXPLORE TALENT </a>
+          <!-- Hero Mosaic Showcase -->
+          <div class="hero-showcase-mosaic">
+            <div class="mosaic-card">
+              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop" alt="Celebrity Tribute Show" />
+              <div class="mosaic-card-content">
+                <span class="mosaic-pill">Iconic Tributes</span>
+                <h4 class="mosaic-title">Celebrity Lookalikes</h4>
+              </div>
+            </div>
+            <div class="mosaic-card">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" alt="DJ and Live Band" />
+              <div class="mosaic-card-content">
+                <span class="mosaic-pill">Live Sounds</span>
+                <h4 class="mosaic-title">Tribute Bands & DJs</h4>
+              </div>
+            </div>
+            <div class="mosaic-card">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Living Red Carpet and Tables" />
+              <div class="mosaic-card-content">
+                <span class="mosaic-pill">Interactive Acts</span>
+                <h4 class="mosaic-title">Living Red Carpet & Tables</h4>
+              </div>
+            </div>
+            <div class="mosaic-card">
+              <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800&auto=format&fit=crop" alt="Magicians and Stage Shows" />
+              <div class="mosaic-card-content">
+                <span class="mosaic-pill">Spectacular</span>
+                <h4 class="mosaic-title">Magicians & Stage Shows</h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-
-    <div class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat">
-            <strong>30+</strong>
-            <span>Years of Experience</span>
+    <!-- TRUST & STATS STRIP -->
+    <div class="trust-strip">
+      <div class="container stats-container">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+          <div>
+            <div class="stat-num">30+</div>
+            <div class="stat-label">Years of Excellence</div>
           </div>
-
-          <div class="stat">
-            <strong>1000+</strong>
-            <span>Entertainment Options</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-music"></i></div>
+          <div>
+            <div class="stat-num">1,000+</div>
+            <div class="stat-label">Performers & Acts</div>
           </div>
-
-          <div class="stat">
-            <strong>Worldwide</strong>
-            <span>Local • National • International</span>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-earth-americas"></i></div>
+          <div>
+            <div class="stat-num">Global</div>
+            <div class="stat-label">Local, National & Worldwide</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Award-Winning Quality</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- SERVICES -->
-
-    <section class="services" id="services">
+    <!-- SERVICES FOUR PILLARS -->
+    <section class="services-section" id="services">
       <div class="container">
-        <div class="section-heading">
-          <div class="section-label">What We Do</div>
-
-          <h2>
-            Entertainment<br />
-            without limits.
-          </h2>
-
-          <p>
-            One entertainment partner. An extraordinary roster of performers,
-            musicians and specialty acts for events of every size.
+        <div class="section-header">
+          <span class="section-subtitle">What We Specialize In</span>
+          <h2 class="section-title">Turnkey Entertainment For Unforgettable Events</h2>
+          <p class="section-desc">
+            As a full-service special events party production company, we curate, coordinate, and produce world-class entertainment tailored precisely to your theme, venue, and audience.
           </p>
         </div>
 
-        <div class="service-grid">
-          <div class="service">
-            <div class="service-number">01</div>
-            <h3>Celebrity Lookalikes</h3>
-            <p>
-              Award-winning celebrity impersonators and tribute artists who
-              bring the stars to your event.
+        <div class="pillars-grid">
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <div class="pillar-number">01</div>
+            <div class="pillar-icon-box"><i class="fa-solid fa-star"></i></div>
+            <h3 class="pillar-title">Celebrity Lookalikes & Tribute Artists</h3>
+            <p class="pillar-text">
+              Astonish your guests with premier celebrity impersonators, lookalikes, and Vegas-caliber tribute artists who look, sound, and captivate just like the legends.
             </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Elvis</span>
+              <span class="pillar-tag">Michael Jackson</span>
+              <span class="pillar-tag">Marilyn</span>
+              <span class="pillar-tag">Rat Pack</span>
+              <span class="pillar-tag">Lady Gaga</span>
+            </div>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="pillar-link">Browse Lookalikes <i class="fa-solid fa-chevron-right"></i></a>
           </div>
 
-          <div class="service">
-            <div class="service-number">02</div>
-            <h3>Tribute Bands</h3>
-            <p>
-              Legendary music recreated live — from classic rock to pop, Motown,
-              country and more.
+          <!-- Pillar 2 -->
+          <div class="pillar-card">
+            <div class="pillar-number">02</div>
+            <div class="pillar-icon-box"><i class="fa-solid fa-guitar"></i></div>
+            <h3 class="pillar-title">Tribute Bands & Cover Bands</h3>
+            <p class="pillar-text">
+              Concert-grade tribute bands performing timeless anthems from classic rock, Motown, 80s pop, country, and modern chart-toppers with full live stage production.
             </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Beatles</span>
+              <span class="pillar-tag">Eagles</span>
+              <span class="pillar-tag">Journey</span>
+              <span class="pillar-tag">Fleetwood Mac</span>
+              <span class="pillar-tag">Led Zeppelin</span>
+            </div>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/" class="pillar-link">Browse Tribute Bands <i class="fa-solid fa-chevron-right"></i></a>
           </div>
 
-          <div class="service">
-            <div class="service-number">03</div>
-            <h3>Live Music</h3>
-            <p>
-              DJs, musicians, cover bands and complete musical entertainment for
-              your celebration.
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <div class="pillar-number">03</div>
+            <div class="pillar-icon-box"><i class="fa-solid fa-headphones"></i></div>
+            <h3 class="pillar-title">DJs, Musicians & Live Ensembles</h3>
+            <p class="pillar-text">
+              The heartbeat of your celebration. Dynamic party DJs, master MCs, solo saxophonists, acoustic duos, jazz trios, and high-energy party dance bands.
             </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Event DJs & MCs</span>
+              <span class="pillar-tag">Live Sax & Percussion</span>
+              <span class="pillar-tag">Dance Bands</span>
+            </div>
+            <a href="#roster" class="pillar-link">Browse Music & DJs <i class="fa-solid fa-chevron-right"></i></a>
           </div>
 
-          <div class="service">
-            <div class="service-number">04</div>
-            <h3>Specialty Acts</h3>
-            <p>
-              Magicians, dancers, hypnotists, stage shows, living tables and
-              spectacular red-carpet acts.
+          <!-- Pillar 4 -->
+          <div class="pillar-card">
+            <div class="pillar-number">04</div>
+            <div class="pillar-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3 class="pillar-title">Unique & Specialty Interactive Acts</h3>
+            <p class="pillar-text">
+              Immersive novelty entertainment that commands attention: Living Walking Tables serving champagne, Living Red Carpets, Master Magicians, Hypnotists, and Cirque Dancers.
             </p>
+            <div class="pillar-tags">
+              <span class="pillar-tag">Living Tables</span>
+              <span class="pillar-tag">Living Red Carpet</span>
+              <span class="pillar-tag">Magicians</span>
+              <span class="pillar-tag">Hypnotists</span>
+            </div>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/other-services/" class="pillar-link">Explore Specialty Acts <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURED TALENT -->
-
-    <section id="talent">
+    <!-- FEATURED TALENT ROSTER -->
+    <section class="roster-section" id="roster">
       <div class="container">
-        <div class="section-heading">
-          <div class="section-label">Featured Entertainment</div>
-
-          <h2>
-            Meet the stars<br />
-            of your next event.
-          </h2>
-        </div>
-
-        <div class="talent-grid">
-          <div class="talent">
-            <div class="talent-image">
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg"
-                alt="Elvis tribute performer"
-              />
-            </div>
-
-            <div class="talent-info">
-              <div class="talent-category">Tribute Artist</div>
-
-              <h3>Iconic Tribute Shows</h3>
-
-              <p>
-                Vegas-style entertainment that puts your guests in the middle of
-                the show.
-              </p>
-            </div>
-          </div>
-
-          <div class="talent">
-            <div class="talent-image">
-              <img
-                src="https://cdn.alivenetwork.com/images/extrabandpics/bb.jpg"
-                alt="Tribute band performers"
-              />
-            </div>
-
-            <div class="talent-info">
-              <div class="talent-category">Tribute Bands</div>
-
-              <h3>Live Music Experiences</h3>
-
-              <p>
-                High-energy tribute and cover bands built around the music your
-                guests love.
-              </p>
-            </div>
-          </div>
-
-          <div class="talent">
-            <div class="talent-image">
-              <img
-                src="https://static.wixstatic.com/media/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg"
-                alt="Celebrity lookalike performers"
-              />
-            </div>
-
-            <div class="talent-info">
-              <div class="talent-category">Celebrity Lookalikes</div>
-
-              <h3>The Stars Arrive</h3>
-
-              <p>
-                Make the red carpet unforgettable with celebrity lookalikes and
-                impersonators.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-
-    <section class="experience" id="experience">
-      <div class="container">
-        <div class="experience-grid">
-          <div class="experience-image">
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg"
-              alt="Live event entertainment"
-            />
-          </div>
-
-          <div class="experience-copy">
-            <div class="section-label">Why Besser Entertainment</div>
-
-            <h2>
-              The right talent<br />
-              changes everything.
-            </h2>
-
-            <p>
-              With decades of experience and an extensive entertainment roster,
-              Besser Entertainment helps you find the right performers for the
-              moment you're creating.
-            </p>
-
-            <div class="check-list">
-              <div class="check">
-                <div class="check-icon">✦</div>
-                <span> Award-winning tribute artists and lookalikes </span>
-              </div>
-
-              <div class="check">
-                <div class="check-icon">✦</div>
-                <span> Tribute bands and live musical entertainment </span>
-              </div>
-
-              <div class="check">
-                <div class="check-icon">✦</div>
-                <span> DJs, musicians, dancers and specialty acts </span>
-              </div>
-
-              <div class="check">
-                <div class="check-icon">✦</div>
-                <span> Local, national and international bookings </span>
-              </div>
-
-              <div class="check">
-                <div class="check-icon">✦</div>
-                <span> One team handling your entertainment needs </span>
-              </div>
-            </div>
-
-            <br /><br />
-
-            <a href="#contact" class="btn btn-gold"> START PLANNING </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENTS -->
-
-    <section id="events">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-label">Entertainment For Every Occasion</div>
-
-          <h2>
-            Whatever you're<br />
-            celebrating.
-          </h2>
-        </div>
-
-        <div class="event-grid">
-          <div class="event">
-            <strong>Corporate Events</strong>
-          </div>
-
-          <div class="event">
-            <strong>Weddings</strong>
-          </div>
-
-          <div class="event">
-            <strong>Galas</strong>
-          </div>
-
-          <div class="event">
-            <strong>Private Parties</strong>
-          </div>
-
-          <div class="event">
-            <strong>Casino Events</strong>
-          </div>
-
-          <div class="event">
-            <strong>Birthdays</strong>
-          </div>
-
-          <div class="event">
-            <strong>Holiday Parties</strong>
-          </div>
-
-          <div class="event">
-            <strong>Fundraisers</strong>
-          </div>
-
-          <div class="event">
-            <strong>Anniversaries</strong>
-          </div>
-
-          <div class="event">
-            <strong>Special Events</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-
-    <section class="cta" id="contact">
-      <div class="container">
-        <div class="cta-inner">
-          <div class="section-label">Let's Create Something Incredible</div>
-
-          <h2>Tell us what you're imagining.</h2>
-
-          <p>
-            Looking for a celebrity lookalike? A legendary tribute band? A DJ,
-            magician or unforgettable specialty act? Tell us about your event
-            and we'll help you find the talent.
+        <div class="section-header">
+          <span class="section-subtitle">Featured Talent Gallery</span>
+          <h2 class="section-title">Award-Winning Performers & Shows</h2>
+          <p class="section-desc">
+            Explore a sampling of our headline tribute bands, uncanny celebrity doubles, and premier event acts.
           </p>
+        </div>
 
-          <a href="tel:9544847884" class="btn btn-gold"> CALL 954-484-7884 </a>
+        <!-- Filter Controls -->
+        <div class="roster-filters">
+          <button class="filter-btn active" onclick="filterTalent('all', this)">
+            <i class="fa-solid fa-layer-group"></i> All Featured Acts
+          </button>
+          <button class="filter-btn" onclick="filterTalent('lookalike', this)">
+            <i class="fa-solid fa-user-astronaut"></i> Celebrity Lookalikes
+          </button>
+          <button class="filter-btn" onclick="filterTalent('bands', this)">
+            <i class="fa-solid fa-guitar"></i> Tribute Bands
+          </button>
+          <button class="filter-btn" onclick="filterTalent('djs', this)">
+            <i class="fa-solid fa-compact-disc"></i> DJs & Musicians
+          </button>
+          <button class="filter-btn" onclick="filterTalent('specialty', this)">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Specialty Acts
+          </button>
+        </div>
+
+        <!-- Talent Cards Grid -->
+        <div class="roster-grid">
+          <!-- Talent 1 -->
+          <div class="roster-card" data-category="lookalike">
+            <div class="roster-thumb">
+              <img src="https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg" alt="Elvis Tribute Performer" />
+              <span class="roster-badge"><i class="fa-solid fa-star"></i> Lookalike & Tribute</span>
+            </div>
+            <div class="roster-details">
+              <h3 class="roster-title">The Ultimate King of Rock</h3>
+              <div class="roster-subtitle">Elvis Presley Tribute & Impersonator</div>
+              <p class="roster-desc">
+                Electrifying Vegas-era and 1968 Comeback stage shows complete with authentic jumpsuits, flawless vocals, and charismatic guest interaction.
+              </p>
+              <div class="roster-footer">
+                <span class="roster-tags-inline">Vegas Show • Meet & Greet</span>
+                <button class="btn-inquire-card" onclick="bookTalent('Elvis Tribute')">
+                  <i class="fa-solid fa-paper-plane"></i> Book Act
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talent 2 -->
+          <div class="roster-card" data-category="bands">
+            <div class="roster-thumb">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop" alt="Beatles Tribute Band" />
+              <span class="roster-badge"><i class="fa-solid fa-music"></i> Tribute Band</span>
+            </div>
+            <div class="roster-details">
+              <h3 class="roster-title">Beatlemania Experience</h3>
+              <div class="roster-subtitle">Premier Beatles Tribute Band</div>
+              <p class="roster-desc">
+                From Ed Sullivan to Abbey Road — authentic vintage instruments, iconic costumes, and track-by-track vocal harmonies that ignite audiences of all ages.
+              </p>
+              <div class="roster-footer">
+                <span class="roster-tags-inline">4-Piece Live • All Eras</span>
+                <button class="btn-inquire-card" onclick="bookTalent('Beatles Tribute Band')">
+                  <i class="fa-solid fa-paper-plane"></i> Book Act
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talent 3 -->
+          <div class="roster-card" data-category="specialty">
+            <div class="roster-thumb">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Living Champagne Table" />
+              <span class="roster-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Living Art / Specialty</span>
+            </div>
+            <div class="roster-details">
+              <h3 class="roster-title">Living Walking Tables</h3>
+              <div class="roster-subtitle">Interactive Strolling Hospitality & Red Carpet</div>
+              <p class="roster-desc">
+                Gorgeous costumed performers seamlessly glide through your event serving champagne, hors d'oeuvres, and escorting guests down the Living Red Carpet.
+              </p>
+              <div class="roster-footer">
+                <span class="roster-tags-inline">Custom Themes • Gala Favorite</span>
+                <button class="btn-inquire-card" onclick="bookTalent('Living Walking Tables')">
+                  <i class="fa-solid fa-paper-plane"></i> Book Act
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talent 4 -->
+          <div class="roster-card" data-category="lookalike">
+            <div class="roster-thumb">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop" alt="Michael Jackson Tribute" />
+              <span class="roster-badge"><i class="fa-solid fa-star"></i> Tribute Artist</span>
+            </div>
+            <div class="roster-details">
+              <h3 class="roster-title">King of Pop Tribute</h3>
+              <div class="roster-subtitle">Michael Jackson Lookalike & Dancer</div>
+              <p class="roster-desc">
+                Gravity-defying dance routines, the Moonwalk, Billie Jean, Thriller, and custom high-voltage choreography that will leave your crowd breathless.
+              </p>
+              <div class="roster-footer">
+                <span class="roster-tags-inline">Stage Show • Dancers Included</span>
+                <button class="btn-inquire-card" onclick="bookTalent('Michael Jackson Tribute')">
+                  <i class="fa-solid fa-paper-plane"></i> Book Act
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talent 5 -->
+          <div class="roster-card" data-category="bands">
+            <div class="roster-thumb">
+              <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=800&auto=format&fit=crop" alt="Classic Rock Tribute Band" />
+              <span class="roster-badge"><i class="fa-solid fa-guitar"></i> Tribute Band</span>
+            </div>
+            <div class="roster-details">
+              <h3 class="roster-title">Hotel California: Eagles Tribute</h3>
+              <div class="roster-subtitle">The Legendary Sounds of the 70s</div>
+              <p class="roster-desc">
+                Uncompromising recreation of the Eagles' soaring guitar solos, lush five-part harmonies, and endless singalong rock classics.
+              </p>
+              <div class="roster-footer">
+                <span class="roster-tags-inline">Full Concert Rig • Festival Headliner</span>
+                <button class="btn-inquire-card" onclick="bookTalent('Eagles Tribute Band')">
+                  <i class="fa-solid fa-paper-plane"></i> Book Act
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talent 6 -->
+          <div class="roster-card" data-category="djs">
+            <div class="roster-thumb">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" alt="Elite Event DJ" />
+              <span class="roster-badge"><i class="fa-solid fa-headphones"></i> Music & DJ</span>
+            </div>
+            <div class="roster-details">
+              <h3 class="roster-title">Platinum Event DJs & Hybrid Bands</h3>
+              <div class="roster-subtitle">Pro DJ + Live Sax & Percussion Fusion</div>
+              <p class="roster-desc">
+                Seamless music curation from cocktail hour to late-night dance party with state-of-the-art intelligent lighting and professional sound engineering.
+              </p>
+              <div class="roster-footer">
+                <span class="roster-tags-inline">DJ/MC • Intelligent Lighting</span>
+                <button class="btn-inquire-card" onclick="bookTalent('Platinum Event DJ')">
+                  <i class="fa-solid fa-paper-plane"></i> Book Act
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIALTY & UNIQUE ACTS SPOTLIGHT -->
+    <section class="specialty-spotlight" id="specialty">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Exclusive Unique Talents</span>
+          <h2 class="section-title">Spectacular Specialty & Novelty Acts</h2>
+          <p class="section-desc">
+            Make your event the talk of the town with one-of-a-kind immersive entertainment elements.
+          </p>
+        </div>
+
+        <div class="specialty-grid">
+          <!-- Specialty 1 -->
+          <div class="specialty-item">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Living Red Carpet" />
+            <div class="specialty-overlay">
+              <span class="specialty-tag"><i class="fa-solid fa-person-walking"></i> Interactive Entrance</span>
+              <h3 class="specialty-name">Living Red Carpet</h3>
+              <p class="specialty-summary">
+                A glamorous gown extends into an actual 50-foot lush red carpet, warmly greeting guests as they arrive in true Hollywood VIP fashion.
+              </p>
+            </div>
+          </div>
+
+          <!-- Specialty 2 -->
+          <div class="specialty-item">
+            <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800&auto=format&fit=crop" alt="Master Magicians & Hypnotists" />
+            <div class="specialty-overlay">
+              <span class="specialty-tag"><i class="fa-solid fa-hat-wizard"></i> Stage & Strolling Illusion</span>
+              <h3 class="specialty-name">Magicians & Hypnotists</h3>
+              <p class="specialty-summary">
+                Mind-bending mentalism, close-up sleight of hand during cocktails, and hilarious comedy hypnosis stage shows that mesmerize your audience.
+              </p>
+            </div>
+          </div>
+
+          <!-- Specialty 3 -->
+          <div class="specialty-item">
+            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=800&auto=format&fit=crop" alt="Cirque Performers and Dancers" />
+            <div class="specialty-overlay">
+              <span class="specialty-tag"><i class="fa-solid fa-fire-flame-curved"></i> High-Impact Visuals</span>
+              <h3 class="specialty-name">Dancers, Cirque & Fire Acts</h3>
+              <p class="specialty-summary">
+                Acrobatic aerialists, choreographed LED dance troupes, fire spinners, and themed costumed dancers customized to your event theme.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OCCASIONS / EVENT TYPES -->
+    <section class="occasions-section" id="occasions">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Entertainment For Every Occasion</span>
+          <h2 class="section-title">What Are You Celebrating?</h2>
+          <p class="section-desc">
+            We provide custom entertainment packages scaled perfectly to every venue and crowd size.
+          </p>
+        </div>
+
+        <div class="occasions-grid">
+          <div class="occasion-box" onclick="selectEventType('Corporate Galas')">
+            <div class="occasion-icon"><i class="fa-solid fa-building-columns"></i></div>
+            <strong class="occasion-title">Corporate Events</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Weddings')">
+            <div class="occasion-icon"><i class="fa-solid fa-gem"></i></div>
+            <strong class="occasion-title">Luxury Weddings</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Charity Galas')">
+            <div class="occasion-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <strong class="occasion-title">Galas & Fundraisers</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Casino Theme Parties')">
+            <div class="occasion-icon"><i class="fa-solid fa-dice"></i></div>
+            <strong class="occasion-title">Casino Theme Nights</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Senior Stage Shows')">
+            <div class="occasion-icon"><i class="fa-solid fa-masks-theater"></i></div>
+            <strong class="occasion-title">55+ Community Shows</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Private Milestone Parties')">
+            <div class="occasion-icon"><i class="fa-solid fa-cake-candles"></i></div>
+            <strong class="occasion-title">Milestone Birthdays</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Bar & Bat Mitzvahs')">
+            <div class="occasion-icon"><i class="fa-solid fa-star-of-david"></i></div>
+            <strong class="occasion-title">Bar & Bat Mitzvahs</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Holiday Galas')">
+            <div class="occasion-icon"><i class="fa-solid fa-tree"></i></div>
+            <strong class="occasion-title">Holiday Celebrations</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Fairs & Festivals')">
+            <div class="occasion-icon"><i class="fa-solid fa-tent"></i></div>
+            <strong class="occasion-title">Fairs & Festivals</strong>
+          </div>
+          <div class="occasion-box" onclick="selectEventType('Private VIP Celebrations')">
+            <div class="occasion-icon"><i class="fa-solid fa-crown"></i></div>
+            <strong class="occasion-title">VIP Private Parties</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY BESSER ENTERTAINMENT -->
+    <section class="why-besser" id="why-besser">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-image-stack">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop" alt="Besser Entertainment Live Production" class="why-main-img" />
+            <div class="why-floating-badge">
+              <div class="number">1991</div>
+              <div class="label">Founded • Over 3 Decades</div>
+            </div>
+          </div>
+
+          <div class="why-content">
+            <span class="section-subtitle">The Besser Advantage</span>
+            <h2 class="section-title">Besser Means Better In Every Detail</h2>
+            <p class="section-desc">
+              When you partner with Besser Entertainment, you work directly with seasoned event producers who understand stage timing, sound requirements, performer riders, and audience engagement.
+            </p>
+
+            <div class="feature-points">
+              <div class="feature-point">
+                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="feature-point-title">Award-Winning Roster of Top Talents</div>
+                  <div class="feature-point-desc">Only rigorously vetted, experienced, and highly acclaimed impersonators, musicians, and specialty performers.</div>
+                </div>
+              </div>
+              <div class="feature-point">
+                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="feature-point-title">Full Production & Rider Management</div>
+                  <div class="feature-point-desc">We handle tech riders, sound equipment coordination, costuming, and staging so you can enjoy your event stress-free.</div>
+                </div>
+              </div>
+              <div class="feature-point">
+                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="feature-point-title">Local, National & Worldwide Booking</div>
+                  <div class="feature-point-desc">Headquartered in Florida and serving clients across the United States, Canada, and destination events worldwide.</div>
+                </div>
+              </div>
+              <div class="feature-point">
+                <div class="feature-check"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="feature-point-title">Direct Pricing & Custom Event Packages</div>
+                  <div class="feature-point-desc">Competitive pricing with transparent packages tailored specifically to your budget and guest count.</div>
+                </div>
+              </div>
+            </div>
+
+            <a href="tel:9544847884" class="btn-primary">
+              <i class="fa-solid fa-phone"></i>
+              <span>Speak With A Producer: 954-484-7884</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BOOKING / INSTANT QUOTE SECTION -->
+    <section class="booking-section" id="quote">
+      <div class="container">
+        <div class="booking-card">
+          <div class="section-header" style="margin-bottom: 20px;">
+            <span class="section-subtitle">Book Your Event</span>
+            <h2 class="section-title">Request An Instant Entertainment Proposal</h2>
+            <p class="section-desc">
+              Tell us about your event and our production coordinators will send you available talent options, pricing, and video reels.
+            </p>
+          </div>
+
+          <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+            <div class="form-grid">
+              <div>
+                <label class="form-label" for="clientName">Full Name / Organization *</label>
+                <input type="text" id="clientName" class="form-control" placeholder="e.g. Sarah Jenkins / Fortune 500 Gala" required />
+              </div>
+              <div>
+                <label class="form-label" for="clientPhone">Phone Number *</label>
+                <input type="tel" id="clientPhone" class="form-control" placeholder="e.g. (954) 555-0199" required />
+              </div>
+              <div>
+                <label class="form-label" for="clientEmail">Email Address *</label>
+                <input type="email" id="clientEmail" class="form-control" placeholder="e.g. planner@event.com" required />
+              </div>
+              <div>
+                <label class="form-label" for="eventTypeSelect">Event Type *</label>
+                <select id="eventTypeSelect" class="form-control" required>
+                  <option value="">Select Event Type</option>
+                  <option value="Corporate Event">Corporate Event / Gala</option>
+                  <option value="Wedding">Luxury Wedding</option>
+                  <option value="Charity Fundraiser">Charity Gala / Fundraiser</option>
+                  <option value="Casino Night">Casino Theme Night</option>
+                  <option value="55+ Community">55+ Community Stage Show</option>
+                  <option value="Private Birthday">Milestone Birthday / Anniversary</option>
+                  <option value="Bar/Bat Mitzvah">Bar / Bat Mitzvah</option>
+                  <option value="Festival/Fair">Festival / Concert / Fair</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label" for="talentInterest">Entertainment Requested *</label>
+                <select id="talentInterest" class="form-control" required>
+                  <option value="">Select Talent Category</option>
+                  <option value="Celebrity Lookalike">Celebrity Lookalikes & Tribute Artists</option>
+                  <option value="Tribute Band">Tribute Bands / Cover Bands</option>
+                  <option value="DJ / Live Music">DJ / Master of Ceremonies / Live Music</option>
+                  <option value="Living Tables / Red Carpet">Living Walking Tables / Living Red Carpet</option>
+                  <option value="Magician / Hypnotist">Magician / Illusionist / Hypnotist</option>
+                  <option value="Multiple Acts">Full Package (Multiple Acts)</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label" for="eventDate">Target Event Date & Location</label>
+                <input type="text" id="eventDate" class="form-control" placeholder="e.g. Nov 14, 2026 • Miami, FL" />
+              </div>
+              <div class="form-group-full">
+                <label class="form-label" for="eventNotes">Event Details & Specific Talent Desired</label>
+                <textarea id="eventNotes" class="form-control" rows="3" placeholder="Tell us about your theme, specific celebrity lookalikes (e.g. Elvis, Michael Jackson), venue size, and any special requests..."></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <div class="form-guarantee">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>Direct Pricing Guarantee • Fast 24-Hour Proposal Response</span>
+                </div>
+                <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">
+                  <span>Submit Inquiry & Get Pricing</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div id="formSuccessMessage" style="display: none; margin-top: 24px; padding: 20px; background: rgba(45, 211, 111, 0.15); border: 1px solid var(--green-accent); border-radius: var(--radius-sm); text-align: center; color: #fff;">
+            <h3 style="color: var(--green-accent); margin-bottom: 8px;"><i class="fa-solid fa-circle-check"></i> Inquiry Received!</h3>
+            <p>Thank you! A Besser Entertainment production specialist will contact you shortly with talent options and customized pricing.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- FOOTER -->
-
     <footer>
       <div class="container">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <div class="logo">BESSER<span>.</span></div>
-
-            <p>
-              Full-service special events entertainment production — from
-              celebrity lookalikes to tribute bands, DJs and specialty acts.
+        <div class="footer-grid">
+          <!-- Col 1: Brand & Logo -->
+          <div>
+            <a href="#" style="display: inline-block;">
+              <img src="assets/besser-mobile-logo.png" alt="Besser Entertainment" class="footer-logo-img" />
+            </a>
+            <p class="footer-tagline">
+              Besser Means Better. Full-service special events party production company bringing award-winning celebrity lookalikes, tribute bands, DJs, and specialty acts to audiences worldwide.
             </p>
+            <div style="color: var(--gold-light); font-size: 13px; font-weight: 700;">
+              Headquartered in Florida • Booking Worldwide
+            </div>
           </div>
 
-          <div class="footer-contact">
-            <strong>954-484-7884</strong>
+          <!-- Col 2: Entertainment Services -->
+          <div>
+            <h4 class="footer-heading">Entertainment</h4>
+            <ul class="footer-links">
+              <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/">Celebrity Lookalikes</a></li>
+              <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/">Tribute Bands</a></li>
+              <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/">Cover Bands</a></li>
+              <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/">Event DJs & MCs</a></li>
+              <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/">Living Walking Tables</a></li>
+              <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-red-carpet/">Living Red Carpet</a></li>
+              <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/">Magicians & Hypnotists</a></li>
+            </ul>
+          </div>
 
-            <span> Party@BesserEntertainment.com </span>
+          <!-- Col 3: Quick Navigation -->
+          <div>
+            <h4 class="footer-heading">Company</h4>
+            <ul class="footer-links">
+              <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/aboutus-best-lookalike-impersonator-best-tribute-band/">About Besser Entertainment</a></li>
+              <li><a href="#occasions">Event Types</a></li>
+              <li><a href="#why-besser">30+ Years Experience</a></li>
+              <li><a href="#quote">Talent Registration</a></li>
+              <li><a href="#quote">Request A Quote</a></li>
+              <li><a href="tel:9544847884">Direct Phone Line</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Direct Contact Box -->
+          <div>
+            <h4 class="footer-heading">Direct Booking Office</h4>
+            <div class="footer-contact-box">
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                <div>
+                  <div class="contact-text-label">Direct Phone</div>
+                  <a href="tel:9544847884" class="contact-text-val">(954) 484-7884</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+                <div>
+                  <div class="contact-text-label">Email Inquiries</div>
+                  <a href="mailto:party@besserentertainment.com" class="contact-text-val" style="font-size: 13px;">party@besserentertainment.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fa-regular fa-clock"></i></div>
+                <div>
+                  <div class="contact-text-label">Booking Hours</div>
+                  <div class="contact-text-val" style="font-size: 13px; font-weight: 500;">Mon - Sun: 9:00 AM – 5:00 PM EST</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="copyright">
-          © 2026 Besser Entertainment. All Rights Reserved.
+        <div class="footer-bottom">
+          <div>
+            © 2026 Besser Entertainment. All Rights Reserved. "Besser Means Better" is a trademark of Besser Entertainment.
+          </div>
+          <div>
+            <a href="#quote" style="color: var(--gold-light); margin-right: 20px;">Book Talent</a>
+            <a href="tel:9544847884" style="color: var(--text-muted);">(954) 484-7884</a>
+          </div>
         </div>
       </div>
     </footer>
+
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:9544847884" class="floating-call" title="Call Besser Entertainment Now">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call (954) 484-7884</span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+      // Header scroll state
+      window.addEventListener('scroll', () => {
+        const header = document.getElementById('mainHeader');
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Mobile Drawer open/close
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const drawerOverlay = document.getElementById('drawerOverlay');
+      const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+      if (mobileBtn && mobileDrawer && drawerOverlay) {
+        mobileBtn.addEventListener('click', () => {
+          mobileDrawer.classList.add('open');
+          drawerOverlay.classList.add('active');
+        });
+      }
+
+      function closeDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.remove('open');
+        if (drawerOverlay) drawerOverlay.classList.remove('active');
+      }
+
+      if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', closeDrawer);
+      }
+      if (drawerOverlay) {
+        drawerOverlay.addEventListener('click', closeDrawer);
+      }
+
+      // Mobile Accordion Submenu toggle
+      function toggleMobileSubmenu(id, btn) {
+        const submenu = document.getElementById(id);
+        if (submenu) {
+          submenu.classList.toggle('open');
+          if (btn) btn.classList.toggle('expanded');
+        }
+      }
+
+      // Filter Talent Gallery
+      function filterTalent(category, btnElement) {
+        // Toggle active button
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+
+        // Filter cards
+        const cards = document.querySelectorAll('.roster-card');
+        cards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      // Quick book specific talent
+      function bookTalent(talentName) {
+        const notes = document.getElementById('eventNotes');
+        const talentSelect = document.getElementById('talentInterest');
+        if (notes) {
+          notes.value = `Interested in booking: ${talentName}. Please provide availability and quote.`;
+        }
+        const quoteSection = document.getElementById('quote');
+        if (quoteSection) {
+          quoteSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      // Quick select event type from Occasions
+      function selectEventType(eventType) {
+        const typeSelect = document.getElementById('eventTypeSelect');
+        if (typeSelect) {
+          for (let i = 0; i < typeSelect.options.length; i++) {
+            if (typeSelect.options[i].text.toLowerCase().includes(eventType.toLowerCase().split(' ')[0])) {
+              typeSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+        const quoteSection = document.getElementById('quote');
+        if (quoteSection) {
+          quoteSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      // Form submission handler
+      function handleQuoteSubmit(e) {
+        e.preventDefault();
+        const form = document.getElementById('quoteForm');
+        const success = document.getElementById('formSuccessMessage');
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    </script>
   </body>
 </html>
