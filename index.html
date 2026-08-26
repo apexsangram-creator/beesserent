@@ -89,9 +89,126 @@
         font-family: inherit;
       }
 
+      /* -------------------------------------------
+         SITE-WIDE DIAGONAL WAVY COLOR BLEND BACKGROUND
+      -------------------------------------------- */
+      .ambient-wavy-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+        background: #060609;
+      }
+
+      .ambient-wave {
+        position: absolute;
+        width: 150vw;
+        height: 150vh;
+        top: -25vh;
+        left: -25vw;
+        filter: blur(100px);
+        opacity: 0.7;
+        mix-blend-mode: screen;
+        will-change: transform;
+      }
+
+      /* Wave Layer 1: Warm Champagne Gold & Amber Glow (Flowing from top-left to bottom-right) */
+      .wave-layer-gold {
+        background: radial-gradient(circle at 20% 20%, rgba(230, 185, 93, 0.28) 0%, transparent 45%),
+                    radial-gradient(circle at 80% 80%, rgba(212, 149, 43, 0.22) 0%, transparent 50%),
+                    radial-gradient(circle at 50% 50%, rgba(250, 225, 156, 0.15) 0%, transparent 40%);
+        animation: diagonalWaveFlow1 24s ease-in-out infinite alternate;
+      }
+
+      /* Wave Layer 2: Velvet Marquee Crimson & Coral (Flowing from top-right to bottom-left) */
+      .wave-layer-crimson {
+        background: radial-gradient(circle at 80% 20%, rgba(255, 45, 59, 0.2) 0%, transparent 45%),
+                    radial-gradient(circle at 20% 80%, rgba(225, 29, 72, 0.18) 0%, transparent 50%),
+                    radial-gradient(circle at 65% 55%, rgba(244, 63, 94, 0.12) 0%, transparent 40%);
+        mix-blend-mode: color-dodge;
+        animation: diagonalWaveFlow2 30s ease-in-out infinite alternate;
+      }
+
+      /* Wave Layer 3: Royal Indigo & Electric Violet */
+      .wave-layer-indigo {
+        background: radial-gradient(circle at 45% 15%, rgba(139, 92, 246, 0.18) 0%, transparent 45%),
+                    radial-gradient(circle at 85% 65%, rgba(99, 102, 241, 0.16) 0%, transparent 50%),
+                    radial-gradient(circle at 25% 60%, rgba(168, 85, 247, 0.14) 0%, transparent 45%);
+        mix-blend-mode: screen;
+        animation: diagonalWaveFlow3 36s ease-in-out infinite alternate;
+      }
+
+      /* Wave Layer 4: Stage Lights & Emerald Sparkle */
+      .wave-layer-emerald {
+        background: radial-gradient(circle at 60% 85%, rgba(45, 211, 111, 0.12) 0%, transparent 40%),
+                    radial-gradient(circle at 35% 35%, rgba(230, 185, 93, 0.15) 0%, transparent 40%);
+        mix-blend-mode: screen;
+        animation: diagonalWaveFlow4 42s ease-in-out infinite alternate;
+      }
+
+      /* Diagonal Flow Keyframes */
+      @keyframes diagonalWaveFlow1 {
+        0% {
+          transform: translate3d(-10%, -10%, 0) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate3d(8%, 12%, 0) rotate(10deg) scale(1.12);
+        }
+        100% {
+          transform: translate3d(14%, 16%, 0) rotate(-8deg) scale(1.05);
+        }
+      }
+
+      @keyframes diagonalWaveFlow2 {
+        0% {
+          transform: translate3d(12%, -8%, 0) rotate(0deg) scale(1.06);
+        }
+        50% {
+          transform: translate3d(-10%, 10%, 0) rotate(-12deg) scale(0.94);
+        }
+        100% {
+          transform: translate3d(-16%, 14%, 0) rotate(8deg) scale(1.15);
+        }
+      }
+
+      @keyframes diagonalWaveFlow3 {
+        0% {
+          transform: translate3d(0%, 10%, 0) rotate(0deg) scale(0.96);
+        }
+        50% {
+          transform: translate3d(14%, -14%, 0) rotate(14deg) scale(1.1);
+        }
+        100% {
+          transform: translate3d(-10%, -16%, 0) rotate(-10deg) scale(1.04);
+        }
+      }
+
+      @keyframes diagonalWaveFlow4 {
+        0% {
+          transform: translate3d(-6%, 12%, 0) rotate(0deg) scale(1.02);
+        }
+        50% {
+          transform: translate3d(10%, -8%, 0) rotate(-10deg) scale(0.95);
+        }
+        100% {
+          transform: translate3d(8%, 14%, 0) rotate(12deg) scale(1.08);
+        }
+      }
+
+      /* Subtle Noise & Vignette Overlay */
+      .ambient-wavy-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 30%, rgba(6, 6, 9, 0.7) 100%),
+                    linear-gradient(135deg, rgba(6, 6, 9, 0.6) 0%, rgba(10, 10, 15, 0.4) 50%, rgba(6, 6, 9, 0.7) 100%);
+      }
+
       .container {
         width: min(1360px, calc(100% - 36px));
         margin: 0 auto;
+        position: relative;
+        z-index: 2;
       }
 
       /* -------------------------------------------
@@ -1218,28 +1335,32 @@
       }
 
       /* -------------------------------------------
-         SERVICES FOUR PILLARS
+         SERVICES FOUR PILLARS (COMPACT & MODERN)
       -------------------------------------------- */
       .services-section {
-        background: linear-gradient(180deg, var(--bg-dark) 0%, #0c0c11 100%);
+        background: rgba(7, 7, 12, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 70px 0;
       }
 
       .pillars-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 22px;
+        gap: 16px;
       }
 
       .pillar-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-subtle);
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(12, 12, 17, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius-md);
-        padding: 32px 24px;
+        padding: 22px 20px;
         position: relative;
         overflow: hidden;
         transition: var(--transition);
         display: flex;
         flex-direction: column;
+        backdrop-filter: blur(12px);
       }
 
       .pillar-card::before {
@@ -1248,99 +1369,107 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 2px;
         background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
         opacity: 0;
         transition: opacity 0.3s ease;
       }
 
       .pillar-card:hover {
-        background: var(--bg-card-hover);
-        transform: translateY(-8px);
-        border-color: var(--border-gold);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        background: linear-gradient(145deg, rgba(28, 28, 38, 0.98) 0%, rgba(16, 16, 24, 0.98) 100%);
+        transform: translateY(-4px);
+        border-color: var(--gold-primary);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), var(--shadow-glow);
       }
 
       .pillar-card:hover::before {
         opacity: 1;
       }
 
+      .pillar-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
       .pillar-number {
         font-family: "Playfair Display", serif;
-        font-size: 16px;
-        font-weight: 700;
+        font-size: 13px;
+        font-weight: 800;
         color: var(--gold-primary);
-        letter-spacing: 2px;
-        margin-bottom: 24px;
+        letter-spacing: 1.5px;
       }
 
       .pillar-icon-box {
-        width: 58px;
-        height: 58px;
-        border-radius: 14px;
-        background: rgba(230, 185, 93, 0.1);
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: rgba(230, 185, 93, 0.12);
         border: 1px solid var(--border-gold);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
+        font-size: 15px;
         color: var(--gold-light);
-        margin-bottom: 22px;
       }
 
       .pillar-title {
         font-family: "Playfair Display", "Cormorant Garamond", serif;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 700;
         color: #fff;
-        margin-bottom: 14px;
+        margin-bottom: 8px;
         line-height: 1.25;
       }
 
       .pillar-text {
-        font-size: 14px;
+        font-size: 12.5px;
         color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 20px;
+        line-height: 1.55;
+        margin-bottom: 14px;
         flex-grow: 1;
       }
 
       .pillar-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 20px;
+        gap: 5px;
+        margin-bottom: 14px;
       }
 
       .pillar-tag {
-        font-size: 11px;
-        background: rgba(255, 255, 255, 0.05);
-        color: #bbb;
-        padding: 3px 8px;
+        font-size: 10.5px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: #ccc;
+        padding: 2px 7px;
         border-radius: 4px;
       }
 
       .pillar-link {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
         color: var(--gold-light);
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       .pillar-link:hover {
         color: #fff;
-        transform: translateX(4px);
+        transform: translateX(3px);
       }
 
       /* -------------------------------------------
          WORLD FAMOUS BIG CELEBRITY HEADS SECTION
       -------------------------------------------- */
       .big-heads-section {
-        background: radial-gradient(circle at 80% 20%, rgba(230, 185, 93, 0.08) 0%, transparent 60%),
-                    radial-gradient(circle at 20% 80%, rgba(255, 45, 59, 0.06) 0%, transparent 60%),
-                    #0a0a10;
+        background: rgba(10, 10, 16, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-top: 1px solid var(--border-gold);
         border-bottom: 1px solid var(--border-subtle);
         padding: 90px 0;
@@ -1349,12 +1478,13 @@
       }
 
       .big-heads-hero-box {
-        background: linear-gradient(135deg, rgba(24, 24, 34, 0.9) 0%, rgba(13, 13, 19, 0.95) 100%);
+        background: linear-gradient(135deg, rgba(24, 24, 34, 0.85) 0%, rgba(13, 13, 19, 0.9) 100%);
         border: 1px solid var(--border-gold);
         border-radius: var(--radius-lg);
         padding: 44px;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), var(--shadow-glow);
         margin-bottom: 40px;
+        backdrop-filter: blur(10px);
       }
 
       .big-heads-grid {
@@ -1482,7 +1612,9 @@
          FEATURED ROSTER / FILTERABLE TALENT GALLERY
       -------------------------------------------- */
       .roster-section {
-        background: #09090e;
+        background: rgba(9, 9, 14, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
 
       .roster-filters {
@@ -1494,7 +1626,7 @@
       }
 
       .filter-btn {
-        background: var(--bg-card);
+        background: rgba(18, 18, 24, 0.8);
         border: 1px solid var(--border-subtle);
         color: var(--text-muted);
         font-weight: 600;
@@ -1506,6 +1638,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        backdrop-filter: blur(8px);
       }
 
       .filter-btn:hover,
@@ -1523,19 +1656,20 @@
       }
 
       .roster-card {
-        background: var(--bg-card);
+        background: rgba(18, 18, 24, 0.85);
         border: 1px solid var(--border-subtle);
         border-radius: var(--radius-md);
         overflow: hidden;
         transition: var(--transition);
         display: flex;
         flex-direction: column;
+        backdrop-filter: blur(12px);
       }
 
       .roster-card:hover {
         transform: translateY(-8px);
         border-color: var(--border-gold);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), var(--shadow-glow);
       }
 
       .roster-thumb {
@@ -1639,12 +1773,278 @@
       }
 
       /* -------------------------------------------
+         AWARD-WINNING TRIBUTE BANDS MASTER DIRECTORY
+      -------------------------------------------- */
+      .tribute-catalog-section {
+        background: rgba(8, 8, 13, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid var(--border-gold);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 95px 0;
+        position: relative;
+      }
+
+      .authority-metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+
+      .authority-metric-card {
+        background: rgba(18, 18, 25, 0.85);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 20px 18px;
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .authority-metric-card:hover {
+        border-color: var(--gold-primary);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      }
+
+      .authority-metric-card i {
+        font-size: 24px;
+        color: var(--gold-primary);
+        margin-bottom: 10px;
+      }
+
+      .authority-metric-card strong {
+        display: block;
+        font-size: 15px;
+        color: #fff;
+        font-family: "Playfair Display", serif;
+        margin-bottom: 4px;
+      }
+
+      .authority-metric-card span {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .tribute-search-bar-wrap {
+        max-width: 600px;
+        margin: 0 auto 30px;
+        position: relative;
+      }
+
+      .tribute-search-input {
+        width: 100%;
+        background: rgba(14, 14, 20, 0.9);
+        border: 1px solid var(--border-gold);
+        border-radius: 50px;
+        padding: 15px 22px 15px 48px;
+        color: #fff;
+        font-size: 14px;
+        transition: var(--transition);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      }
+
+      .tribute-search-input:focus {
+        outline: none;
+        border-color: var(--gold-light);
+        box-shadow: 0 0 20px rgba(230, 185, 93, 0.35);
+      }
+
+      .tribute-search-bar-wrap i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold-primary);
+        font-size: 16px;
+      }
+
+      .tribute-genre-tabs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 35px;
+      }
+
+      .genre-tab-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        font-size: 12.5px;
+        font-weight: 700;
+        padding: 9px 18px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .genre-tab-btn:hover,
+      .genre-tab-btn.active {
+        background: var(--gold-primary);
+        color: #070709;
+        border-color: var(--gold-primary);
+        box-shadow: 0 4px 15px rgba(230, 185, 93, 0.3);
+      }
+
+      .tribute-bands-chip-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 45px;
+      }
+
+      .tribute-band-chip {
+        background: rgba(18, 18, 25, 0.85);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        transition: var(--transition);
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+      }
+
+      .tribute-band-chip:hover {
+        background: rgba(28, 28, 38, 0.95);
+        border-color: var(--gold-primary);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(230, 185, 93, 0.15);
+      }
+
+      .band-chip-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .band-chip-thumb {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-gold);
+        flex-shrink: 0;
+        background: #09090d;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      }
+
+      .band-chip-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .tribute-band-chip:hover .band-chip-thumb img {
+        transform: scale(1.15);
+      }
+
+      .band-chip-info {
+        min-width: 0;
+      }
+
+      .band-chip-name {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .band-chip-genre {
+        font-size: 11px;
+        color: var(--gold-primary);
+      }
+
+      .band-chip-btn {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border-subtle);
+        color: var(--text-muted);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        transition: var(--transition);
+        flex-shrink: 0;
+      }
+
+      .tribute-band-chip:hover .band-chip-btn {
+        background: var(--gold-primary);
+        color: #070709;
+        border-color: var(--gold-primary);
+      }
+
+      .tribute-cta-card {
+        background: linear-gradient(135deg, rgba(28, 28, 38, 0.95) 0%, rgba(15, 15, 22, 0.98) 100%);
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+      }
+
+      .tribute-cta-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(24px, 3.5vw, 36px);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+
+      .tribute-cta-desc {
+        font-size: 15px;
+        color: var(--text-muted);
+        max-width: 650px;
+        margin: 0 auto 28px;
+      }
+
+      .tribute-cta-btns {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      @media (max-width: 1024px) {
+        .tribute-bands-chip-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .authority-metrics-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .tribute-bands-chip-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .tribute-bands-chip-grid {
+          grid-template-columns: 1fr;
+        }
+        .authority-metrics-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* -------------------------------------------
          SPECIALTY & UNIQUE ACTS SPOTLIGHT
       -------------------------------------------- */
       .specialty-spotlight {
-        background: radial-gradient(circle at 20% 50%, rgba(230, 185, 93, 0.06) 0%, transparent 60%),
-                    radial-gradient(circle at 80% 50%, rgba(255, 45, 59, 0.05) 0%, transparent 60%),
-                    #0b0b10;
+        background: rgba(11, 11, 16, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-top: 1px solid var(--border-subtle);
         border-bottom: 1px solid var(--border-subtle);
       }
@@ -1722,7 +2122,9 @@
          EVENT TYPES GRID
       -------------------------------------------- */
       .occasions-section {
-        background: var(--bg-dark);
+        background: rgba(7, 7, 10, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
 
       .occasions-grid {
@@ -1732,7 +2134,7 @@
       }
 
       .occasion-box {
-        background: var(--bg-card);
+        background: rgba(18, 18, 24, 0.8);
         border: 1px solid var(--border-subtle);
         border-radius: var(--radius-sm);
         padding: 26px 16px;
@@ -1744,12 +2146,14 @@
         gap: 14px;
         transition: var(--transition);
         cursor: pointer;
+        backdrop-filter: blur(8px);
       }
 
       .occasion-box:hover {
-        background: linear-gradient(135deg, rgba(230, 185, 93, 0.15) 0%, rgba(230, 185, 93, 0.05) 100%);
+        background: linear-gradient(135deg, rgba(230, 185, 93, 0.2) 0%, rgba(230, 185, 93, 0.08) 100%);
         border-color: var(--gold-primary);
         transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
       }
 
       .occasion-icon {
@@ -1773,7 +2177,9 @@
          WHY BESSER / PRODUCTION ADVANTAGE
       -------------------------------------------- */
       .why-besser {
-        background: #0d0d12;
+        background: rgba(13, 13, 18, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
 
       .why-grid {
@@ -1868,18 +2274,21 @@
          INTERACTIVE INSTANT QUOTE / BOOKING FORM
       -------------------------------------------- */
       .booking-section {
-        background: radial-gradient(circle at center, #171722 0%, #08080c 100%);
+        background: rgba(10, 10, 15, 0.72);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-top: 1px solid var(--border-subtle);
       }
 
       .booking-card {
-        background: var(--bg-card);
+        background: rgba(18, 18, 25, 0.88);
         border: 1px solid var(--border-gold);
         border-radius: var(--radius-lg);
         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--shadow-glow);
         padding: 48px;
         max-width: 960px;
         margin: 0 auto;
+        backdrop-filter: blur(12px);
       }
 
       .form-grid {
@@ -2327,6 +2736,15 @@
   </head>
 
   <body>
+    <!-- SITE-WIDE DIAGONAL WAVY COLOR BLEND BACKGROUND -->
+    <div class="ambient-wavy-canvas" aria-hidden="true">
+      <div class="ambient-wave wave-layer-gold"></div>
+      <div class="ambient-wave wave-layer-crimson"></div>
+      <div class="ambient-wave wave-layer-indigo"></div>
+      <div class="ambient-wave wave-layer-emerald"></div>
+      <div class="ambient-wavy-overlay"></div>
+    </div>
+
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-announcement">
       <div class="container top-announcement-inner">
@@ -2429,7 +2847,7 @@
 
             <!-- 4. TRIBUTE BANDS | TRIBUTE SHOWS (Mega Dropdown) -->
             <li class="nav-item">
-              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/" class="nav-link">
+              <a href="#tribute-directory" class="nav-link">
                 TRIBUTE BANDS <i class="fa-solid fa-chevron-down"></i>
               </a>
               <div class="dropdown-menu dropdown-mega-bands">
@@ -2649,7 +3067,7 @@
         <!-- Tribute Bands Accordion -->
         <li class="mobile-nav-item">
           <div class="mobile-nav-header-row">
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/" class="mobile-nav-link">TRIBUTE BANDS</a>
+            <a href="#tribute-directory" class="mobile-nav-link" onclick="closeDrawer()">TRIBUTE BANDS</a>
             <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-tribute', this)"><i class="fa-solid fa-chevron-down"></i></button>
           </div>
           <div class="mobile-sub-menu" id="mob-tribute">
@@ -3044,11 +3462,13 @@
         <div class="pillars-grid">
           <!-- Pillar 1 -->
           <div class="pillar-card">
-            <div class="pillar-number">01</div>
-            <div class="pillar-icon-box"><i class="fa-solid fa-star"></i></div>
+            <div class="pillar-header-row">
+              <span class="pillar-number">01</span>
+              <div class="pillar-icon-box"><i class="fa-solid fa-star"></i></div>
+            </div>
             <h3 class="pillar-title">Celebrity Lookalikes & Tribute Artists</h3>
             <p class="pillar-text">
-              Astonish your guests with premier celebrity impersonators, lookalikes, and Vegas-caliber tribute artists who look, sound, and captivate just like the legends.
+              Astonish guests with Vegas-caliber celebrity impersonators and lookalikes who look, sound, and captivate just like the legends.
             </p>
             <div class="pillar-tags">
               <span class="pillar-tag">Elvis</span>
@@ -3062,11 +3482,13 @@
 
           <!-- Pillar 2 -->
           <div class="pillar-card">
-            <div class="pillar-number">02</div>
-            <div class="pillar-icon-box"><i class="fa-solid fa-guitar"></i></div>
+            <div class="pillar-header-row">
+              <span class="pillar-number">02</span>
+              <div class="pillar-icon-box"><i class="fa-solid fa-guitar"></i></div>
+            </div>
             <h3 class="pillar-title">Tribute Bands & Cover Bands</h3>
             <p class="pillar-text">
-              Concert-grade tribute bands performing timeless anthems from classic rock, Motown, 80s pop, country, and modern chart-toppers with full live stage production.
+              Concert-grade tribute bands performing timeless rock, Motown, 80s pop, and country anthems with full live stage production.
             </p>
             <div class="pillar-tags">
               <span class="pillar-tag">Beatles</span>
@@ -3075,16 +3497,18 @@
               <span class="pillar-tag">Fleetwood Mac</span>
               <span class="pillar-tag">Led Zeppelin</span>
             </div>
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/" class="pillar-link">Browse Tribute Bands <i class="fa-solid fa-chevron-right"></i></a>
+            <a href="#tribute-directory" class="pillar-link">Browse Tribute Bands <i class="fa-solid fa-chevron-right"></i></a>
           </div>
 
           <!-- Pillar 3 -->
           <div class="pillar-card">
-            <div class="pillar-number">03</div>
-            <div class="pillar-icon-box"><i class="fa-solid fa-headphones"></i></div>
+            <div class="pillar-header-row">
+              <span class="pillar-number">03</span>
+              <div class="pillar-icon-box"><i class="fa-solid fa-headphones"></i></div>
+            </div>
             <h3 class="pillar-title">DJs, Musicians & Live Ensembles</h3>
             <p class="pillar-text">
-              The heartbeat of your celebration. Dynamic party DJs, master MCs, solo saxophonists, acoustic duos, jazz trios, and high-energy party dance bands.
+              Dynamic party DJs, master MCs, solo saxophonists, acoustic duos, jazz trios, and high-energy party dance bands.
             </p>
             <div class="pillar-tags">
               <span class="pillar-tag">Event DJs & MCs</span>
@@ -3096,11 +3520,13 @@
 
           <!-- Pillar 4 -->
           <div class="pillar-card">
-            <div class="pillar-number">04</div>
-            <div class="pillar-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="pillar-header-row">
+              <span class="pillar-number">04</span>
+              <div class="pillar-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            </div>
             <h3 class="pillar-title">Unique & Specialty Interactive Acts</h3>
             <p class="pillar-text">
-              Immersive novelty entertainment that commands attention: Living Walking Tables serving champagne, Living Red Carpets, Master Magicians, Hypnotists, and Cirque Dancers.
+              Immersive novelty acts: Living Walking Tables, Living Red Carpets, Master Magicians, Hypnotists, and Cirque Dancers.
             </p>
             <div class="pillar-tags">
               <span class="pillar-tag">Living Tables</span>
@@ -3108,7 +3534,7 @@
               <span class="pillar-tag">Magicians</span>
               <span class="pillar-tag">Hypnotists</span>
             </div>
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/other-services/" class="pillar-link">Explore Specialty Acts <i class="fa-solid fa-chevron-right"></i></a>
+            <a href="#specialty" class="pillar-link">Explore Specialty Acts <i class="fa-solid fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
@@ -3403,6 +3829,645 @@
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         AWARD-WINNING TRIBUTE BANDS & SHOWS MASTER DIRECTORY
+         (Voted #1 In The World • Over 30 Years Experience)
+    ======================================================== -->
+    <section class="tribute-catalog-section" id="tribute-directory">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header" style="max-width: 860px;">
+          <span class="section-subtitle"><i class="fa-solid fa-trophy"></i> Voted #1 In The World • 30+ Years Experience</span>
+          <h2 class="section-title">
+            Let Us Help You Find The Talent <br />
+            <span class="highlight">You Are Looking For</span>
+          </h2>
+          <p class="section-desc">
+            The #1 source for Award-Winning Best Tribute Bands, Tribute Shows & Celebrity Lookalike Impersonators. Featuring the largest, most requested talent roster in the world — available Locally Near You, Nationally, and for International Touring.
+          </p>
+        </div>
+
+        <!-- 4 Authority Pillars -->
+        <div class="authority-metrics-grid">
+          <div class="authority-metric-card">
+            <i class="fa-solid fa-award"></i>
+            <strong>Voted #1 Globally</strong>
+            <span>Top-rated tribute band & lookalike agency worldwide</span>
+          </div>
+          <div class="authority-metric-card">
+            <i class="fa-solid fa-users-viewfinder"></i>
+            <strong>Largest Roster In The World</strong>
+            <span>500+ headline tribute acts & celebrity doubles</span>
+          </div>
+          <div class="authority-metric-card">
+            <i class="fa-solid fa-earth-americas"></i>
+            <strong>Local, National & Worldwide</strong>
+            <span>Available near you or touring across the globe</span>
+          </div>
+          <div class="authority-metric-card">
+            <i class="fa-solid fa-phone-volume"></i>
+            <strong>Direct Booking Hotline</strong>
+            <a href="tel:9544847884" style="color: var(--gold-light); font-weight: 700; font-size: 13px;">(954) 484-7884</a>
+          </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="tribute-search-bar-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="tributeSearchInput"
+            class="tribute-search-input"
+            placeholder="Search 40+ tribute bands (e.g. Beatles, Eagles, ABBA, Journey, Taylor Swift...)"
+            onkeyup="filterTributeChipsLive()"
+          />
+        </div>
+
+        <!-- Genre Filter Tabs -->
+        <div class="tribute-genre-tabs">
+          <button class="genre-tab-btn active" onclick="filterTributeGenre('all', this)">
+            <i class="fa-solid fa-globe"></i> All Tribute Bands (40+)
+          </button>
+          <button class="genre-tab-btn" onclick="filterTributeGenre('classic-rock', this)">
+            <i class="fa-solid fa-guitar"></i> Classic & Arena Rock
+          </button>
+          <button class="genre-tab-btn" onclick="filterTributeGenre('pop-motown', this)">
+            <i class="fa-solid fa-music"></i> Pop, Soul & Motown
+          </button>
+          <button class="genre-tab-btn" onclick="filterTributeGenre('decades-80s', this)">
+            <i class="fa-solid fa-bolt"></i> Decades, 80s & Heavy Rock
+          </button>
+          <button class="genre-tab-btn" onclick="filterTributeGenre('country-folk', this)">
+            <i class="fa-solid fa-hat-cowboy"></i> Country, Folk & Specialty
+          </button>
+        </div>
+
+        <!-- Master Tribute Bands Interactive Chips Grid -->
+        <div class="tribute-bands-chip-grid" id="tributeChipsContainer">
+          <!-- 1. The Beatles -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('The Beatles Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop" alt="The Beatles Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">The Beatles</div>
+                <div class="band-chip-genre">Classic Rock Legend</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 2. The Eagles -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('The Eagles Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=200&auto=format&fit=crop" alt="The Eagles Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">The Eagles</div>
+                <div class="band-chip-genre">Hotel California Rock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 3. The Beach Boys -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('The Beach Boys Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=200&auto=format&fit=crop" alt="The Beach Boys Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">The Beach Boys</div>
+                <div class="band-chip-genre">Surf Rock & Harmonies</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 4. Fleetwood Mac -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('Fleetwood Mac Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=200&auto=format&fit=crop" alt="Fleetwood Mac Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Fleetwood Mac</div>
+                <div class="band-chip-genre">Rumours / Stevie Nicks</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 5. ABBA -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('ABBA Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=200&auto=format&fit=crop" alt="ABBA Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">ABBA</div>
+                <div class="band-chip-genre">Dancing Queen Pop</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 6. Journey -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('Journey Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=200&auto=format&fit=crop" alt="Journey Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Journey</div>
+                <div class="band-chip-genre">80s Arena Anthems</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 7. Led Zeppelin -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('Led Zeppelin Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?q=80&w=200&auto=format&fit=crop" alt="Led Zeppelin Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Led Zeppelin</div>
+                <div class="band-chip-genre">Hard Rock Powerhouse</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 8. Bee Gees -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Bee Gees Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=200&auto=format&fit=crop" alt="Bee Gees Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Bee Gees</div>
+                <div class="band-chip-genre">Stayin' Alive Disco</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 9. Taylor Swift -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Taylor Swift Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=200&auto=format&fit=crop" alt="Taylor Swift Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Taylor Swift</div>
+                <div class="band-chip-genre">Eras Pop Sensation</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 10. AC/DC -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('AC/DC Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=200&auto=format&fit=crop" alt="AC/DC Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">AC/DC Tribute</div>
+                <div class="band-chip-genre">High Voltage Rock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 11. Celine Dion -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Celine Dion Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Celine Dion Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Celine Dion</div>
+                <div class="band-chip-genre">Vocal Powerhouse Tribute</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 12. Motown Legends -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Motown Tribute Show')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop" alt="Motown Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Motown Tribute</div>
+                <div class="band-chip-genre">Hitsville Soul Classics</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 13. Creedence Clearwater Revival (CCR) -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('CCR Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=200&auto=format&fit=crop" alt="CCR Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">CCR (Credence)</div>
+                <div class="band-chip-genre">Roots & Swamp Rock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 14. Stevie Wonder -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Stevie Wonder Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1520523839898-50712405373a?q=80&w=200&auto=format&fit=crop" alt="Stevie Wonder Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Stevie Wonder</div>
+                <div class="band-chip-genre">Funk & Motown Icon</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 15. Rolling Stones -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('Rolling Stones Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=200&auto=format&fit=crop" alt="Rolling Stones Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Rolling Stones</div>
+                <div class="band-chip-genre">Rock & Roll Royalty</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 16. U2 - Bono -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('U2 Bono Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=200&auto=format&fit=crop" alt="U2 Bono Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">U2 (Bono)</div>
+                <div class="band-chip-genre">Stadium Rock Experience</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 17. Van Halen -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('Van Halen Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=200&auto=format&fit=crop" alt="Van Halen Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Van Halen</div>
+                <div class="band-chip-genre">80s Heavy Guitar Rock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 18. Barry Manilow -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Barry Manilow Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=200&auto=format&fit=crop" alt="Barry Manilow Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Barry Manilow</div>
+                <div class="band-chip-genre">Copacabana Showstopper</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 19. Blues Brothers -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Blues Brothers Tribute Show')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Blues Brothers Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Blues Brothers</div>
+                <div class="band-chip-genre">High-Energy Soul & Blues</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 20. Santana -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('Santana Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=200&auto=format&fit=crop" alt="Santana Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Santana</div>
+                <div class="band-chip-genre">Latin Rock & Fusion</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 21. Coldplay -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Coldplay Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=200&auto=format&fit=crop" alt="Coldplay Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Coldplay</div>
+                <div class="band-chip-genre">Modern Stadium Anthems</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 22. Hall and Oates -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Hall and Oates Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop" alt="Hall and Oates Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Hall & Oates</div>
+                <div class="band-chip-genre">Philly Pop-Soul</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 23. Jersey Boys (Frankie Valli) -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Jersey Boys Tribute Show')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="Jersey Boys Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Jersey Boys</div>
+                <div class="band-chip-genre">Frankie Valli & 4 Seasons</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 24. Jimmy Buffett -->
+          <div class="tribute-band-chip" data-genre="country-folk" onclick="bookTalent('Jimmy Buffett Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=200&auto=format&fit=crop" alt="Jimmy Buffett Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Jimmy Buffett</div>
+                <div class="band-chip-genre">Margaritaville Party</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 25. Motley Crue -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('Motley Crue Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=200&auto=format&fit=crop" alt="Motley Crue Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Motley Crue</div>
+                <div class="band-chip-genre">80s Glam Metal</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 26. Chicago -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('Chicago Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1520523839898-50712405373a?q=80&w=200&auto=format&fit=crop" alt="Chicago Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Chicago</div>
+                <div class="band-chip-genre">Horn Rock & Ballads</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 27. Phil Collins - Genesis -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('Phil Collins Genesis Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=200&auto=format&fit=crop" alt="Phil Collins Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Phil Collins - Genesis</div>
+                <div class="band-chip-genre">80s Drum & Pop Rock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 28. Sam Cooke -->
+          <div class="tribute-band-chip" data-genre="pop-motown" onclick="bookTalent('Sam Cooke Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=200&auto=format&fit=crop" alt="Sam Cooke Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Sam Cooke</div>
+                <div class="band-chip-genre">King of Soul</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 29. Tim McGraw & Faith Hill -->
+          <div class="tribute-band-chip" data-genre="country-folk" onclick="bookTalent('Tim McGraw Faith Hill Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Tim McGraw Faith Hill Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Tim McGraw & Faith Hill</div>
+                <div class="band-chip-genre">Country Supercouple</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 30. Allman Brothers -->
+          <div class="tribute-band-chip" data-genre="classic-rock" onclick="bookTalent('Allman Brothers Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=200&auto=format&fit=crop" alt="Allman Brothers Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Allman Brothers</div>
+                <div class="band-chip-genre">Southern Rock & Jam</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 31. Heart & Pat Benatar -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('Heart Pat Benatar Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=200&auto=format&fit=crop" alt="Heart Pat Benatar Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Heart & Pat Benatar</div>
+                <div class="band-chip-genre">Women of Rock Show</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 32. Van Morrison -->
+          <div class="tribute-band-chip" data-genre="country-folk" onclick="bookTalent('Van Morrison Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=200&auto=format&fit=crop" alt="Van Morrison Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Van Morrison</div>
+                <div class="band-chip-genre">Brown Eyed Girl Folk-Soul</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 33. John Denver -->
+          <div class="tribute-band-chip" data-genre="country-folk" onclick="bookTalent('John Denver Tribute')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop" alt="John Denver Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">John Denver</div>
+                <div class="band-chip-genre">Country Roads Folk</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 34. 60's Tribute Band -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('60s Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop" alt="60s Tribute Band" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">60’s Tribute Band</div>
+                <div class="band-chip-genre">British Invasion & Woodstock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 35. 70's Tribute Band -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('70s Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=200&auto=format&fit=crop" alt="70s Tribute Band" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">70’s Tribute Band</div>
+                <div class="band-chip-genre">Classic Vinyl & Studio 54</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 36. 80's Tribute Band -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('80s Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=200&auto=format&fit=crop" alt="80s Tribute Band" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">80’s Tribute Band</div>
+                <div class="band-chip-genre">MTV Neon Pop & Big Hair Rock</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 37. Ghost Tribute -->
+          <div class="tribute-band-chip" data-genre="decades-80s" onclick="bookTalent('Ghost Tribute Band')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=200&auto=format&fit=crop" alt="Ghost Tribute" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Ghost Tribute</div>
+                <div class="band-chip-genre">Theatrical Rock Spectacle</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- 38. Country Legends Show -->
+          <div class="tribute-band-chip" data-genre="country-folk" onclick="bookTalent('Country Legends Tribute Show')">
+            <div class="band-chip-left">
+              <div class="band-chip-thumb">
+                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=200&auto=format&fit=crop" alt="Country Legends Tribute Show" />
+              </div>
+              <div class="band-chip-info">
+                <div class="band-chip-name">Country Legends Show</div>
+                <div class="band-chip-genre">Nashville All-Stars Tribute</div>
+              </div>
+            </div>
+            <div class="band-chip-btn" title="Book Band"><i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+
+        <!-- Roster & Video Preview CTA Card -->
+        <div class="tribute-cta-card">
+          <div style="color: var(--gold-light); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">
+            ★ And Lots More of the Best, #1 Award-Winning Tribute Bands & Shows ★
+          </div>
+          <h3 class="tribute-cta-title">Looking For A Specific Tribute Band Or Video Demo?</h3>
+          <p class="tribute-cta-desc">
+            Explore our complete video showcase with full live concert footage, audio demos, band bios, and instant booking availability for your city or venue.
+          </p>
+          <div class="tribute-cta-btns">
+            <a
+              href="https://web.archive.org/web/20260610062723/https://www.besserentertainment.com/hire-top-best-tribute-bands/"
+              target="_blank"
+              class="btn-primary"
+            >
+              <i class="fa-solid fa-play"></i>
+              <span>See Full Video & Band Roster</span>
+            </a>
+            <a href="tel:9544847884" class="btn-secondary">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Direct Booking: (954) 484-7884</span>
+            </a>
+            <button class="btn-secondary" onclick="bookTalent('Custom Tribute Band Booking')">
+              <i class="fa-solid fa-file-signature"></i>
+              <span>Request Custom Proposal</span>
+            </button>
           </div>
         </div>
       </div>
@@ -3897,15 +4962,36 @@
         success.style.display = 'block';
       }
 
-      // Newsletter submission handler
-      function handleNewsletterSubmit(e) {
-        e.preventDefault();
-        const form = document.getElementById('newsletterForm');
-        const success = document.getElementById('newsletterSuccess');
-        if (form && success) {
-          form.style.display = 'none';
-          success.style.display = 'block';
-        }
+      // Tribute Bands Directory Genre Filter
+      let currentTributeGenre = 'all';
+
+      function filterTributeGenre(genre, btnElement) {
+        currentTributeGenre = genre;
+        document.querySelectorAll('.genre-tab-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+        filterTributeChipsLive();
+      }
+
+      // Live text search & combined genre filter for Tribute Bands
+      function filterTributeChipsLive() {
+        const searchInput = document.getElementById('tributeSearchInput');
+        const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const chips = document.querySelectorAll('.tribute-band-chip');
+
+        chips.forEach(chip => {
+          const genre = chip.getAttribute('data-genre');
+          const bandName = chip.querySelector('.band-chip-name') ? chip.querySelector('.band-chip-name').textContent.toLowerCase() : '';
+          const bandGenreText = chip.querySelector('.band-chip-genre') ? chip.querySelector('.band-chip-genre').textContent.toLowerCase() : '';
+
+          const matchesGenre = (currentTributeGenre === 'all' || genre === currentTributeGenre);
+          const matchesQuery = !query || bandName.includes(query) || bandGenreText.includes(query);
+
+          if (matchesGenre && matchesQuery) {
+            chip.style.display = 'flex';
+          } else {
+            chip.style.display = 'none';
+          }
+        });
       }
     </script>
   </body>
