@@ -1609,35 +1609,37 @@
       }
 
       /* -------------------------------------------
-         FEATURED ROSTER / FILTERABLE TALENT GALLERY
+         FEATURED ROSTER GALLERY (COMPACT & MODERN)
       -------------------------------------------- */
       .roster-section {
-        background: rgba(9, 9, 14, 0.72);
+        padding: 70px 0;
+        background: rgba(6, 6, 10, 0.6);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
       }
 
       .roster-filters {
         display: flex;
+        align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 45px;
+        gap: 8px;
+        margin-bottom: 30px;
       }
 
       .filter-btn {
-        background: rgba(18, 18, 24, 0.8);
+        background: rgba(18, 18, 25, 0.85);
         border: 1px solid var(--border-subtle);
         color: var(--text-muted);
-        font-weight: 600;
-        font-size: 13px;
-        padding: 10px 22px;
-        border-radius: 30px;
+        padding: 7px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
         cursor: pointer;
         transition: var(--transition);
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         backdrop-filter: blur(8px);
       }
 
@@ -1652,12 +1654,12 @@
       .roster-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
+        gap: 18px;
       }
 
       .roster-card {
-        background: rgba(18, 18, 24, 0.85);
-        border: 1px solid var(--border-subtle);
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(12, 12, 18, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: var(--radius-md);
         overflow: hidden;
         transition: var(--transition);
@@ -1667,13 +1669,13 @@
       }
 
       .roster-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--border-gold);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+        transform: translateY(-5px);
+        border-color: var(--gold-primary);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7), var(--shadow-glow);
       }
 
       .roster-thumb {
-        height: 320px;
+        height: 190px;
         position: relative;
         overflow: hidden;
       }
@@ -1686,30 +1688,30 @@
       }
 
       .roster-card:hover .roster-thumb img {
-        transform: scale(1.07);
+        transform: scale(1.08);
       }
 
       .roster-badge {
         position: absolute;
-        top: 16px;
-        left: 16px;
-        background: rgba(7, 7, 9, 0.85);
+        top: 10px;
+        left: 10px;
+        background: rgba(7, 7, 9, 0.88);
         backdrop-filter: blur(8px);
         border: 1px solid var(--border-gold);
         color: var(--gold-light);
-        font-size: 11px;
+        font-size: 9.5px;
         font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 5px 12px;
-        border-radius: 20px;
+        letter-spacing: 0.8px;
+        padding: 3px 9px;
+        border-radius: 12px;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
       }
 
       .roster-details {
-        padding: 24px;
+        padding: 16px 18px 18px;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -1717,24 +1719,25 @@
 
       .roster-title {
         font-family: "Playfair Display", "Cormorant Garamond", serif;
-        font-size: 23px;
+        font-size: 17px;
         font-weight: 700;
         color: #fff;
-        margin-bottom: 8px;
+        margin-bottom: 3px;
+        line-height: 1.3;
       }
 
       .roster-subtitle {
-        font-size: 13px;
+        font-size: 11.5px;
         color: var(--gold-primary);
         font-weight: 600;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
       }
 
       .roster-desc {
-        font-size: 14px;
+        font-size: 12px;
         color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 20px;
+        line-height: 1.5;
+        margin-bottom: 14px;
         flex-grow: 1;
       }
 
@@ -1742,12 +1745,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 16px;
-        border-top: 1px solid var(--border-subtle);
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       .roster-tags-inline {
-        font-size: 12px;
+        font-size: 11px;
         color: var(--text-dim);
       }
 
@@ -1755,16 +1758,16 @@
         background: transparent;
         border: 1px solid var(--border-gold);
         color: var(--gold-light);
-        padding: 7px 16px;
-        border-radius: 20px;
-        font-size: 12px;
+        padding: 5px 12px;
+        border-radius: 16px;
+        font-size: 11px;
         font-weight: 700;
         text-transform: uppercase;
         cursor: pointer;
         transition: var(--transition);
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
       }
 
       .btn-inquire-card:hover {
