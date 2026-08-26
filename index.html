@@ -1165,46 +1165,62 @@
         transform: translateY(-2px);
       }
 
-      /* Hero Visual Showcase Cards */
+      /* Hero Visual Showcase Cards - 3D FLIP ON HOVER */
       .hero-showcase-mosaic {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+        perspective: 1000px;
       }
 
-      .mosaic-card {
-        position: relative;
-        border-radius: var(--radius-md);
-        overflow: hidden;
+      .mosaic-card-flip-wrap {
         height: 220px;
-        border: 1px solid var(--border-subtle);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        transition: var(--transition);
+        position: relative;
+        perspective: 1000px;
+        border-radius: var(--radius-md);
       }
 
-      .mosaic-card:nth-child(2) {
+      .mosaic-card-flip-wrap:nth-child(2) {
         transform: translateY(24px);
       }
 
-      .mosaic-card:hover {
-        transform: translateY(-4px) scale(1.02);
-        border-color: var(--border-gold);
-        box-shadow: var(--shadow-glow);
+      .mosaic-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.75s cubic-bezier(0.34, 1.3, 0.64, 1);
+        transform-style: preserve-3d;
+        border-radius: var(--radius-md);
       }
 
-      .mosaic-card:nth-child(2):hover {
-        transform: translateY(20px) scale(1.02);
+      .mosaic-card-flip-wrap:hover .mosaic-card-inner {
+        transform: rotateY(180deg);
       }
 
-      .mosaic-card img {
+      .mosaic-card-front,
+      .mosaic-card-back {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid rgba(230, 185, 93, 0.25);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
+      }
+
+      .mosaic-card-front {
+        background: #09090d;
+      }
+
+      .mosaic-card-front img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.6s ease;
-      }
-
-      .mosaic-card:hover img {
-        transform: scale(1.08);
+        transition: transform 0.5s ease;
       }
 
       .mosaic-card-content {
@@ -1214,7 +1230,9 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        align-items: flex-start;
         padding: 16px;
+        text-align: left;
       }
 
       .mosaic-pill {
@@ -1230,6 +1248,73 @@
         font-weight: 700;
         color: #fff;
         margin-top: 2px;
+      }
+
+      /* BACK OF CARD */
+      .mosaic-card-back {
+        background: linear-gradient(135deg, rgba(42, 34, 72, 0.95) 0%, rgba(22, 26, 50, 0.96) 50%, rgba(12, 16, 32, 0.98) 100%);
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 18px;
+        text-align: center;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 16px 36px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+      }
+
+      .mosaic-back-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(230, 185, 93, 0.15);
+        border: 1px solid var(--border-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: var(--gold-light);
+        margin-bottom: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      }
+
+      .mosaic-back-title {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+
+      .mosaic-back-desc {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        line-height: 1.45;
+        margin-bottom: 12px;
+      }
+
+      .mosaic-back-btn {
+        background: var(--gold-primary);
+        color: #08080c;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .mosaic-back-btn:hover {
+        background: #fff;
+        color: #000;
+        transform: scale(1.05);
       }
 
       /* -------------------------------------------
@@ -3408,34 +3493,97 @@
             </div>
           </div>
 
-          <!-- Hero Mosaic Showcase -->
+          <!-- Hero Mosaic Showcase - 3D Flip On Hover -->
           <div class="hero-showcase-mosaic">
-            <div class="mosaic-card">
-              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop" alt="Celebrity Tribute Show" />
-              <div class="mosaic-card-content">
-                <span class="mosaic-pill">Iconic Tributes</span>
-                <h4 class="mosaic-title">Celebrity Lookalikes</h4>
+            <!-- Card 1: Lookalikes -->
+            <div class="mosaic-card-flip-wrap">
+              <div class="mosaic-card-inner">
+                <!-- Front -->
+                <div class="mosaic-card-front">
+                  <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop" alt="Celebrity Tribute Show" />
+                  <div class="mosaic-card-content">
+                    <span class="mosaic-pill">Iconic Tributes</span>
+                    <h4 class="mosaic-title">Celebrity Lookalikes</h4>
+                  </div>
+                </div>
+                <!-- Back -->
+                <div class="mosaic-card-back">
+                  <div class="mosaic-back-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                  <div class="mosaic-back-title">Celebrity Lookalikes</div>
+                  <p class="mosaic-back-desc">500+ A-List Hollywood doubles, Vegas singers & red-carpet meet-and-greets.</p>
+                  <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="mosaic-back-btn">
+                    Browse Stars <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="mosaic-card">
-              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" alt="DJ and Live Band" />
-              <div class="mosaic-card-content">
-                <span class="mosaic-pill">Live Sounds</span>
-                <h4 class="mosaic-title">Tribute Bands & DJs</h4>
+
+            <!-- Card 2: Tribute Bands & DJs -->
+            <div class="mosaic-card-flip-wrap">
+              <div class="mosaic-card-inner">
+                <!-- Front -->
+                <div class="mosaic-card-front">
+                  <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" alt="DJ and Live Band" />
+                  <div class="mosaic-card-content">
+                    <span class="mosaic-pill">Live Sounds</span>
+                    <h4 class="mosaic-title">Tribute Bands & DJs</h4>
+                  </div>
+                </div>
+                <!-- Back -->
+                <div class="mosaic-card-back">
+                  <div class="mosaic-back-icon"><i class="fa-solid fa-guitar"></i></div>
+                  <div class="mosaic-back-title">Tribute Bands & DJs</div>
+                  <p class="mosaic-back-desc">Concert-caliber tribute bands, world-class DJs & dynamic live horn ensembles.</p>
+                  <a href="#tribute-directory" class="mosaic-back-btn">
+                    Explore Bands <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="mosaic-card">
-              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Living Red Carpet and Tables" />
-              <div class="mosaic-card-content">
-                <span class="mosaic-pill">Interactive Acts</span>
-                <h4 class="mosaic-title">Living Red Carpet & Tables</h4>
+
+            <!-- Card 3: Interactive Acts -->
+            <div class="mosaic-card-flip-wrap">
+              <div class="mosaic-card-inner">
+                <!-- Front -->
+                <div class="mosaic-card-front">
+                  <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Living Red Carpet and Tables" />
+                  <div class="mosaic-card-content">
+                    <span class="mosaic-pill">Interactive Acts</span>
+                    <h4 class="mosaic-title">Living Red Carpet & Tables</h4>
+                  </div>
+                </div>
+                <!-- Back -->
+                <div class="mosaic-card-back">
+                  <div class="mosaic-back-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                  <div class="mosaic-back-title">Living Red Carpets</div>
+                  <p class="mosaic-back-desc">Strolling champagne tables & theatrical interactive living red carpets.</p>
+                  <a href="#specialty" class="mosaic-back-btn">
+                    View Acts <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="mosaic-card">
-              <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800&auto=format&fit=crop" alt="Magicians and Stage Shows" />
-              <div class="mosaic-card-content">
-                <span class="mosaic-pill">Spectacular</span>
-                <h4 class="mosaic-title">Magicians & Stage Shows</h4>
+
+            <!-- Card 4: Magicians & Stage Shows -->
+            <div class="mosaic-card-flip-wrap">
+              <div class="mosaic-card-inner">
+                <!-- Front -->
+                <div class="mosaic-card-front">
+                  <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800&auto=format&fit=crop" alt="Magicians and Stage Shows" />
+                  <div class="mosaic-card-content">
+                    <span class="mosaic-pill">Spectacular</span>
+                    <h4 class="mosaic-title">Magicians & Stage Shows</h4>
+                  </div>
+                </div>
+                <!-- Back -->
+                <div class="mosaic-card-back">
+                  <div class="mosaic-back-icon"><i class="fa-solid fa-hat-wizard"></i></div>
+                  <div class="mosaic-back-title">Magicians & Shows</div>
+                  <p class="mosaic-back-desc">Award-winning illusionists, mind readers, hypnotists & cirque fire artists.</p>
+                  <a href="#specialty" class="mosaic-back-btn">
+                    Book Show <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
