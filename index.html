@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Besser Entertainment — Unforgettable Entertainment</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #090909;
+        --bg-soft: #111111;
+        --card: #151515;
+        --gold: #d9b56d;
+        --gold-light: #f0d79d;
+        --white: #ffffff;
+        --muted: #a4a4a4;
+        --border: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--white);
+        line-height: 1.6;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 48px));
+        margin: auto;
+      }
+
+      /* =========================
+           NAVIGATION
+        ========================== */
+
+      header {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: 10;
+      }
+
+      nav {
+        height: 92px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      .logo span {
+        color: var(--gold);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        align-items: center;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+        color: #ddd;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .nav-btn {
+        border: 1px solid var(--gold);
+        padding: 11px 20px;
+        color: var(--gold) !important;
+      }
+
+      /* =========================
+           HERO
+        ========================== */
+
+      .hero {
+        min-height: 850px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        background:
+          linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.96) 0%,
+            rgba(0, 0, 0, 0.8) 43%,
+            rgba(0, 0, 0, 0.25) 100%
+          ),
+          url("https://static.wixstatic.com/media/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg/v1/fill/w_1600,h_1200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg");
+
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 180px;
+        background: linear-gradient(transparent, var(--bg));
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        padding-top: 90px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--gold);
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 22px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 38px;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(55px, 7vw, 92px);
+        line-height: 0.98;
+        font-weight: 600;
+        letter-spacing: -3px;
+        margin-bottom: 28px;
+      }
+
+      h1 span {
+        color: var(--gold-light);
+      }
+
+      .hero-text {
+        max-width: 600px;
+        color: #c8c8c8;
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 38px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 26px;
+        font-size: 14px;
+        font-weight: 700;
+        transition: 0.3s;
+      }
+
+      .btn-gold {
+        background: var(--gold);
+        color: #090909;
+      }
+
+      .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: white;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* =========================
+           STATS
+        ========================== */
+
+      .stats {
+        position: relative;
+        z-index: 5;
+        margin-top: -70px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: rgba(20, 20, 20, 0.95);
+        border: 1px solid var(--border);
+      }
+
+      .stat {
+        padding: 30px;
+        text-align: center;
+        border-right: 1px solid var(--border);
+      }
+
+      .stat:last-child {
+        border-right: 0;
+      }
+
+      .stat strong {
+        display: block;
+        font-family: "Playfair Display", serif;
+        font-size: 34px;
+        color: var(--gold);
+      }
+
+      .stat span {
+        color: #aaa;
+        font-size: 13px;
+      }
+
+      /* =========================
+           SECTION
+        ========================== */
+
+      section {
+        padding: 120px 0;
+      }
+
+      .section-heading {
+        max-width: 700px;
+        margin-bottom: 55px;
+      }
+
+      .section-label {
+        color: var(--gold);
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(40px, 5vw, 64px);
+        line-height: 1.05;
+        font-weight: 500;
+      }
+
+      .section-heading p {
+        color: var(--muted);
+        margin-top: 20px;
+        max-width: 620px;
+      }
+
+      /* =========================
+           SERVICES
+        ========================== */
+
+      .services {
+        background: var(--bg-soft);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .service {
+        min-height: 300px;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--card);
+        transition: 0.35s;
+      }
+
+      .service:hover {
+        transform: translateY(-7px);
+        border-color: rgba(217, 181, 109, 0.5);
+      }
+
+      .service-number {
+        color: var(--gold);
+        font-size: 13px;
+        margin-bottom: 70px;
+      }
+
+      .service h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 29px;
+        margin-bottom: 12px;
+      }
+
+      .service p {
+        color: #999;
+        font-size: 14px;
+      }
+
+      /* =========================
+           FEATURED TALENT
+        ========================== */
+
+      .talent-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .talent {
+        background: var(--card);
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .talent-image {
+        height: 380px;
+        overflow: hidden;
+      }
+
+      .talent-image img {
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+
+      .talent:hover img {
+        transform: scale(1.05);
+      }
+
+      .talent-info {
+        padding: 23px;
+      }
+
+      .talent-category {
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .talent h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 27px;
+        margin: 8px 0;
+      }
+
+      .talent-info p {
+        color: #999;
+        font-size: 14px;
+      }
+
+      /* =========================
+           EXPERIENCE
+        ========================== */
+
+      .experience {
+        background: #0e0e0e;
+      }
+
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .experience-image {
+        height: 650px;
+        overflow: hidden;
+      }
+
+      .experience-image img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .experience-copy h2 {
+        margin-bottom: 25px;
+      }
+
+      .experience-copy > p {
+        color: #999;
+        margin-bottom: 35px;
+      }
+
+      .check-list {
+        display: grid;
+        gap: 17px;
+      }
+
+      .check {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .check-icon {
+        color: var(--gold);
+        font-size: 18px;
+      }
+
+      .check span {
+        color: #ccc;
+        font-size: 15px;
+      }
+
+      /* =========================
+           EVENT TYPES
+        ========================== */
+
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+
+      .event {
+        min-height: 150px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        transition: 0.3s;
+      }
+
+      .event:hover {
+        background: var(--gold);
+        color: #111;
+      }
+
+      .event strong {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+      }
+
+      /* =========================
+           CTA
+        ========================== */
+
+      .cta {
+        padding: 120px 0;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.65)),
+          url("https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg");
+
+        background-size: cover;
+        background-position: center;
+      }
+
+      .cta-inner {
+        max-width: 800px;
+      }
+
+      .cta h2 {
+        margin-bottom: 22px;
+      }
+
+      .cta p {
+        color: #ccc;
+        margin-bottom: 30px;
+        max-width: 620px;
+      }
+
+      /* =========================
+           FOOTER
+        ========================== */
+
+      footer {
+        background: #050505;
+        padding: 55px 0 30px;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        padding-bottom: 45px;
+      }
+
+      .footer-brand {
+        max-width: 400px;
+      }
+
+      .footer-brand p {
+        color: #777;
+        margin-top: 15px;
+      }
+
+      .footer-contact {
+        text-align: right;
+      }
+
+      .footer-contact strong {
+        display: block;
+        color: var(--gold);
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+
+      .footer-contact span {
+        color: #999;
+      }
+
+      .copyright {
+        padding-top: 25px;
+        border-top: 1px solid var(--border);
+        color: #666;
+        font-size: 12px;
+      }
+
+      /* =========================
+           RESPONSIVE
+        ========================== */
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .service-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .talent-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .experience-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .experience-image {
+          height: 500px;
+        }
+
+        .event-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          width: min(100% - 30px, 1180px);
+        }
+
+        .hero {
+          min-height: 760px;
+        }
+
+        h1 {
+          font-size: 53px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stat {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .service-grid,
+        .talent-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .event-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-top {
+          flex-direction: column;
+        }
+
+        .footer-contact {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo"> BESSER<span>.</span> </a>
+
+          <ul class="nav-links">
+            <li><a href="#services">Entertainment</a></li>
+            <li><a href="#talent">Featured Talent</a></li>
+            <li><a href="#experience">Why Besser</a></li>
+            <li><a href="#events">Events</a></li>
+            <li>
+              <a href="#contact" class="nav-btn">Book Talent</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Special Events • Entertainment • Production</div>
+
+          <h1>
+            Make Your Event<br />
+            <span>Unforgettable.</span>
+          </h1>
+
+          <p class="hero-text">
+            From celebrity lookalikes and tribute artists to world-class tribute
+            bands, DJs and specialty acts — we bring the entertainment that
+            makes people talk.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-gold">
+              FIND YOUR ENTERTAINMENT
+            </a>
+
+            <a href="#services" class="btn btn-outline"> EXPLORE TALENT </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+
+    <div class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat">
+            <strong>30+</strong>
+            <span>Years of Experience</span>
+          </div>
+
+          <div class="stat">
+            <strong>1000+</strong>
+            <span>Entertainment Options</span>
+          </div>
+
+          <div class="stat">
+            <strong>Worldwide</strong>
+            <span>Local • National • International</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">What We Do</div>
+
+          <h2>
+            Entertainment<br />
+            without limits.
+          </h2>
+
+          <p>
+            One entertainment partner. An extraordinary roster of performers,
+            musicians and specialty acts for events of every size.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service">
+            <div class="service-number">01</div>
+            <h3>Celebrity Lookalikes</h3>
+            <p>
+              Award-winning celebrity impersonators and tribute artists who
+              bring the stars to your event.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="service-number">02</div>
+            <h3>Tribute Bands</h3>
+            <p>
+              Legendary music recreated live — from classic rock to pop, Motown,
+              country and more.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="service-number">03</div>
+            <h3>Live Music</h3>
+            <p>
+              DJs, musicians, cover bands and complete musical entertainment for
+              your celebration.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="service-number">04</div>
+            <h3>Specialty Acts</h3>
+            <p>
+              Magicians, dancers, hypnotists, stage shows, living tables and
+              spectacular red-carpet acts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED TALENT -->
+
+    <section id="talent">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Featured Entertainment</div>
+
+          <h2>
+            Meet the stars<br />
+            of your next event.
+          </h2>
+        </div>
+
+        <div class="talent-grid">
+          <div class="talent">
+            <div class="talent-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg"
+                alt="Elvis tribute performer"
+              />
+            </div>
+
+            <div class="talent-info">
+              <div class="talent-category">Tribute Artist</div>
+
+              <h3>Iconic Tribute Shows</h3>
+
+              <p>
+                Vegas-style entertainment that puts your guests in the middle of
+                the show.
+              </p>
+            </div>
+          </div>
+
+          <div class="talent">
+            <div class="talent-image">
+              <img
+                src="https://cdn.alivenetwork.com/images/extrabandpics/bb.jpg"
+                alt="Tribute band performers"
+              />
+            </div>
+
+            <div class="talent-info">
+              <div class="talent-category">Tribute Bands</div>
+
+              <h3>Live Music Experiences</h3>
+
+              <p>
+                High-energy tribute and cover bands built around the music your
+                guests love.
+              </p>
+            </div>
+          </div>
+
+          <div class="talent">
+            <div class="talent-image">
+              <img
+                src="https://static.wixstatic.com/media/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4f8372_560db714db5b43f69914ab0ec988e6c3.jpg"
+                alt="Celebrity lookalike performers"
+              />
+            </div>
+
+            <div class="talent-info">
+              <div class="talent-category">Celebrity Lookalikes</div>
+
+              <h3>The Stars Arrive</h3>
+
+              <p>
+                Make the red carpet unforgettable with celebrity lookalikes and
+                impersonators.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section class="experience" id="experience">
+      <div class="container">
+        <div class="experience-grid">
+          <div class="experience-image">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5d9f7112af00af2b0f2091ec/1589575884210-JOSZNNR6M9EF0MWP63SB/Dallas-gala-photography-fashion-industry-gallery-elvis-500--2.jpg"
+              alt="Live event entertainment"
+            />
+          </div>
+
+          <div class="experience-copy">
+            <div class="section-label">Why Besser Entertainment</div>
+
+            <h2>
+              The right talent<br />
+              changes everything.
+            </h2>
+
+            <p>
+              With decades of experience and an extensive entertainment roster,
+              Besser Entertainment helps you find the right performers for the
+              moment you're creating.
+            </p>
+
+            <div class="check-list">
+              <div class="check">
+                <div class="check-icon">✦</div>
+                <span> Award-winning tribute artists and lookalikes </span>
+              </div>
+
+              <div class="check">
+                <div class="check-icon">✦</div>
+                <span> Tribute bands and live musical entertainment </span>
+              </div>
+
+              <div class="check">
+                <div class="check-icon">✦</div>
+                <span> DJs, musicians, dancers and specialty acts </span>
+              </div>
+
+              <div class="check">
+                <div class="check-icon">✦</div>
+                <span> Local, national and international bookings </span>
+              </div>
+
+              <div class="check">
+                <div class="check-icon">✦</div>
+                <span> One team handling your entertainment needs </span>
+              </div>
+            </div>
+
+            <br /><br />
+
+            <a href="#contact" class="btn btn-gold"> START PLANNING </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+
+    <section id="events">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Entertainment For Every Occasion</div>
+
+          <h2>
+            Whatever you're<br />
+            celebrating.
+          </h2>
+        </div>
+
+        <div class="event-grid">
+          <div class="event">
+            <strong>Corporate Events</strong>
+          </div>
+
+          <div class="event">
+            <strong>Weddings</strong>
+          </div>
+
+          <div class="event">
+            <strong>Galas</strong>
+          </div>
+
+          <div class="event">
+            <strong>Private Parties</strong>
+          </div>
+
+          <div class="event">
+            <strong>Casino Events</strong>
+          </div>
+
+          <div class="event">
+            <strong>Birthdays</strong>
+          </div>
+
+          <div class="event">
+            <strong>Holiday Parties</strong>
+          </div>
+
+          <div class="event">
+            <strong>Fundraisers</strong>
+          </div>
+
+          <div class="event">
+            <strong>Anniversaries</strong>
+          </div>
+
+          <div class="event">
+            <strong>Special Events</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="section-label">Let's Create Something Incredible</div>
+
+          <h2>Tell us what you're imagining.</h2>
+
+          <p>
+            Looking for a celebrity lookalike? A legendary tribute band? A DJ,
+            magician or unforgettable specialty act? Tell us about your event
+            and we'll help you find the talent.
+          </p>
+
+          <a href="tel:9544847884" class="btn btn-gold"> CALL 954-484-7884 </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="logo">BESSER<span>.</span></div>
+
+            <p>
+              Full-service special events entertainment production — from
+              celebrity lookalikes to tribute bands, DJs and specialty acts.
+            </p>
+          </div>
+
+          <div class="footer-contact">
+            <strong>954-484-7884</strong>
+
+            <span> Party@BesserEntertainment.com </span>
+          </div>
+        </div>
+
+        <div class="copyright">
+          © 2026 Besser Entertainment. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
