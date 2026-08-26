@@ -2500,6 +2500,250 @@
       }
 
       /* -------------------------------------------
+         AWARD-WINNING TRIBUTE BANDS & SHOWS DIRECTORY
+      -------------------------------------------- */
+      .award-tributes-directory-section {
+        padding: 68px 0 74px;
+        background: radial-gradient(circle at 50% 0%, rgba(230, 185, 93, 0.09) 0%, rgba(12, 12, 18, 0.85) 55%, rgba(6, 6, 9, 0.98) 100%);
+        border-top: 1px solid var(--border-gold);
+        border-bottom: 1px solid var(--border-subtle);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .award-tributes-directory-section .section-header {
+        max-width: 960px;
+        margin: 0 auto 30px;
+      }
+
+      .tribute-hub-link {
+        color: var(--text-main);
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .tribute-hub-link:hover {
+        color: var(--gold-light);
+        text-shadow: 0 0 20px rgba(230, 185, 93, 0.6);
+      }
+
+      .tribute-hub-link i {
+        font-size: 0.62em;
+        color: var(--gold-primary);
+        vertical-align: middle;
+      }
+
+      .award-tributes-search-bar {
+        max-width: 580px;
+        margin: 0 auto 30px;
+        position: relative;
+      }
+
+      .award-tributes-search-bar input {
+        width: 100%;
+        background: rgba(18, 20, 32, 0.85);
+        border: 1px solid rgba(230, 185, 93, 0.3);
+        border-radius: 30px;
+        padding: 13px 20px 13px 44px;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        backdrop-filter: blur(12px);
+        transition: var(--transition);
+      }
+
+      .award-tributes-search-bar input:focus {
+        border-color: var(--gold-primary);
+        box-shadow: 0 0 22px rgba(230, 185, 93, 0.35);
+        background: rgba(26, 28, 44, 0.95);
+      }
+
+      .award-tributes-search-bar i {
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold-primary);
+        font-size: 14px;
+        pointer-events: none;
+      }
+
+      .award-tributes-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 13px;
+        margin-bottom: 34px;
+      }
+
+      .tribute-show-card {
+        background: linear-gradient(135deg, rgba(26, 24, 42, 0.72) 0%, rgba(14, 16, 28, 0.82) 100%);
+        border: 1px solid rgba(230, 185, 93, 0.18);
+        border-radius: var(--radius-md);
+        padding: 13px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tribute-show-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(230, 185, 93, 0.12) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      .tribute-show-card:hover {
+        background: linear-gradient(135deg, rgba(42, 34, 62, 0.85) 0%, rgba(20, 22, 40, 0.9) 100%);
+        border-color: rgba(245, 190, 75, 0.65);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(230, 185, 93, 0.22);
+      }
+
+      .tribute-show-card:hover::before {
+        opacity: 1;
+      }
+
+      .tribute-card-left {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        min-width: 0;
+      }
+
+      .tribute-card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(230, 185, 93, 0.12);
+        border: 1px solid rgba(230, 185, 93, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-light);
+        font-size: 13px;
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .tribute-show-card:hover .tribute-card-icon {
+        background: var(--gold-primary);
+        color: #0d0d12;
+        box-shadow: 0 0 14px rgba(230, 185, 93, 0.7);
+        transform: rotate(5deg) scale(1.06);
+      }
+
+      .tribute-card-content {
+        min-width: 0;
+      }
+
+      .tribute-card-badge {
+        font-size: 9.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--gold-primary);
+        display: block;
+        line-height: 1;
+        margin-bottom: 3px;
+      }
+
+      .tribute-card-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-main);
+        line-height: 1.3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: var(--transition);
+      }
+
+      .tribute-show-card:hover .tribute-card-name {
+        color: #ffffff;
+      }
+
+      .tribute-card-arrow {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-dim);
+        font-size: 11px;
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .tribute-show-card:hover .tribute-card-arrow {
+        background: rgba(230, 185, 93, 0.25);
+        color: var(--gold-light);
+        transform: translateX(3px);
+      }
+
+      .award-tributes-banner {
+        background: linear-gradient(135deg, rgba(28, 24, 46, 0.8) 0%, rgba(16, 18, 34, 0.86) 100%);
+        border: 1px solid rgba(230, 185, 93, 0.25);
+        border-radius: var(--radius-md);
+        padding: 20px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+      }
+
+      .award-tributes-banner-text {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .award-tributes-banner-text i {
+        color: var(--gold-primary);
+        font-size: 18px;
+      }
+
+      @media (max-width: 1200px) {
+        .award-tributes-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 850px) {
+        .award-tributes-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .award-tributes-grid {
+          grid-template-columns: 1fr;
+        }
+        .award-tributes-banner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* -------------------------------------------
          EVENT TYPES GRID
       -------------------------------------------- */
       .occasions-section {
@@ -5219,6 +5463,636 @@
       </div>
     </section>
 
+    <!-- ========================================================
+         SOME OF OUR AWARD-WINNING TRIBUTE BANDS & TRIBUTE SHOWS
+         (Complete Roster Hub & SEO Directory)
+    ======================================================== -->
+    <section class="award-tributes-directory-section" id="award-winning-tributes">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-subtitle"><i class="fa-solid fa-trophy"></i> Elite National & Touring Acts</span>
+          <h2 class="section-title">
+            <a href="http://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-hub-link">
+              Some of our Award-Winning Tribute Bands and Tribute Shows
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </h2>
+          <p class="section-desc">
+            Discover the world's finest concert productions, international headliners, and award-winning tribute bands. Click any show below to view full video demos, band bios, and instant booking details:
+          </p>
+        </div>
+
+        <!-- Live Instant Search Filter -->
+        <div class="award-tributes-search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="awardTributesSearchInput"
+            placeholder="Search award-winning tribute shows (e.g. Queen, ABBA, Beatles, Taylor Swift...)"
+            onkeyup="filterAwardTributes()"
+          />
+        </div>
+
+        <!-- 48 Award-Winning Tribute Show Cards Grid -->
+        <div class="award-tributes-grid" id="awardTributesGrid">
+          <!-- 1. ABBA -->
+          <a href="https://www.besserentertainment.com/best-abba-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-compact-disc"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Award-Winning</span>
+                <div class="tribute-card-name">ABBA Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 2. AC/DC -->
+          <a href="https://www.besserentertainment.com/best-ac-dc-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">High-Voltage Rock</span>
+                <div class="tribute-card-name">AC/DC Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 3. Beach Boys -->
+          <a href="https://www.besserentertainment.com/best-beach-boys-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Surf & Harmonies</span>
+                <div class="tribute-card-name">Beach Boys Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 4. Beatles -->
+          <a href="https://www.besserentertainment.com/best-beatles-tribute-band-2/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-record-vinyl"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Fab Four Legend</span>
+                <div class="tribute-card-name">Beatles Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 5. Bee Gees -->
+          <a href="https://www.besserentertainment.com/best-bee-gees-tribute/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Disco & Pop Gold</span>
+                <div class="tribute-card-name">Bee Gees Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 6. Allman Brothers -->
+          <a href="https://www.besserentertainment.com/allman-brothers-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-guitar"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Southern Rock</span>
+                <div class="tribute-card-name">Allman Brothers Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 7. Blues Brothers -->
+          <a href="https://www.besserentertainment.com/the-blues-brothers-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-glasses"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Rhythm & Blues</span>
+                <div class="tribute-card-name">Blues Brothers Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 8. Motley Crue -->
+          <a href="https://www.besserentertainment.com/best-motley-crew-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-drum"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Arena Heavy Rock</span>
+                <div class="tribute-card-name">Motley Crue Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 9. Jersey Boys -->
+          <a href="https://www.besserentertainment.com/best-jersey-boys-tribute-2/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-microphone"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Frankie Valli Show</span>
+                <div class="tribute-card-name">Jersey Boys Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 10. Coldplay -->
+          <a href="https://www.besserentertainment.com/best-coldplay-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Modern Stadium Rock</span>
+                <div class="tribute-card-name">Coldplay Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 11. Jimmy Buffett -->
+          <a href="https://www.besserentertainment.com/jimmy-buffett-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-sun"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Margaritaville Party</span>
+                <div class="tribute-card-name">Jimmy Buffett Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 12. Chicago -->
+          <a href="https://www.besserentertainment.com/best-chicago-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Brass & Horn Rock</span>
+                <div class="tribute-card-name">Chicago Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 13. Celine Dion -->
+          <a href="https://www.besserentertainment.com/celine-dion-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Vocal Powerhouse</span>
+                <div class="tribute-card-name">Celine Dion Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 14. Barbra Streisand -->
+          <a href="https://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-crown"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Broadway & Pop Icon</span>
+                <div class="tribute-card-name">Barbra Streisand Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 15. Whitney Houston -->
+          <a href="https://www.besserentertainment.com/best-whitney-houston-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">The Voice of Pop</span>
+                <div class="tribute-card-name">Whitney Houston Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 16. Heart & Pat Benatar -->
+          <a href="https://www.besserentertainment.com/heart-pat-benatar-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-heart"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Women of Rock</span>
+                <div class="tribute-card-name">Heart Pat Benatar Tribute Band</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 17. Queen -->
+          <a href="https://www.besserentertainment.com/the-best-queen-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-crown"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Freddie Mercury Epic</span>
+                <div class="tribute-card-name">Queen Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 18. Santana -->
+          <a href="https://www.besserentertainment.com/best-santana-tribute-band-3/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-guitar"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Latin Rock & Fusion</span>
+                <div class="tribute-card-name">Santana Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 19. Doobie Brothers -->
+          <a href="https://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Classic Harmony Rock</span>
+                <div class="tribute-card-name">Doobie Brothers Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 20. Van Halen -->
+          <a href="https://www.besserentertainment.com/best-van-halen-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">High Energy Rock</span>
+                <div class="tribute-card-name">Van Halen Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 21. Stevie Wonder -->
+          <a href="https://www.besserentertainment.com/best-stevie-wonder-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-keyboard"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Motown & Soul Legend</span>
+                <div class="tribute-card-name">Stevie Wonder Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 22. Foreigner -->
+          <a href="https://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-guitar"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Classic Arena Anthems</span>
+                <div class="tribute-card-name">Foreigner Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 23. Tim McGraw & Faith Hill -->
+          <a href="https://www.besserentertainment.com/best-tim-mcgraw-faith-hill-tribute/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-hat-cowboy"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Country Royal Duo</span>
+                <div class="tribute-card-name">Tim McGraw Faith Hill Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 24. Sam Cooke -->
+          <a href="https://www.besserentertainment.com/sam-cooke-tribute-by-his-daughter/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-record-vinyl"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">King of Soul Tribute</span>
+                <div class="tribute-card-name">Sam Cooke Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 25. Hall and Oates -->
+          <a href="https://www.besserentertainment.com/hall-oates-tribute-band-east/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Blue-Eyed Soul</span>
+                <div class="tribute-card-name">Hall and Oates Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 26. Cher -->
+          <a href="https://www.besserentertainment.com/best-cher-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Goddess of Pop</span>
+                <div class="tribute-card-name">Cher Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 27. Barry Manilow -->
+          <a href="https://www.besserentertainment.com/best-barry-manilow-tribute/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Copacabana Showstopper</span>
+                <div class="tribute-card-name">Barry Manilow Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 28. Credence Clearwater Revival -->
+          <a href="https://www.besserentertainment.com/credence-clearwater-revival-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-guitar"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Swamp Rock Legend</span>
+                <div class="tribute-card-name">Credence Clearwater Revival Tribute Band</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 29. Jackie Wilson -->
+          <a href="https://www.besserentertainment.com/the-best-motown-shows/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-microphone"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Mr. Excitement Soul</span>
+                <div class="tribute-card-name">Jackie Wilson Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 30. Ghost -->
+          <a href="https://www.besserentertainment.com/best-ghost-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-skull"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Theatrical Rock</span>
+                <div class="tribute-card-name">Ghost Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 31. Fleetwood Mac -->
+          <a href="https://www.besserentertainment.com/best-fleetwood-mac-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-gem"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Rumours Experience</span>
+                <div class="tribute-card-name">Fleetwood Mac Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 32. Stevie Nicks -->
+          <a href="https://www.besserentertainment.com/best-fleetwood-mac-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-moon"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Gypsy Rock Icon</span>
+                <div class="tribute-card-name">Stevie Nicks Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 33. Rolling Stones -->
+          <a href="https://www.besserentertainment.com/best-rolling-stones-tribute-band-2/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-fire"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Greatest Rock & Roll</span>
+                <div class="tribute-card-name">Rolling Stones Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 34. Taylor Swift -->
+          <a href="https://www.besserentertainment.com/taylor-swift-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">The Eras Phenomenon</span>
+                <div class="tribute-card-name">Taylor Swift Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 35. Van Morrison -->
+          <a href="https://www.besserentertainment.com/best-van-morrison-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-guitar"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Celtic Soul & Folk</span>
+                <div class="tribute-card-name">Van Morrison Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 36. Motown -->
+          <a href="https://www.besserentertainment.com/the-best-motown-shows/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-record-vinyl"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Hitsville Sound Machine</span>
+                <div class="tribute-card-name">Motown Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 37. U2 Bono -->
+          <a href="https://www.besserentertainment.com/best-u2-tribute-band-2/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-glasses"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Global Anthem Rock</span>
+                <div class="tribute-card-name">U2 Bono Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 38. The Eagles -->
+          <a href="https://www.besserentertainment.com/best-eagles-tribute-band-2/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-feather"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Hotel California Classics</span>
+                <div class="tribute-card-name">The Eagles Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 39. Phil Collins & Genesis -->
+          <a href="https://www.besserentertainment.com/best-phil-collins-tribute-band/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-drum"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Pop & Prog Rock</span>
+                <div class="tribute-card-name">Phil Collins Genesis Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 40. Country Tribute -->
+          <a href="https://www.besserentertainment.com/best-country-tribute-shows/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-hat-cowboy"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Nashville All-Stars</span>
+                <div class="tribute-card-name">Country Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 41. Journey -->
+          <a href="https://www.besserentertainment.com/best-journey-tribute-band-west/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-rocket"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Don't Stop Believin'</span>
+                <div class="tribute-card-name">Journey Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 42. Led Zeppelin (Top Best) -->
+          <a href="https://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Classic Hard Rock</span>
+                <div class="tribute-card-name">Led Zeppelin Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 43. Neil Diamond -->
+          <a href="https://www.besserentertainment.com/neil-diamond-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-gem"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Sweet Caroline Icon</span>
+                <div class="tribute-card-name">Neil Diamond Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 44. Elton John -->
+          <a href="https://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-glasses"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Rocket Man Extravaganza</span>
+                <div class="tribute-card-name">Elton John Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 45. Michael Jackson -->
+          <a href="https://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">King of Pop Tribute</span>
+                <div class="tribute-card-name">Michael Jackson Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 46. Tim McGraw -->
+          <a href="https://www.besserentertainment.com/best-tim-mcgraw-tribute-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-hat-cowboy"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Live Like You Were Dying</span>
+                <div class="tribute-card-name">Tim McGraw Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 47. John Denver -->
+          <a href="https://www.besserentertainment.com/best-john-denver-tribute/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-mountain"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Country Roads Acoustic</span>
+                <div class="tribute-card-name">John Denver Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+
+          <!-- 48. Led Zeppelin (Concert Showcase) -->
+          <a href="https://www.besserentertainment.com/led-zeppelin-tribute-band-show/" target="_blank" class="tribute-show-card">
+            <div class="tribute-card-left">
+              <div class="tribute-card-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div class="tribute-card-content">
+                <span class="tribute-card-badge">Full Concert Experience</span>
+                <div class="tribute-card-name">Led Zeppelin Tribute Band Show</div>
+              </div>
+            </div>
+            <div class="tribute-card-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          </a>
+        </div>
+
+        <!-- Section Bottom Authority Banner -->
+        <div class="award-tributes-banner">
+          <div class="award-tributes-banner-text">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>All Tribute Bands & Shows Are Available For Private, Corporate, Festival & Public Concerts Nationwide.</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <a href="http://www.besserentertainment.com/hire-top-best-tribute-bands/" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 13px;">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              <span>View Full Tribute Directory</span>
+            </a>
+            <a href="tel:9544847884" class="btn-secondary" style="padding: 10px 18px; font-size: 13px;">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>(954) 484-7884</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SPECIALTY & UNIQUE ACTS SPOTLIGHT -->
     <section class="specialty-spotlight" id="specialty">
       <div class="container">
@@ -5763,6 +6637,7 @@
             <h4 class="footer-heading">Entertainment</h4>
             <ul class="footer-links">
               <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/">Celebrity Lookalikes</a></li>
+              <li><a href="#award-winning-tributes">Award-Winning Tribute Shows</a></li>
               <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/">Tribute Bands</a></li>
               <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hire-top-best-tribute-bands/">Cover Bands</a></li>
               <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/">Event DJs & MCs</a></li>
@@ -5963,6 +6838,22 @@
             chip.style.display = 'flex';
           } else {
             chip.style.display = 'none';
+          }
+        });
+      }
+
+      // Live text search for Award-Winning Tribute Bands and Tribute Shows section
+      function filterAwardTributes() {
+        const input = document.getElementById('awardTributesSearchInput');
+        const filter = input ? input.value.toLowerCase().trim() : '';
+        const cards = document.querySelectorAll('#awardTributesGrid .tribute-show-card');
+
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!filter || text.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
           }
         });
       }
