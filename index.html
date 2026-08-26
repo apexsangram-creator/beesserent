@@ -1427,7 +1427,36 @@
         background: rgba(7, 7, 12, 0.7);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        padding: 70px 0;
+        padding: 48px 0 60px;
+      }
+
+      .services-section .section-header {
+        max-width: 1080px;
+        margin: 0 auto 34px;
+      }
+
+      .services-section .section-subtitle {
+        margin-bottom: 10px;
+      }
+
+      .services-section .section-title {
+        font-size: clamp(23px, 2.85vw, 41px);
+        white-space: nowrap;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      .services-section .section-desc {
+        max-width: 780px;
+        margin: 0 auto;
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 991px) {
+        .services-section .section-title {
+          white-space: normal;
+        }
       }
 
       .pillars-grid {
@@ -1522,17 +1551,68 @@
       .pillar-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 6px;
         margin-bottom: 14px;
       }
 
       .pillar-tag {
         font-size: 10.5px;
         background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         color: #ccc;
-        padding: 2px 7px;
-        border-radius: 4px;
+        padding: 3px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+      }
+
+      /* Multicolor Jewel-Tone Glows on Hover */
+      /* 1. Champagne Gold Glow */
+      .pillar-tag:nth-child(5n + 1):hover {
+        background: rgba(245, 185, 65, 0.2);
+        border-color: #f5b941;
+        color: #fff2cc;
+        box-shadow: 0 0 14px rgba(245, 185, 65, 0.55), inset 0 0 6px rgba(245, 185, 65, 0.2);
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      /* 2. Velvet Crimson / Rose Glow */
+      .pillar-tag:nth-child(5n + 2):hover {
+        background: rgba(255, 45, 95, 0.2);
+        border-color: #ff2d5f;
+        color: #ffe4eb;
+        box-shadow: 0 0 14px rgba(255, 45, 95, 0.55), inset 0 0 6px rgba(255, 45, 95, 0.2);
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      /* 3. Electric Indigo / Royal Violet Glow */
+      .pillar-tag:nth-child(5n + 3):hover {
+        background: rgba(145, 90, 255, 0.22);
+        border-color: #915aff;
+        color: #f0e6ff;
+        box-shadow: 0 0 14px rgba(145, 90, 255, 0.55), inset 0 0 6px rgba(145, 90, 255, 0.2);
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      /* 4. Emerald / Mint Glow */
+      .pillar-tag:nth-child(5n + 4):hover {
+        background: rgba(16, 185, 129, 0.2);
+        border-color: #10b981;
+        color: #d1fae5;
+        box-shadow: 0 0 14px rgba(16, 185, 129, 0.55), inset 0 0 6px rgba(16, 185, 129, 0.2);
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      /* 5. Electric Cyan / Turquoise Glow */
+      .pillar-tag:nth-child(5n + 5):hover {
+        background: rgba(6, 182, 212, 0.2);
+        border-color: #06b6d4;
+        color: #cffafe;
+        box-shadow: 0 0 14px rgba(6, 182, 212, 0.55), inset 0 0 6px rgba(6, 182, 212, 0.2);
+        transform: translateY(-2px) scale(1.05);
       }
 
       .pillar-link {
