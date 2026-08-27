@@ -434,17 +434,20 @@
       nav {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         min-height: 56px;
+        width: 100%;
       }
 
-      /* Main Nav Menu */
+      /* Main Nav Menu (Centered) */
       .nav-menu {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 6px;
         list-style: none;
         width: 100%;
+        margin: 0 auto;
         flex-wrap: wrap;
       }
 
@@ -453,15 +456,15 @@
       }
 
       .nav-link {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
         color: #d1d1db;
-        letter-spacing: 0.4px;
+        letter-spacing: 0.3px;
         text-transform: uppercase;
-        padding: 12px 12px;
+        padding: 10px 9px;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 5px;
         border-radius: 6px;
         transition: var(--transition);
         white-space: nowrap;
@@ -483,6 +486,60 @@
         transform: rotate(180deg);
         opacity: 1;
         color: var(--gold-primary);
+      }
+
+      /* Highlighted Talent Registration Pill (Marquee Ruby Neon) */
+      .nav-link-talent {
+        background: linear-gradient(135deg, rgba(255, 45, 85, 0.22) 0%, rgba(220, 20, 60, 0.38) 100%) !important;
+        border: 1px solid #ff3b69 !important;
+        color: #ffffff !important;
+        padding: 7px 14px !important;
+        border-radius: 20px !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px !important;
+        box-shadow: 0 0 16px rgba(255, 45, 85, 0.38);
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link-talent:hover {
+        background: linear-gradient(135deg, #ff2d55 0%, #d8113c 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 0 24px rgba(255, 45, 85, 0.75) !important;
+        transform: translateY(-2px) scale(1.03);
+        border-color: #ff6b8b !important;
+      }
+
+      .nav-link-talent i {
+        color: #ff8ca3;
+        font-size: 11px;
+        transition: transform 0.25s ease, color 0.25s ease;
+      }
+
+      .nav-link-talent:hover i {
+        color: #ffffff;
+        transform: rotate(15deg) scale(1.2);
+      }
+
+      .mobile-nav-talent {
+        background: linear-gradient(135deg, rgba(255, 45, 85, 0.22) 0%, rgba(220, 20, 60, 0.38) 100%) !important;
+        border: 1px solid #ff3b69 !important;
+        border-radius: 8px !important;
+        padding: 10px 14px !important;
+        color: #ffffff !important;
+        display: flex !important;
+        align-items: center;
+        gap: 8px;
+        font-weight: 800 !important;
+        box-shadow: 0 0 14px rgba(255, 45, 85, 0.35);
+        margin: 6px 0;
+      }
+
+      .mobile-nav-talent i {
+        color: #ff8ca3;
       }
 
       .mobile-menu-toggle {
@@ -602,10 +659,24 @@
         color: #070709;
       }
 
-      /* Mega Dropdown for Tribute Bands & Other Services */
+      /* Mega Dropdowns for Navigation */
       .dropdown-mega-bands {
         width: 780px;
         left: -100px;
+        max-height: 520px;
+        overflow-y: auto;
+      }
+
+      .dropdown-mega-music {
+        width: 520px;
+        left: -120px;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .dropdown-mega-specialty {
+        width: 680px;
+        left: -180px;
         max-height: 520px;
         overflow-y: auto;
       }
@@ -3566,6 +3637,9 @@
          RESPONSIVE BREAKPOINTS
       -------------------------------------------- */
       @media (max-width: 1200px) {
+        nav {
+          justify-content: flex-end;
+        }
         .nav-menu {
           display: none;
         }
@@ -3731,10 +3805,10 @@
               <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/aboutus-best-lookalike-impersonator-best-tribute-band/" class="nav-link">ABOUT</a>
             </li>
 
-            <!-- 3. LOOK ALIKES IMPERSONATORS (A-Z Dropdown) -->
+            <!-- 3. CELEBRITY LOOKALIKES & TRIBUTE ARTISTS (Pillar 1) -->
             <li class="nav-item">
               <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="nav-link">
-                LOOK ALIKES IMPERSONATORS <i class="fa-solid fa-chevron-down"></i>
+                LOOKALIKES <i class="fa-solid fa-chevron-down"></i>
               </a>
               <div class="dropdown-menu dropdown-az">
                 <div class="dropdown-menu-title">
@@ -3775,7 +3849,7 @@
               </div>
             </li>
 
-            <!-- 4. TRIBUTE BANDS | TRIBUTE SHOWS (Mega Dropdown) -->
+            <!-- 4. TRIBUTE BANDS & COVER BANDS (Pillar 2) -->
             <li class="nav-item">
               <a href="#tribute-directory" class="nav-link">
                 TRIBUTE BANDS <i class="fa-solid fa-chevron-down"></i>
@@ -3849,44 +3923,81 @@
               </div>
             </li>
 
-            <!-- 5. OTHER SERVICES -->
+            <!-- 5. DJS, MUSICIANS & LIVE ENSEMBLES (Pillar 3) -->
             <li class="nav-item">
-              <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/other-services/" class="nav-link">
-                OTHER SERVICES <i class="fa-solid fa-chevron-down"></i>
+              <a href="#services" class="nav-link">
+                DJS & MUSICIANS <i class="fa-solid fa-chevron-down"></i>
               </a>
-              <div class="dropdown-menu dropdown-mega-services">
+              <div class="dropdown-menu dropdown-mega-music">
+                <div class="dropdown-menu-title"><i class="fa-solid fa-headphones"></i> DJs, Musicians & Live Ensembles</div>
                 <div class="mega-columns" style="grid-template-columns: repeat(2, 1fr);">
                   <div>
-                    <div class="mega-col-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Specialty Acts</div>
+                    <div class="mega-col-title"><i class="fa-solid fa-compact-disc"></i> DJs & Sound</div>
+                    <ul class="dropdown-list">
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="dropdown-item-link">Party DJs & Master MCs</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="dropdown-item-link">DJ Lighting & Sound Production</a></li>
+                      <li><a href="#roster" class="dropdown-item-link">DJ & Live Sax / Horn Fusion</a></li>
+                      <li><a href="#roster" class="dropdown-item-link">Club & Festival DJs</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-music"></i> Live Musicians</div>
+                    <ul class="dropdown-list">
+                      <li><a href="#roster" class="dropdown-item-link">Solo Sax & Trumpet Performers</a></li>
+                      <li><a href="#roster" class="dropdown-item-link">Acoustic Duos & Trios</a></li>
+                      <li><a href="#roster" class="dropdown-item-link">Jazz Trios & Swing Combos</a></li>
+                      <li><a href="#tribute-directory" class="dropdown-item-link">High-Energy Dance Bands</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <a href="#roster" class="dropdown-extra-link">
+                  <span><i class="fa-solid fa-sliders"></i> Filter Musicians in Talent Roster</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </li>
+
+            <!-- 6. UNIQUE & SPECIALTY INTERACTIVE ACTS (Pillar 4) -->
+            <li class="nav-item">
+              <a href="#specialty" class="nav-link">
+                SPECIALTY ACTS <i class="fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu dropdown-mega-specialty">
+                <div class="dropdown-menu-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Unique & Specialty Interactive Acts</div>
+                <div class="mega-columns" style="grid-template-columns: repeat(2, 1fr);">
+                  <div>
+                    <div class="mega-col-title"><i class="fa-solid fa-masks-theater"></i> Theatrical & Interactive</div>
                     <ul class="dropdown-list">
                       <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-red-carpet/" class="dropdown-item-link">Living Red Carpet</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/" class="dropdown-item-link">Living-Strolling Tables</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/" class="dropdown-item-link">Magicians / Hypnotists</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/" class="dropdown-item-link">Living Strolling Tables</a></li>
                       <li><a href="#big-heads" class="dropdown-item-link">Celebrity Big Heads (Rent The Stars)</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="dropdown-item-link">Circus Acts & Contortionist</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-statues/" class="dropdown-item-link">Living Statues</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/juggler/" class="dropdown-item-link">Juggler & Rola Bola</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/hoop-balance/" class="dropdown-item-link">Hoop Balance</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/" class="dropdown-item-link">Magicians & Hypnotists</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="dropdown-item-link">Circus Acts & Contortionists</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-statues/" class="dropdown-item-link">Living Statues & Mimes</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/juggler/" class="dropdown-item-link">Jugglers & Stilt Walkers</a></li>
                     </ul>
                   </div>
                   <div>
                     <div class="mega-col-title"><i class="fa-solid fa-champagne-glasses"></i> Event Enhancements</div>
                     <ul class="dropdown-list">
-                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="dropdown-item-link">DJ and Lighting</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/photo-booth/" class="dropdown-item-link">Photo Booth</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/caricature-artist/" class="dropdown-item-link">Caricature Artist</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/face-painting/" class="dropdown-item-link">Face Painting</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/photo-booth/" class="dropdown-item-link">Photo Booths</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/caricature-artist/" class="dropdown-item-link">Caricature Artists</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/face-painting/" class="dropdown-item-link">Face Painting & Glitter Artists</a></li>
                       <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/exotic-animals-petting-zoo/" class="dropdown-item-link">Exotic Animal Petting Zoo</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/florida-tarot-card-reader-2/" class="dropdown-item-link">Tarot Card Reader</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/custom-video-2/" class="dropdown-item-link">Custom Video & Zoom Show</a></li>
-                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/VOICE-OVER/" class="dropdown-item-link">Voice Over Services</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/florida-tarot-card-reader-2/" class="dropdown-item-link">Tarot Card & Psychic Readers</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/custom-video-2/" class="dropdown-item-link">Custom Video & Zoom Shows</a></li>
+                      <li><a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/VOICE-OVER/" class="dropdown-item-link">Voice Over Services</a></li>
                     </ul>
                   </div>
                 </div>
+                <a href="#specialty" class="dropdown-extra-link">
+                  <span><i class="fa-solid fa-wand-magic-sparkles"></i> Explore Specialty Gallery & Acts</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
             </li>
 
-            <!-- 6. COMEDY HEADLINERS -->
+            <!-- 7. COMEDY HEADLINERS -->
             <li class="nav-item">
               <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/comfort-comedy-headliner/" class="nav-link">
                 COMEDY HEADLINERS <i class="fa-solid fa-chevron-down"></i>
@@ -3916,12 +4027,14 @@
               </div>
             </li>
 
-            <!-- 7. TALENT REGISTRATION -->
+            <!-- 8. TALENT REGISTRATION (VIP Highlighted Button) -->
             <li class="nav-item">
-              <a href="#quote" class="nav-link">TALENT REGISTRATION</a>
+              <a href="#quote" class="nav-link nav-link-talent">
+                <i class="fa-solid fa-sparkles"></i> TALENT REGISTRATION
+              </a>
             </li>
 
-            <!-- 8. CONTACT US -->
+            <!-- 9. CONTACT US -->
             <li class="nav-item">
               <a href="#quote" class="nav-link">CONTACT US</a>
             </li>
@@ -3954,10 +4067,10 @@
           <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/aboutus-best-lookalike-impersonator-best-tribute-band/" class="mobile-nav-link" onclick="closeDrawer()">ABOUT</a>
         </li>
 
-        <!-- Look Alikes Accordion -->
+        <!-- 1. Look Alikes Accordion -->
         <li class="mobile-nav-item">
           <div class="mobile-nav-header-row">
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="mobile-nav-link">LOOK ALIKES IMPERSONATORS</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/celebrity-look-alike-lookalike-impersonator/names/a/" class="mobile-nav-link">LOOKALIKES & IMPERSONATORS</a>
             <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-lookalikes', this)"><i class="fa-solid fa-chevron-down"></i></button>
           </div>
           <div class="mobile-sub-menu" id="mob-lookalikes">
@@ -3994,7 +4107,7 @@
           </div>
         </li>
 
-        <!-- Tribute Bands Accordion -->
+        <!-- 2. Tribute Bands Accordion -->
         <li class="mobile-nav-item">
           <div class="mobile-nav-header-row">
             <a href="#tribute-directory" class="mobile-nav-link" onclick="closeDrawer()">TRIBUTE BANDS</a>
@@ -4015,20 +4128,40 @@
           </div>
         </li>
 
-        <!-- Other Services Accordion -->
+        <!-- 3. DJs, Musicians & Live Ensembles Accordion -->
         <li class="mobile-nav-item">
           <div class="mobile-nav-header-row">
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/other-services/" class="mobile-nav-link">OTHER SERVICES</a>
-            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-services', this)"><i class="fa-solid fa-chevron-down"></i></button>
+            <a href="#services" class="mobile-nav-link" onclick="closeDrawer()">DJS & LIVE MUSICIANS</a>
+            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-djs', this)"><i class="fa-solid fa-chevron-down"></i></button>
           </div>
-          <div class="mobile-sub-menu" id="mob-services">
+          <div class="mobile-sub-menu" id="mob-djs">
+            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="mobile-sub-link">Party DJs & Master MCs</a>
+            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="mobile-sub-link">DJ Lighting & Sound Production</a>
+            <a href="#roster" class="mobile-sub-link" onclick="closeDrawer()">DJ & Live Sax / Horn Fusion</a>
+            <a href="#roster" class="mobile-sub-link" onclick="closeDrawer()">Solo Sax & Trumpet Performers</a>
+            <a href="#roster" class="mobile-sub-link" onclick="closeDrawer()">Acoustic Duos & Jazz Trios</a>
+            <a href="#tribute-directory" class="mobile-sub-link" onclick="closeDrawer()">High-Energy Dance Bands</a>
+          </div>
+        </li>
+
+        <!-- 4. Unique & Specialty Interactive Acts Accordion -->
+        <li class="mobile-nav-item">
+          <div class="mobile-nav-header-row">
+            <a href="#specialty" class="mobile-nav-link" onclick="closeDrawer()">UNIQUE & SPECIALTY ACTS</a>
+            <button class="mobile-collapse-btn" onclick="toggleMobileSubmenu('mob-specialty', this)"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="mobile-sub-menu" id="mob-specialty">
             <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-red-carpet/" class="mobile-sub-link">Living Red Carpet</a>
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/" class="mobile-sub-link">Living-Strolling Tables</a>
-            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/" class="mobile-sub-link">Magicians / Hypnotists</a>
-            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/dj/" class="mobile-sub-link">DJ and Lighting</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-strolling-tables/" class="mobile-sub-link">Living Strolling Tables</a>
             <a href="#big-heads" class="mobile-sub-link" onclick="closeDrawer()">Celebrity Big Heads (Rent The Stars)</a>
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/photo-booth/" class="mobile-sub-link">Photo Booth</a>
-            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="mobile-sub-link">Circus Acts & Contortionist</a>
+            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/magic/" class="mobile-sub-link">Magicians & Hypnotists</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/circus-acts/" class="mobile-sub-link">Circus Acts & Contortionists</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/living-statues/" class="mobile-sub-link">Living Statues & Mimes</a>
+            <a href="https://web.archive.org/web/20260610062723/http://besserentertainment.com/juggler/" class="mobile-sub-link">Jugglers & Stilt Walkers</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/photo-booth/" class="mobile-sub-link">Photo Booths</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/caricature-artist/" class="mobile-sub-link">Caricature Artists</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/face-painting/" class="mobile-sub-link">Face Painting</a>
+            <a href="https://web.archive.org/web/20260610062723/http://www.besserentertainment.com/exotic-animals-petting-zoo/" class="mobile-sub-link">Exotic Animal Petting Zoo</a>
           </div>
         </li>
 
@@ -4049,8 +4182,10 @@
         </li>
 
         <!-- Talent Registration -->
-        <li class="mobile-nav-item">
-          <a href="#quote" class="mobile-nav-link" onclick="closeDrawer()">TALENT REGISTRATION</a>
+        <li class="mobile-nav-item" style="border-bottom: none;">
+          <a href="#quote" class="mobile-nav-talent" onclick="closeDrawer()">
+            <i class="fa-solid fa-sparkles"></i> TALENT REGISTRATION
+          </a>
         </li>
 
         <!-- Contact Us -->
